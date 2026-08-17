@@ -5,11 +5,13 @@ import USPSection from "./components/USPSection";
 import MenuSection from "./components/MenuSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FunctionsSection from "./components/FunctionsSection";
+import FAQSection from "./components/FAQSection";
 import GallerySection from "./components/GallerySection";
 import OutdoorDiningSection from "./components/OutdoorDiningSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import MobileStickyNav from "./components/MobileStickyNav";
+import FloatingOrderButton from "./components/FloatingOrderButton";
 
 export default function Home() {
   return (
@@ -26,12 +28,14 @@ export default function Home() {
         <OutdoorDiningSection />
         <MenuSection />
         <TestimonialsSection />
+        <FAQSection />
         <GallerySection />
         <FunctionsSection />
         <ContactSection />
       </main>
       <Footer />
       <MobileStickyNav />
+      <FloatingOrderButton />
     </>
   );
 }

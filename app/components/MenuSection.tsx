@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 interface MenuItem {
   name: string;
@@ -462,10 +463,16 @@ export default function MenuSection() {
                       </span>
                     ))}
                   </div>
-                  <button className="min-h-[44px] flex items-center gap-1 bg-[#ac511a] text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-sm hover:bg-[#c05c1e] transition-all duration-200">
-                    <Plus className="w-3.5 h-3.5" />
-                    Order
-                  </button>
+                  <a
+                    href={WOWAPPS_ORDER_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Order ${item.name} on WowApps`}
+                    className="min-h-[44px] inline-flex items-center gap-1.5 bg-[#ac511a] hover:bg-[#8e4215] text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition-all shadow-sm hover:shadow"
+                  >
+                    <span>Order on WowApps</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
                 </div>
               </motion.div>
             ))}

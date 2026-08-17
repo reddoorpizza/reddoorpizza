@@ -3,13 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MapPin, Clock } from "lucide-react";
+import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 const quickLinks = [
   { label: "Home", href: "#" },
   { label: "Menu", href: "#menu" },
   { label: "Functions", href: "#functions" },
   { label: "About", href: "#about" },
-  { label: "Order Online", href: "https://orders.wowapps.com", external: true },
+  { label: "Order Online", href: WOWAPPS_ORDER_URL, external: true },
 ];
 
 export default function Footer() {
@@ -20,15 +21,12 @@ export default function Footer() {
         <div>
           <Link href="/" className="flex items-center gap-2 mb-4">
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Red Door Pizza"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-cover rounded-md"
+              width={64}
+              height={64}
+              className="h-16 w-16 object-contain rounded-md"
             />
-            <span className="font-serif text-base font-bold text-white tracking-tight">
-              RED DOOR PIZZA
-            </span>
           </Link>
           <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
             Quality handcrafted wood-fired pizza, local wines, cocktails &

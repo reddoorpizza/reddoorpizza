@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone, ShoppingBag, MapPin } from "lucide-react";
+import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 export default function MobileStickyNav() {
   return (
@@ -16,7 +17,7 @@ export default function MobileStickyNav() {
           </span>
         </a>
         <a
-          href="https://tuckerfox.com.au/red-door-pizza"
+          href={WOWAPPS_ORDER_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center gap-1 px-6 py-2 -mt-4 bg-brand-gold text-brand-terracotta rounded-full shadow-lg"

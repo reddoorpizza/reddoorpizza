@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 export default function Hero() {
   return (
@@ -41,7 +42,7 @@ export default function Hero() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
-              href="#reserve"
+              href="#contact"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="bg-white text-black font-semibold px-8 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#eccb57] transition-colors shadow-lg"
@@ -49,7 +50,7 @@ export default function Hero() {
               Book a Table
             </motion.a>
             <motion.a
-              href="https://tuckerfox.com.au/red-door-pizza"
+              href={WOWAPPS_ORDER_URL}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}

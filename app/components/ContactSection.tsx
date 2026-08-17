@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Flame, Trees, PartyPopper, Zap } from "lucide-react";
+import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 const features = [
   { icon: Flame, label: "Fireplace Dining" },
@@ -87,7 +88,7 @@ export default function ContactSection() {
               online ordering system.
             </p>
             <a
-              href="https://orders.wowapps.com"
+              href={WOWAPPS_ORDER_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-full bg-[#ac511a] hover:bg-[#c05c1e] text-white font-semibold py-3.5 px-6 rounded-xl transition-colors duration-200 text-sm uppercase tracking-wider shadow-lg shadow-[#ac511a]/20"

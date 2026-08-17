@@ -27,13 +27,22 @@ export const metadata: Metadata = {
     "victoria",
     "ballarat",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+  },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   name: "Red Door Pizza",
-  image: "https://www.reddoorpizza.com.au/logo.jpg",
+  image: "https://www.reddoorpizza.com.au/logo.png",
   address: {
     "@type": "PostalAddress",
     streetAddress: "401 Warrenheip St",
@@ -51,7 +60,7 @@ const jsonLd = {
   priceRange: "$$",
   servesCuisine: ["Pizza", "Italian"],
   url: "https://www.reddoorpizza.com.au",
-  menu: "https://orders.wowapps.com",
+  menu: "https://orders.wowapps.com/order/reddoorpizzeria",
   sameAs: [
     "https://www.facebook.com/share/1EsfTmXM4o/?mibextid=wwXIfr",
     "https://www.instagram.com/reddoor_pizza/",

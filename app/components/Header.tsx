@@ -5,12 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "About", href: "#about" },
   { label: "Menu", href: "#menu" },
-  { label: "Contact", href: "#location" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -55,11 +56,11 @@ export default function Header() {
                 className="flex-shrink-0 block h-16 w-16 md:h-20 md:w-20"
               >
                 <Image
-                  src="/logo.jpg"
+                  src="/logo.png"
                   alt="Red Door Pizza"
                   width={80}
                   height={80}
-                  className="h-16 w-16 md:h-20 md:w-20 object-cover rounded-md shadow-md transition-transform duration-300 hover:scale-105 aspect-square"
+                  className="h-16 w-16 md:h-20 md:w-20 object-contain rounded-md shadow-md transition-transform duration-300 hover:scale-105"
                   priority
                 />
               </Link>
@@ -68,13 +69,13 @@ export default function Header() {
             {/* ── RIGHT: Action CTAs ── */}
             <div className="flex items-center gap-3 justify-end">
               <a
-                href="#reserve"
+                href="#contact"
                 className="text-xs uppercase tracking-wider text-white hover:text-[#eccb57] px-4 py-2 font-medium transition-colors"
               >
                 Book Table
               </a>
               <a
-                href="https://tuckerfox.com.au/red-door-pizza"
+                href={WOWAPPS_ORDER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#ac511a] hover:bg-[#c05c1e] text-white text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md transition-all"
@@ -101,11 +102,11 @@ export default function Header() {
             className="flex-shrink-0 block h-10 w-10"
           >
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Red Door Pizza"
               width={40}
               height={40}
-              className="h-10 w-10 object-cover rounded-md shadow-md aspect-square"
+              className="h-10 w-10 object-contain rounded-md shadow-md"
               priority
             />
           </Link>
@@ -154,14 +155,14 @@ export default function Header() {
                 ))}
                 <div className="pt-3 space-y-2 border-t border-white/10 mt-2">
                   <a
-                    href="#reserve"
+                    href="#contact"
                     onClick={() => setMobileOpen(false)}
                     className="block text-center px-4 py-3 text-xs tracking-widest uppercase font-semibold border border-white/30 text-white rounded-full hover:bg-white hover:text-[#1A1A1A] transition-all"
                   >
                     Book a Table
                   </a>
                   <a
-                    href="https://tuckerfox.com.au/red-door-pizza"
+                    href={WOWAPPS_ORDER_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-center px-4 py-3 text-xs tracking-widest uppercase font-semibold bg-[#ac511a] text-white rounded-full hover:bg-[#c05c1e] transition-colors"
