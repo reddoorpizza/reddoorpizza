@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
   { label: "Menu", href: "/#menu" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -69,7 +69,7 @@ export default function Header() {
             {/* ── RIGHT: Action CTAs ── */}
             <div className="flex items-center gap-3 justify-end">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="text-xs uppercase tracking-wider text-white hover:text-[#eccb57] px-4 py-2 font-medium transition-colors"
               >
                 Book Table
@@ -155,7 +155,7 @@ export default function Header() {
                 ))}
                 <div className="pt-3 space-y-2 border-t border-white/10 mt-2">
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     onClick={() => setMobileOpen(false)}
                     className="block text-center px-4 py-3 text-xs tracking-widest uppercase font-semibold border border-white/30 text-white rounded-full hover:bg-white hover:text-[#1A1A1A] transition-all"
                   >

@@ -10,6 +10,7 @@ const quickLinks = [
   { label: "Menu", href: "/#menu" },
   { label: "Functions", href: "/#functions" },
   { label: "About", href: "/#about" },
+  { label: "Contact", href: "/contact" },
   { label: "Order Online", href: WOWAPPS_ORDER_URL, external: true },
 ];
 

@@ -31,7 +31,7 @@ export default function OutdoorDiningSection() {
             </div>
 
             <div className="pt-4 flex flex-wrap gap-4">
-              <Link className="bg-[#ac511a] hover:bg-[#8e4215] text-white px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all shadow-md hover:shadow-lg" href="#contact">
+              <Link className="bg-[#ac511a] hover:bg-[#8e4215] text-white px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all shadow-md hover:shadow-lg" href="/contact">
                 Book a Table
               </Link>
             </div>

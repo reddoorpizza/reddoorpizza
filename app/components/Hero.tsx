@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
@@ -41,14 +42,17 @@ export default function Hero() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.a
-              href="#contact"
+            <motion.div
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-white text-black font-semibold px-8 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#eccb57] transition-colors shadow-lg"
             >
-              Book a Table
-            </motion.a>
+              <Link
+                href="/contact"
+                className="block bg-white text-black font-semibold px-8 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#eccb57] transition-colors shadow-lg"
+              >
+                Book a Table
+              </Link>
+            </motion.div>
             <motion.a
               href={WOWAPPS_ORDER_URL}
               target="_blank"
