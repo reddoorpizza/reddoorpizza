@@ -128,7 +128,26 @@ export default function Footer() {
       {/* ── Bottom Bar ── */}
       <div className="max-w-7xl mx-auto pb-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
         <p>© 2026 Red Door Pizza. All rights reserved.</p>
-        <p>Note: 15% surcharge applies on public holidays.</p>
+        <nav
+          aria-label="Legal"
+          className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2"
+        >
+          <Link
+            href="/terms"
+            className="hover:text-[#eccb57] transition-colors"
+          >
+            Terms &amp; Conditions
+          </Link>
+          <span aria-hidden="true" className="text-gray-600">
+            |
+          </span>
+          <Link
+            href="/privacy"
+            className="hover:text-[#eccb57] transition-colors"
+          >
+            Privacy Policy
+          </Link>
+        </nav>
       </div>
     </footer>
   );
