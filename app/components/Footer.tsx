@@ -6,10 +6,10 @@ import { Phone, MapPin, Clock } from "lucide-react";
 import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 const quickLinks = [
-  { label: "Home", href: "#" },
-  { label: "Menu", href: "#menu" },
-  { label: "Functions", href: "#functions" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/" },
+  { label: "Menu", href: "/#menu" },
+  { label: "Functions", href: "/#functions" },
+  { label: "About", href: "/#about" },
   { label: "Order Online", href: WOWAPPS_ORDER_URL, external: true },
 ];
 
@@ -40,18 +40,29 @@ export default function Footer() {
             Quick Links
           </h4>
           <ul className="space-y-2">
-            {quickLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  className="text-sm text-gray-400 hover:text-[#eccb57] transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {quickLinks.map((link) =>
+              link.external ? (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-gray-400 hover:text-[#eccb57] transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ) : (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-[#eccb57] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
