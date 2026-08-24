@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { PHONE_NUMBER_DISPLAY } from "@/app/config/constants";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Red Door Pizza Buninyong",
@@ -150,7 +151,7 @@ const sections: Section[] = [
       <>
         If you have any questions about these Terms &amp; Conditions, please
         contact us at 401 Warrenheip St, Buninyong VIC 3357, call us on +61 3
-        5341 8235, or visit our{" "}
+        {PHONE_NUMBER_DISPLAY}, or visit our{" "}
         <Link href="/#contact" className="text-[#ac511a] font-medium hover:underline">
           contact page
         </Link>

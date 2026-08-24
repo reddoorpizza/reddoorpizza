@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "What are your trading hours for dine-in and takeaway?",
-    answer: "We are open Friday through Sunday until 9:00 PM. Our outdoor courtyard and indoor seating cater to both dine-in guests and quick takeaway pickups."
+    answer: "We are open Monday to Thursday from 5:00 PM to 9:00 PM, and Friday to Sunday from 12:00 PM to 9:00 PM. Our outdoor courtyard and indoor seating cater to both dine-in guests and quick takeaway pickups."
   },
   {
     question: "Do you offer lunch specials on weekends?",

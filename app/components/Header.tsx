@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
+import { WOWAPPS_ORDER_URL, PHONE_NUMBER_TEL } from "@/app/config/constants";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -114,11 +114,11 @@ export default function Header() {
           {/* Right: Phone + Hamburger */}
           <div className="flex items-center gap-3">
             {/* Phone Call Button */}
-            <a
-              href="tel:+61353418235"
-              className="w-10 h-10 bg-[#ac511a] rounded-full flex items-center justify-center text-white hover:bg-[#c05c1e] transition-colors"
-              aria-label="Call us"
-            >
+              <a
+                href={PHONE_NUMBER_TEL}
+                className="w-10 h-10 bg-[#ac511a] rounded-full flex items-center justify-center text-white hover:bg-[#c05c1e] transition-colors"
+                aria-label="Call us"
+              >
               <Phone className="w-4 h-4" />
             </a>
 

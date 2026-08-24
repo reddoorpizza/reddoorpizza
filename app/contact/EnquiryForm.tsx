@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { PHONE_NUMBER_TEL, PHONE_NUMBER_DISPLAY } from "@/app/config/constants";
 
-const RESTAURANT_SMS_NUMBER = "+61353418235";
-const RESTAURANT_PHONE_DISPLAY = "+61 3 5341 8235";
+const RESTAURANT_SMS_NUMBER = "0353418235";
+const RESTAURANT_PHONE_DISPLAY = PHONE_NUMBER_DISPLAY;
 
 const inputClass =
   "bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-500 placeholder:font-normal rounded-xl px-4 py-3 min-h-[48px] text-sm focus:bg-white focus:border-[#ac511a] focus:ring-2 focus:ring-[#ac511a]/20 transition-all duration-200 w-full outline-none";
@@ -61,7 +62,7 @@ export default function EnquiryForm() {
           Your messaging app should now open with your enquiry ready to send.
           If it didn&apos;t, you can also call us directly on{" "}
           <a
-            href="tel:+61353418235"
+            href={PHONE_NUMBER_TEL}
             className="font-semibold underline"
           >
             {RESTAURANT_PHONE_DISPLAY}

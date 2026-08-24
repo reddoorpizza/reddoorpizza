@@ -3,6 +3,7 @@ import { Phone, MapPin, Clock } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import EnquiryForm from "./EnquiryForm";
+import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS } from "@/app/config/constants";
 
 export const metadata: Metadata = {
   title: "Contact Us | Red Door Pizza Buninyong",
@@ -20,8 +21,8 @@ const infoCards = [
   {
     icon: Phone,
     label: "Call Us",
-    lines: ["+61 3 5341 8235"],
-    href: "tel:+61353418235",
+    lines: [PHONE_NUMBER_DISPLAY],
+    href: PHONE_NUMBER_TEL,
     external: false,
   },
   {
@@ -34,7 +35,7 @@ const infoCards = [
   {
     icon: Clock,
     label: "Opening Hours",
-    lines: ["Friday – Sunday", "Open till 9:00 PM"],
+    lines: OPENING_HOURS.map((e) => `${e.days}: ${e.hours}`),
     href: undefined,
     external: false,
   },

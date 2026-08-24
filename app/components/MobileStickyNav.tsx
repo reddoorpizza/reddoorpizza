@@ -1,14 +1,14 @@
 "use client";
 
 import { Phone, ShoppingBag, MapPin } from "lucide-react";
-import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
+import { WOWAPPS_ORDER_URL, PHONE_NUMBER_TEL } from "@/app/config/constants";
 
 export default function MobileStickyNav() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-brand-terracotta border-t border-brand-terracotta-dark shadow-[0_-4px_20px_rgba(0,0,0,0.15)] safe-area-pb">
       <div className="flex items-center justify-around py-2 px-2">
         <a
-          href="tel:+61353418235"
+          href={PHONE_NUMBER_TEL}
           className="flex flex-col items-center gap-1 px-4 py-2 text-brand-gold/80 hover:text-brand-gold transition-colors"
         >
           <Phone className="w-5 h-5" />

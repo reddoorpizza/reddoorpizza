@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { PHONE_NUMBER_TEL } from "@/app/config/constants";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -56,7 +57,7 @@ const jsonLd = {
     latitude: -37.6534,
     longitude: 143.8821,
   },
-  telephone: "+61353418235",
+  telephone: "0353418235",
   priceRange: "$$",
   servesCuisine: ["Pizza", "Italian"],
   url: "https://www.reddoorpizza.com.au",

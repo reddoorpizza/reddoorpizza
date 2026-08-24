@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Flame, Trees, PartyPopper, Zap } from "lucide-react";
-import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
+import { WOWAPPS_ORDER_URL, PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS } from "@/app/config/constants";
 
 const features = [
   { icon: Flame, label: "Fireplace Dining" },
@@ -42,18 +42,22 @@ export default function ContactSection() {
             </a>
 
             <a
-              href="tel:+61353418235"
+              href={PHONE_NUMBER_TEL}
               className="flex items-center gap-3 text-[#262626] hover:text-[#ac511a] transition-colors group"
             >
               <Phone className="w-5 h-5 shrink-0 group-hover:text-[#ac511a]" />
-              <span className="text-sm">+61 3 5341 8235</span>
+              <span className="text-sm">{PHONE_NUMBER_DISPLAY}</span>
             </a>
 
             <div className="flex items-center gap-3 text-[#262626]">
               <Clock className="w-5 h-5 shrink-0 text-[#ac511a]" />
-              <span className="text-sm">
-                Friday – Sunday: Open till 9:00 PM
-              </span>
+              <div className="text-sm">
+                {OPENING_HOURS.map((entry) => (
+                  <div key={entry.days}>
+                    <span className="font-medium">{entry.days}:</span> {entry.hours}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

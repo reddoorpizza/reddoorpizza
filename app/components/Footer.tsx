@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MapPin, Clock } from "lucide-react";
-import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
+import { WOWAPPS_ORDER_URL, PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS } from "@/app/config/constants";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -90,7 +90,13 @@ export default function Footer() {
             <li>
               <div className="flex items-start gap-2.5 text-sm text-gray-300 mt-3">
                 <Clock className="w-4 h-4 text-[#ac511a] shrink-0 mt-0.5" />
-                <span>Fri – Sun: Open till 9:00 PM</span>
+                <div>
+                  {OPENING_HOURS.map((entry) => (
+                    <div key={entry.days}>
+                      <span className="font-medium">{entry.days}:</span> {entry.hours}
+                    </div>
+                  ))}
+                </div>
               </div>
             </li>
           </ul>
@@ -126,11 +132,11 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="tel:+61353418235"
+                href={PHONE_NUMBER_TEL}
                 className="flex items-center gap-2.5 text-sm text-gray-300 hover:text-white transition-colors mt-3"
               >
                 <Phone className="w-4 h-4 text-[#ac511a]" />
-                +61 3 5341 8235
+                {PHONE_NUMBER_DISPLAY}
               </a>
             </li>
           </ul>

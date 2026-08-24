@@ -261,7 +261,7 @@ The site includes a `Restaurant` schema in `app/layout.tsx`:
   "address": { "streetAddress": "401 Warrenheip St", ... },
   "servesCuisine": ["Pizza", "Italian"],
   "priceRange": "$$",
-  "telephone": "+61353418235"
+  "telephone": "0353418235"
 }
 ```
 
@@ -325,7 +325,7 @@ Unauthorized reproduction, distribution, or modification of this software, its s
 
 **Red Door Pizza**
 - Address: 401 Warrenheip St, Buninyong VIC 3357, Australia
-- Phone: [+61 3 5341 8235](tel:+61353418235)
+- Phone: [(03) 5341 8235](tel:0353418235)
 - Website: [reddoorpizza.com.au](https://www.reddoorpizza.com.au)
 - Instagram: [@reddoor_pizza](https://www.instagram.com/reddoor_pizza/)
 - Facebook: [Red Door Pizza](https://www.facebook.com/share/1EsfTmXM4o/?mibextid=wwXIfr)
