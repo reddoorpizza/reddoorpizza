@@ -10,7 +10,8 @@ import { WOWAPPS_ORDER_URL, PHONE_NUMBER_TEL } from "@/app/config/constants";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
-  { label: "Menu", href: "/#menu" },
+  { label: "Menu", href: "/menu" },
+  { label: "Guides", href: "/guides/family-friendly-pizza-ballarat" },
   { label: "Contact", href: "/contact" },
 ];
 

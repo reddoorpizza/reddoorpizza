@@ -61,6 +61,7 @@ const jsonLd = {
   priceRange: "$$",
   servesCuisine: ["Pizza", "Italian"],
   url: "https://www.reddoorpizza.com.au",
+  areaServed: ["Buninyong", "Ballarat", "Meredith"],
   menu: "https://orders.wowapps.com/order/reddoorpizzeria",
   sameAs: [
     "https://www.facebook.com/share/1EsfTmXM4o/?mibextid=wwXIfr",

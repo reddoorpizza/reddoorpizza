@@ -7,9 +7,10 @@ import { WOWAPPS_ORDER_URL, PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOUR
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Menu", href: "/#menu" },
-  { label: "Functions", href: "/#functions" },
+  { label: "Menu", href: "/menu" },
+  { label: "Functions", href: "/contact" },
   { label: "About", href: "/#about" },
+  { label: "Guides", href: "/guides/family-friendly-pizza-ballarat" },
   { label: "Contact", href: "/contact" },
   { label: "Order Online", href: WOWAPPS_ORDER_URL, external: true },
 ];

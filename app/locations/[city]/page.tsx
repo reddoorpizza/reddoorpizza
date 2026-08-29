@@ -250,7 +250,7 @@ export default async function LocationPage({ params }: Props) {
               <Link
                 aria-label="View our pizza, pasta, and dessert menu"
                 className="flex items-center justify-center gap-2 w-full bg-white hover:bg-gray-50 text-brand-charcoal font-semibold py-4 px-6 rounded-xl border border-brand-terracotta/20 transition-colors text-sm uppercase tracking-wider shadow-sm"
-                href="/#menu"
+                href="/menu"
               >
                 <UtensilsCrossed className="w-5 h-5" />
                 View Our Full Menu
