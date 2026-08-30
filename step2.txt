@@ -1,0 +1,416 @@
+You are implementing STEP 2 of the Red Door Pizza SEO improvement project.
+
+STEP 1 has already been completed.
+
+Your task is now to implement a clean, production-grade metadata and canonical architecture using the existing Next.js App Router.
+
+==================================================
+STRICT RULES
+============
+
+1. Read the current repository before modifying anything.
+2. Verify Step 1 changes are actually present.
+3. Do NOT redesign the website.
+4. Do NOT change the URL architecture.
+5. Do NOT create duplicate SEO pages.
+6. Do NOT change menu content unless required to fix metadata/content mismatch.
+7. Do NOT alter WowApps ordering functionality.
+8. Do NOT add analytics.
+9. Do NOT add robots.txt or sitemap yet.
+10. Do NOT add large schema changes yet.
+11. Do NOT add SearchAction intended to create a Google sitelinks search box.
+12. Do NOT use arbitrary "60-character title" rules.
+13. Do NOT keyword stuff titles or descriptions.
+14. Use native Next.js Metadata API capabilities.
+15. Preserve current favicon/font functionality.
+
+==================================================
+CURRENT ROUTES
+==============
+
+Inspect and use the routes actually present in the repository.
+
+Expected important routes:
+
+/
+/menu
+/contact
+/stockists
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/family-friendly-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/guides/gluten-free-pizza-ballarat
+/privacy
+/terms
+
+Do not assume this list is complete; inspect the project.
+
+==================================================
+SEO ENTITY
+==========
+
+Primary:
+
+Red Door Pizza
+Wood-fired pizzeria
+Buninyong
+Near Ballarat
+
+Geographic hierarchy:
+
+Ballarat = primary acquisition market
+Buninyong = physical location
+Meredith = regional market
+
+Secondary:
+
+Italian-style dining
+pasta
+gluten-free
+family dining
+groups/functions
+local ingredients
+gelato
+stockists
+
+==================================================
+TASK 1 — metadataBase
+=====================
+
+In the root metadata configuration, set:
+
+metadataBase:
+https://www.reddoorpizza.com.au
+
+Use the existing domain convention actually established by the project.
+
+Do not introduce:
+http
+non-www
+localhost
+preview URLs
+or inconsistent hostnames
+
+unless there is a clear deployment requirement already established in configuration.
+
+==================================================
+TASK 2 — HOMEPAGE METADATA
+==========================
+
+The homepage needs explicit metadata rather than merely relying on generic root fallback metadata.
+
+Preferred title direction:
+
+"Wood-Fired Pizza Near Ballarat | Red Door Pizza"
+
+Alternative:
+
+"Wood-Fired Pizza Buninyong | Red Door Pizza"
+
+Choose the best option based on the actual homepage content.
+
+The description should naturally communicate:
+
+* wood-fired pizza
+* Buninyong
+* proximity to Ballarat
+* one or two genuine differentiators
+
+Do not stuff all services into the meta description.
+
+Homepage canonical:
+
+/
+
+==================================================
+TASK 3 — MENU METADATA
+======================
+
+/menu should have unique metadata.
+
+Recommended title direction:
+
+"Wood-Fired Pizza & Italian Menu | Red Door Pizza"
+
+Description should communicate that the menu includes wood-fired pizzas plus broader Italian-style dishes, family options, gluten-free choices and desserts where appropriate.
+
+Canonical:
+
+/menu
+
+==================================================
+TASK 4 — LOCATION PAGE METADATA
+===============================
+
+Implement unique metadata for:
+
+/locations/buninyong
+
+Primary concept:
+wood-fired pizza / pizzeria + Buninyong
+
+Suggested title:
+
+"Wood-Fired Pizza Buninyong | Red Door Pizza"
+
+---
+
+/locations/ballarat
+
+Primary concept:
+wood-fired pizza near Ballarat
+
+Suggested title:
+
+"Wood-Fired Pizza Near Ballarat | Red Door Pizza"
+
+The page itself should communicate that Red Door Pizza is physically in Buninyong and approximately 11 km / 12 minutes from Ballarat CBD.
+
+---
+
+/locations/meredith
+
+Primary concept:
+pizza near Meredith / legitimate regional relationship
+
+Suggested title:
+
+"Pizza Near Meredith | Red Door Pizza"
+
+Do not imply the restaurant is physically in Meredith.
+
+==================================================
+TASK 5 — GUIDE METADATA
+=======================
+
+Implement unique metadata for the current guides.
+
+Suggested directions:
+
+/guides/family-friendly-pizza-ballarat
+
+"Family-Friendly Pizza Near Ballarat | Red Door Pizza"
+
+/guides/work-christmas-party-venues-buninyong
+
+"Group & Christmas Functions Near Ballarat | Red Door Pizza"
+
+/guides/gluten-free-pizza-ballarat
+
+"Gluten-Free Pizza Near Ballarat | Red Door Pizza"
+
+Titles may be refined based on actual page content.
+
+Do not force keywords that aren't naturally supported by the page.
+
+==================================================
+TASK 6 — STOCKISTS METADATA
+===========================
+
+Optimise:
+
+/stockists
+
+Suggested direction:
+
+"Red Door Pizza Stockists | Ballarat Region"
+
+Description should communicate that Red Door's take-home pizzas are available through selected local/regional retailers.
+
+Do not stuff retailer names into the title.
+
+==================================================
+TASK 7 — CONTACT / LEGAL METADATA
+=================================
+
+Ensure:
+
+/contact
+/terms
+/privacy
+
+have appropriate unique metadata and self-referencing canonicals.
+
+Do not noindex legal pages simply because they are low commercial value.
+
+==================================================
+TASK 8 — CANONICAL STRATEGY
+===========================
+
+Implement self-referencing canonical URLs for legitimate indexable pages.
+
+At minimum review:
+
+/
+/menu
+/contact
+/stockists
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/family-friendly-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/guides/gluten-free-pizza-ballarat
+/privacy
+/terms
+
+Use metadataBase.
+
+Canonical URLs must correspond exactly to the site's chosen production URL format.
+
+Do NOT:
+
+* canonicalise all location pages to homepage
+* canonicalise all guides to homepage
+* create cross-location canonical conflicts
+* canonicalise legitimate unique pages to unrelated pages
+
+==================================================
+TASK 9 — INDEXABILITY
+=====================
+
+Inspect every route for:
+
+* noindex
+* nofollow
+* nosnippet
+* accidental robots restrictions
+* conflicting canonical
+* duplicate metadata
+
+Do not add noindex unless there is a compelling reason.
+
+Important commercial routes must remain indexable.
+
+==================================================
+TASK 10 — OPEN GRAPH
+====================
+
+Add Open Graph metadata at the appropriate level.
+
+At minimum for important pages:
+
+* title
+* description
+* url
+* siteName
+* type
+* suitable representative image
+
+Use an existing high-quality image where available.
+
+Do NOT create a new graphic in this step.
+
+Do not use the logo if a better representative food/venue image is available.
+
+Twitter/X metadata may be included if appropriate.
+
+==================================================
+TASK 11 — TITLE POLICY
+======================
+
+Do NOT blindly force every title below 60 characters.
+
+Use:
+
+intent + location where relevant + brand
+
+Examples:
+
+Good:
+"Wood-Fired Pizza Near Ballarat | Red Door Pizza"
+
+Bad:
+"Best Best Pizza Ballarat | Pizza Ballarat | Best Pizza Buninyong"
+
+Titles must be:
+
+* unique
+* natural
+* relevant
+* commercial
+* readable
+
+==================================================
+TASK 12 — KEYWORD META TAG
+==========================
+
+Do not add new keyword meta tags.
+
+If the root project already has one, it does not need to be used as part of the SEO strategy.
+
+==================================================
+VALIDATION
+==========
+
+Run:
+
+* typecheck
+* lint
+* production build
+
+Then inspect generated/rendered metadata for:
+
+/
+/menu
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/*
+/stockists
+/contact
+
+Verify:
+
+* title
+* description
+* canonical
+* OG tags
+* URL
+* metadataBase resolution
+
+Ensure production URLs resolve correctly.
+
+If possible, inspect the generated HTML/head rather than relying only on source-code inspection.
+
+==================================================
+DO NOT DO STEP 3
+================
+
+Do not implement:
+
+* robots.txt
+* sitemap
+* crawlability restructuring
+* major menu architecture changes
+* structured-data overhaul
+* analytics
+* WowApps conversion tracking
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# STEP 2 COMPLETED
+
+## 1. Files changed
+
+## 2. Metadata by route
+
+## 3. Canonical implementation
+
+## 4. Open Graph/Twitter implementation
+
+## 5. Indexability findings
+
+## 6. Validation performed
+
+## 7. Any conflicts/discoveries
+
+## 8. Recommended focus for STEP 3
+
+Do not perform STEP 3 automatically.

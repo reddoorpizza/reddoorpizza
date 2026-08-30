@@ -1,0 +1,365 @@
+You are implementing STEP 5 of the Red Door Pizza SEO improvement project.
+
+STEP 1–4 have already been completed.
+
+Your task is to audit and improve the site's structured data / JSON-LD so that it accurately represents the Red Door Pizza business, its website, menu and relevant content.
+
+==================================================
+STRICT RULES
+============
+
+1. Read all existing JSON-LD before changing anything.
+2. Do not add schema simply because a schema type exists.
+3. Do not create fake review/rating data.
+4. Do not invent business attributes.
+5. Do not claim unsupported awards or accolades.
+6. Do not add unsupported services.
+7. Do not add SearchAction for a Google sitelinks search box.
+8. Do not duplicate identical schema unnecessarily.
+9. Do not mark up content that is not visibly present on the page.
+10. Do not create Product schema for restaurant dishes merely to chase rich results unless genuinely appropriate and supported.
+11. Do not alter visible content simply to satisfy schema.
+12. Preserve existing valid schema where possible.
+13. Use current Schema.org/Google-compatible conventions.
+14. The structured-data graph must reflect the real business.
+
+==================================================
+BUSINESS ENTITY
+===============
+
+Canonical business:
+
+Red Door Pizza
+
+Type:
+Restaurant / Pizzeria
+
+Primary cuisine:
+Pizza
+
+Secondary cuisine:
+Italian
+
+Physical address:
+
+401 Warrenheip St
+Buninyong VIC 3357
+Australia
+
+Physical location:
+Buninyong
+
+Nearby market:
+Ballarat
+
+Regional target:
+Meredith / surrounding Ballarat region
+
+Website:
+https://www.reddoorpizza.com.au/
+
+Ordering:
+WowApps external ordering URL
+
+==================================================
+OBJECTIVE 1 — CONSISTENT RESTAURANT ENTITY
+==========================================
+
+Review the current Restaurant schema in:
+
+app/layout.tsx
+and any page-specific schema.
+
+Ensure the business identity is consistent.
+
+At minimum assess:
+
+* name
+* URL
+* address
+* phone
+* geo
+* priceRange if genuinely accurate
+* servesCuisine
+* sameAs
+* menu relationship
+* opening hours
+* reservation information where supported
+* image
+
+Avoid contradictory copies of the Restaurant entity.
+
+==================================================
+OBJECTIVE 2 — ENTITY IDs
+========================
+
+Where appropriate, establish a stable @id for the main restaurant entity.
+
+Example conceptual pattern:
+
+https://www.reddoorpizza.com.au/#restaurant
+
+Use that consistently when connecting page-level structured data to the same business.
+
+Do not invent multiple independent Red Door entities unnecessarily.
+
+==================================================
+OBJECTIVE 3 — OPENING HOURS
+===========================
+
+If appropriate and supported by current business information, represent:
+
+Monday–Thursday:
+17:00–21:00
+
+Friday–Sunday:
+12:00–21:00
+
+Do not include outdated hours.
+
+Do not include lunch hours Monday–Thursday.
+
+Do not invent holiday hours.
+
+==================================================
+OBJECTIVE 4 — MENU RELATIONSHIP
+===============================
+
+Review /menu structured data.
+
+The menu should accurately represent the real menu page.
+
+Use appropriate relationships between:
+
+Restaurant
+→ menu
+
+and menu
+→ menu items
+
+Do not mark up menu items that are not visibly present.
+
+Do not include stale products.
+
+Do not create excessive schema purely for keyword targeting.
+
+==================================================
+OBJECTIVE 5 — MENU ITEMS
+========================
+
+Inspect whether MenuItem data is currently useful and correctly implemented.
+
+If implementing MenuItem structured data:
+
+Ensure each item has:
+
+* actual visible name
+* actual visible description
+* actual visible price where displayed
+* actual category where appropriate
+
+Do not include unsupported review/rating information.
+
+Do not create Product rich-result markup for ordinary restaurant dishes unless there is a genuine supported use case.
+
+==================================================
+OBJECTIVE 6 — LOCATION PAGES
+============================
+
+Review:
+
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+
+They should not accidentally create three separate businesses.
+
+All should clearly reference the same Red Door Pizza restaurant entity where appropriate.
+
+Use geographic content to distinguish the pages.
+
+Do not create schema implying:
+Red Door Pizza = Ballarat physical address
+or:
+Red Door Pizza = Meredith physical address
+
+unless the underlying business facts support it.
+
+==================================================
+OBJECTIVE 7 — GUIDE STRUCTURED DATA
+===================================
+
+Review Article/FAQPage schema on:
+
+/guides/*
+
+Ensure:
+
+* article title matches visible title
+* description matches page content
+* author/publisher information is accurate
+* date information is not fabricated
+* mainEntity relationships are valid
+* FAQ questions and answers exactly match visible content
+
+Do not add hidden FAQ content.
+
+Do not invent FAQ content purely for SEO.
+
+==================================================
+OBJECTIVE 8 — FAQ SCHEMA
+========================
+
+Only use FAQPage structured data when:
+
+1. the page visibly contains the questions and answers
+2. the content is accurate
+3. implementation is technically valid
+
+Do not assume FAQ schema guarantees a Google rich result.
+
+The purpose is accurate structured representation, not guaranteed SERP enhancement.
+
+==================================================
+OBJECTIVE 9 — CONTACT PAGE
+==========================
+
+Review whether contact page structured data is actually useful.
+
+If adding structured data:
+
+Use the same primary restaurant entity.
+
+Do not duplicate an entirely independent business entity.
+
+Do not invent alternate contact details.
+
+==================================================
+OBJECTIVE 10 — STOCKISTS
+========================
+
+Review Product structured data currently used on /stockists.
+
+Verify every product/variant and offer is supported by visible page content.
+
+Do not expose false inventory, retailer availability, price ranges or product variants.
+
+Be particularly careful with retailer names:
+
+* Beaufort
+* Creswick
+* Elaine Farmgate
+
+Only retain current verified information.
+
+==================================================
+OBJECTIVE 11 — WEBSITE ENTITY
+=============================
+
+Assess whether WebSite structured data is useful.
+
+If used, keep it accurate and simple.
+
+Do not add SearchAction for a sitelinks search box.
+
+Do not add schema simply to increase the number of schema types.
+
+==================================================
+OBJECTIVE 12 — SOCIAL / SAMEAS
+==============================
+
+Verify current sameAs URLs.
+
+Only include genuine Red Door Pizza social profiles.
+
+Do not add:
+
+* directories
+* review sites
+* arbitrary social profiles
+  unless they genuinely function as business identity profiles and are appropriate.
+
+==================================================
+OBJECTIVE 13 — IMAGE
+====================
+
+Ensure the Restaurant structured data points to a valid representative image that actually exists at the specified URL.
+
+Do not use a broken logo URL.
+
+Do not create fake image URLs.
+
+==================================================
+OBJECTIVE 14 — SCHEMA DUPLICATION
+=================================
+
+Audit every page for:
+
+* duplicate Restaurant objects
+* duplicate Organization objects
+* conflicting names
+* conflicting addresses
+* conflicting phone numbers
+* conflicting URLs
+* conflicting opening hours
+
+Consolidate where practical.
+
+==================================================
+OBJECTIVE 15 — VALIDATION
+=========================
+
+Run:
+
+* typecheck
+* lint
+* production build
+
+Then inspect generated JSON-LD for:
+
+/
+/menu
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/*
+/stockists
+/contact
+
+Verify JSON is valid.
+
+Where available, use a local structured-data validator or inspect output manually.
+
+Do not claim Google rich-result eligibility merely because JSON-LD exists.
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# STEP 5 COMPLETED
+
+## 1. Files changed
+
+## 2. Restaurant entity changes
+
+## 3. Menu schema changes
+
+## 4. Location schema changes
+
+## 5. Guide/FAQ schema changes
+
+## 6. Stockist/Product schema changes
+
+## 7. WebSite/entity changes
+
+## 8. Duplicate/conflicting schema removed
+
+## 9. Validation performed
+
+## 10. Any remaining schema risks
+
+## 11. Recommended focus for STEP 6
+
+Do not perform STEP 6 automatically.

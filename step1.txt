@@ -1,0 +1,630 @@
+You are implementing STEP 1 of the Red Door Pizza SEO improvement project.
+
+This is a production website built with Next.js App Router, React, and Tailwind CSS.
+
+Your job in this step is to improve the existing website's:
+
+1. factual accuracy
+2. business/entity positioning
+3. homepage messaging
+4. menu content structure
+5. geographic clarity
+6. content consistency
+
+This is NOT a full SEO rebuild.
+
+==================================================
+IMPORTANT DEVELOPMENT RULES
+===========================
+
+Before changing anything:
+
+1. Read the complete current project structure.
+2. Read the existing technical SEO audit.
+3. Inspect the current relevant files/components before modifying them.
+4. Understand the existing design system and component architecture.
+5. Preserve the existing visual design, branding, animations, spacing system and responsive behaviour.
+6. Do NOT redesign the website.
+7. Do NOT introduce a new UI framework.
+8. Do NOT install new dependencies unless absolutely necessary.
+9. Do NOT modify package.json unless required for an existing issue.
+10. Do NOT modify WowApps integration in this step.
+11. Do NOT implement sitemap/robots/canonical/OpenGraph in this step.
+12. Do NOT add analytics or tracking in this step.
+13. Do NOT create large numbers of new URLs.
+14. Do NOT create duplicate location pages.
+15. Do NOT create product pages for every pizza/menu item.
+16. Do NOT keyword-stuff content.
+17. Do NOT invent facts, services, offers, packages, reviews, suppliers, locations or claims.
+18. Do NOT remove useful existing functionality.
+19. Make the smallest safe changes necessary to achieve the objectives.
+
+==================================================
+AUTHORITATIVE BUSINESS INFORMATION
+==================================
+
+Use the following client-provided information as the current business source of truth.
+
+BUSINESS:
+Red Door Pizza
+
+ADDRESS:
+401 Warrenheip St
+Buninyong VIC 3357
+Australia
+
+PRIMARY BUSINESS:
+Wood-fired pizza / pizzeria
+
+PRIMARY COMMERCIAL MARKET:
+Ballarat
+
+PHYSICAL LOCATION:
+Buninyong
+
+IMPORTANT BALLARAT PROPOSITION:
+Red Door Pizza is approximately 11 km / 12 minutes' drive from Ballarat CBD.
+
+REGIONAL MARKET:
+Meredith / surrounding Ballarat region
+
+OPENING HOURS:
+Monday–Thursday: 5pm–9pm
+Friday–Sunday: 12pm–9pm
+
+GROUP BOOKINGS:
+Group bookings may be available outside normal opening hours by enquiry.
+
+MAXIMUM VENUE CAPACITY:
+100 guests
+
+FAMILY / LOUNGE:
+
+* family-friendly
+* lounge area
+* kids corner
+* play kitchen
+* books
+* colouring pages
+* TV access
+* good for families and groups
+* customers are encouraged to book the lounge area
+
+FUNCTIONS:
+
+* work breakups
+* Christmas parties
+* group bookings
+* other suitable group events where genuinely offered
+
+DO NOT CLAIM:
+
+* 120 guests
+* 30–120 guests
+* fixed drinks packages
+* full beverage packages
+* weekend live music
+* live entertainment as an existing standard offering
+* high-speed takeaway
+
+DIETARY:
+
+* gluten-free pizza bases available
+* gluten-free options exist
+* preserve any accurate cross-contact warning already present
+* do not claim the kitchen is fully gluten-free
+
+GELATO:
+
+* Il Piccolo Gelato
+* locally made in Ballarat
+* range changes regularly
+
+INGREDIENTS:
+
+* premium Italian ingredients
+* imported Italian ingredients/cheese where already accurately represented
+* fresh local produce
+* Buninyong Butcher
+* Peaches
+* other local suppliers only where verified in existing content/client information
+
+MEREDITH:
+Meredith is a regional target market.
+Meredith may also legitimately occur in ingredient context such as Meredith Dairy.
+DO NOT imply Red Door Pizza is physically located in Meredith.
+
+SUPERMARKET / RETAIL PRODUCT:
+
+* vacuum-sealed pizzas
+* bases pre-cooked in the wood-fired oven
+* stocked at local IGAs / regional retailers
+* confirmed examples include Beaufort, Creswick and Elaine Farmgate
+* only retain retailer claims supported by current project/client information
+
+==================================================
+PRIMARY BUSINESS / SEO ENTITY
+=============================
+
+The primary entity must remain:
+
+RED DOOR PIZZA
+→ WOOD-FIRED PIZZERIA
+→ BUNINYONG
+→ NEAR BALLARAT
+
+Core positioning:
+
+"Wood-fired pizza in Buninyong, just 12 minutes from Ballarat."
+
+Do not repeat this exact phrase unnaturally.
+
+The website must NOT become pizza-only in the sense of hiding other food offerings.
+
+The business is pizza-led but the menu also establishes a broader restaurant proposition.
+
+Secondary semantic themes that should remain visible:
+
+* pasta
+* Italian-style dining
+* starters and sides
+* kids/family dining
+* gluten-free options
+* desserts
+* Il Piccolo Gelato
+* local ingredients
+* group/functions
+* takeaway/order online
+* local supermarket pizza products
+
+Pizza remains the strongest and most important entity.
+
+==================================================
+STEP 1 OBJECTIVE A — HOMEPAGE POSITIONING
+=========================================
+
+Review:
+
+* app/page.tsx
+* Hero
+* USP
+* OutdoorDining
+* Functions
+* FAQ
+* Menu
+* Contact
+* Footer
+* any location-related homepage sections
+
+Improve the homepage so a first-time visitor and search engine can understand immediately:
+
+WHAT:
+wood-fired pizza / pizzeria
+
+WHERE:
+Buninyong
+
+WHY IT MATTERS TO BALLARAT:
+approximately 11 km / 12 minutes from Ballarat CBD
+
+The current H1 is:
+
+"RED DOOR PIZZA"
+
+Replace it with a natural, descriptive H1.
+
+Preferred direction:
+
+"Wood-Fired Pizza in Buninyong, Just 12 Minutes from Ballarat"
+
+Use professional judgment if a small wording refinement creates a substantially better result.
+
+Do NOT stuff:
+pizza + Ballarat + Buninyong + restaurant + Italian + gluten free
+into the H1.
+
+The H1 should express the dominant entity.
+
+==================================================
+STEP 1 OBJECTIVE B — HOMEPAGE SUPPORTING CONTENT
+================================================
+
+Make sure the homepage communicates the broader offering without diluting pizza.
+
+The homepage should naturally establish:
+
+* wood-fired pizza
+* premium Italian ingredients
+* fresh local produce
+* family-friendly dining
+* kids corner/lounge
+* gluten-free options
+* pasta / broader Italian-style menu
+* desserts / locally made gelato
+* group/function suitability
+* proximity to Ballarat
+
+Do this using existing sections/components wherever possible.
+
+Do NOT create a wall of SEO copy.
+
+Prefer concise, customer-focused content blocks.
+
+==================================================
+STEP 1 OBJECTIVE C — CORRECT OUTDATED INFORMATION
+=================================================
+
+Search the entire codebase and correct any outdated claims.
+
+Specifically identify and replace:
+
+* weekend live music
+* live entertainment if presented as current standard offering
+* 120 guests
+* 30–120 guests
+* drinks packages
+* full beverage packages
+* high-speed takeaway
+
+The technical audit has identified several of these existing claims in the current codebase.
+
+Replace them with accurate information from the authoritative facts above.
+
+Do not invent replacement packages.
+
+For functions:
+
+Communicate:
+
+* groups
+* work breakups
+* Christmas parties
+* group enquiries
+* venue capacity up to 100 guests
+* enquiry for bookings outside normal hours
+
+==================================================
+STEP 1 OBJECTIVE D — HOURS CONSISTENCY
+======================================
+
+Ensure every visible business-hours reference uses:
+
+Monday–Thursday: 5pm–9pm
+Friday–Sunday: 12pm–9pm
+
+Search the entire repository for duplicated opening-hour strings.
+
+Where practical, use the existing constants/source of truth rather than duplicating hard-coded hours.
+
+Do not change the actual hours.
+
+==================================================
+STEP 1 OBJECTIVE E — LOCATION CLARITY
+=====================================
+
+Maintain the distinction:
+
+BUNINYONG = physical restaurant location
+
+BALLARAT = major customer acquisition market
+
+MEREDITH = regional target market / legitimate geographic relationship
+
+Use natural language such as:
+
+* "in Buninyong"
+* "near Ballarat"
+* "just 12 minutes from Ballarat CBD"
+* "serving the Ballarat region"
+
+Do NOT say:
+"Red Door Pizza in Ballarat"
+unless clearly describing the wider market rather than physical location.
+
+Do NOT say:
+"Red Door Pizza in Meredith"
+
+unless clearly describing proximity/service/target market.
+
+==================================================
+STEP 1 OBJECTIVE F — MENU CONTENT
+=================================
+
+The menu is a major SEO asset.
+
+Inspect the current /menu implementation and menu data.
+
+The current menu includes multiple categories, including:
+
+WOOD-FIRED PIZZAS
+
+* Margherita
+* Potato
+* Mushroom
+* Pumpkin
+* Pumpkin & Beet
+* Smoked Ham
+* Ham & Pineapple
+* BBQ Chicken
+* Capricciosa
+* Shredded Pork
+* Hot Salami
+* Mild Salami
+* Beef & Pumpkin
+* Beef & Mushroom
+* Satay Chicken
+* Inferno
+* Pollo Primavera
+* The Door
+* Lamb
+* Lamb & Beet
+* Meat Lovers
+* Garlic Prawn
+* Sweet Chilli Prawn
+
+STARTERS / SIDES
+
+* Wood Fired Garlic Bread
+* Marinated Warm Olives
+* French Fries
+* Wood Fired Cheesy Garlic Bread
+* Sweet Potato Fries
+* Garlic Starter Pizza
+* Sweet Chili Starter Pizza
+* Loaded Fries
+* Truffle Oil Starter Pizza
+* Red Door Salad
+
+PASTA
+
+* House-made Beef & Pork Lasagna
+* Beef & Pork Spaghetti Bolognese
+* Gluten-Free Spaghetti Bolognese
+* Lamb Ragu
+
+KIDS / TEEN / SENIORS
+
+* Chicken Nuggets & Chips
+* Kids Margherita
+* Kids Ham
+* Kids Ham & Pineapple
+* applicable teen/seniors items currently in code
+
+DESSERT
+
+* Il Piccolo Gelato
+* Vanilla Ice Cream
+* Biscoff Pizza
+* Nutella & Strawberry Pizza
+* Tiramisu
+* Affogato
+
+DRINKS
+
+* current drinks in the existing menu
+
+Do NOT assume these exact items are always current if current code differs. Preserve the actual current menu data while ensuring no accidental loss.
+
+The goal is to make the menu content authoritative and readable.
+
+IMPORTANT:
+Do NOT create individual URLs for each menu item in this step.
+
+Do NOT create hundreds of product pages.
+
+==================================================
+STEP 1 OBJECTIVE G — MENU SEO SIGNALS
+=====================================
+
+The /menu page should clearly communicate that Red Door is:
+
+* a wood-fired pizzeria
+* a broader restaurant
+* serving pasta
+* offering family/kids options
+* offering gluten-free options
+* offering desserts and gelato
+
+Do NOT turn the menu into artificial SEO copy.
+
+Keep descriptions factual and useful.
+
+Where menu data is currently stored in constants/arrays, preserve the data structure unless there is a clear reason to improve maintainability.
+
+==================================================
+STEP 1 OBJECTIVE H — GLUTEN-FREE
+================================
+
+Make gluten-free information easy to find.
+
+The website should accurately mention:
+
+* gluten-free pizza bases
+* gluten-free pasta option where currently available
+* relevant cross-contact limitation/warning
+
+Do not claim:
+"100% gluten-free kitchen"
+or equivalent unsupported wording.
+
+==================================================
+STEP 1 OBJECTIVE I — FAMILY
+===========================
+
+Make the existing family proposition more explicit.
+
+Use genuine features:
+
+* kids corner
+* play kitchen
+* books
+* colouring
+* TV
+* lounge area
+* kids menu
+* family-friendly atmosphere
+
+Do not invent:
+
+* babysitting
+* play centre
+* childcare
+* private playground
+  or similar services.
+
+==================================================
+STEP 1 OBJECTIVE J — INGREDIENT / LOCAL STORY
+=============================================
+
+Where appropriate, communicate:
+
+* premium Italian ingredients
+* fresh local produce
+* Buninyong Butcher
+* Peaches
+* Meredith ingredients where legitimately applicable
+* locally made Il Piccolo Gelato
+
+Do not create a large supplier directory.
+
+Do not make unsupported "farm to table" or "100% local" claims.
+
+==================================================
+STEP 1 OBJECTIVE K — SUPERMARKET PRODUCT
+========================================
+
+Ensure the site accurately communicates that Red Door's take-home/vacuum-sealed pizzas are available through regional retailers where currently confirmed.
+
+Known examples:
+
+* Beaufort
+* Creswick
+* Elaine Farmgate
+
+Preserve the existing /stockists route and content architecture.
+
+Do not create duplicate supermarket pages.
+
+==================================================
+STEP 1 OBJECTIVE L — COPY QUALITY
+=================================
+
+The writing should be:
+
+* human
+* local
+* specific
+* useful
+* commercially persuasive
+* not keyword-stuffed
+* not repetitive
+
+Avoid phrases like:
+
+"best pizza Ballarat" repeated everywhere
+
+"pizza Ballarat" in every paragraph
+
+"best food in Ballarat"
+
+"fast food Ballarat"
+
+Generic AI-generated filler.
+
+==================================================
+STEP 1 OBJECTIVE M — INTERNAL DATA CONSISTENCY
+==============================================
+
+Where practical, centralise factual constants such as:
+
+* phone
+* opening hours
+* address
+* WowApps URL
+* capacity
+
+If the existing architecture already supports constants.ts, use that architecture.
+
+Do NOT refactor the entire project.
+
+==================================================
+STEP 1 VERIFICATION
+===================
+
+After changes:
+
+1. Run TypeScript/typecheck.
+2. Run lint.
+3. Run production build.
+4. Verify homepage.
+5. Verify /menu.
+6. Verify /locations/buninyong.
+7. Verify /locations/ballarat.
+8. Verify /locations/meredith.
+9. Verify /guides/*
+10. Verify /stockists.
+11. Verify /contact.
+
+Search the codebase for outdated phrases:
+
+"live music"
+"weekend live music"
+"120"
+"30–120"
+"beverage package"
+"drinks package"
+"full bar"
+"high-speed takeaway"
+
+Also search for conflicting opening hours.
+
+Report remaining references rather than silently removing something that may require business confirmation.
+
+==================================================
+DO NOT DO STEP 2 OR STEP 3
+==========================
+
+Do NOT implement:
+
+* metadataBase
+* canonical strategy
+* robots.txt
+* sitemap
+* OpenGraph
+* Twitter metadata
+* major schema expansion
+* analytics
+* WowApps tracking
+* new SEO routes
+
+Those belong to later steps.
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# STEP 1 COMPLETED
+
+## 1. Files changed
+
+## 2. Business facts corrected
+
+## 3. Homepage positioning changes
+
+## 4. Menu changes
+
+## 5. Ballarat/Buninyong/Meredith changes
+
+## 6. Family / gluten-free / ingredients / functions changes
+
+## 7. Outdated claims removed or corrected
+
+## 8. Remaining items requiring manual review
+
+## 9. Tests performed
+
+## 10. Recommended focus for STEP 2
+
+Do not perform STEP 2 automatically.

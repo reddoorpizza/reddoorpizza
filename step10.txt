@@ -1,0 +1,307 @@
+You are implementing STEP 10 of the Red Door Pizza SEO improvement project.
+
+STEP 1–9 have been completed.
+
+This step establishes a repeatable SEO measurement and optimisation framework.
+
+==================================================
+STRICT RULES
+============
+
+1. Do not fabricate performance data.
+2. Do not claim rankings without Search Console or equivalent evidence.
+3. Do not fabricate conversions.
+4. Do not make SEO changes simply because a page has low traffic.
+5. Do not change page targeting without evidence.
+6. Do not add unnecessary tracking events.
+7. Do not alter WowApps functionality.
+8. Do not redesign the website.
+9. Do not install multiple analytics systems.
+10. Do not expose personal information in analytics.
+
+==================================================
+PRIMARY BUSINESS GOALS
+======================
+
+Measure:
+
+1. Orders
+2. Booking intent
+3. Group/function enquiries
+4. Phone intent
+5. Directions intent
+
+SEO goals:
+
+1. Ballarat visibility
+2. Buninyong visibility
+3. Meredith visibility
+4. Pizza visibility
+5. Wood-fired pizza visibility
+6. Gluten-free visibility
+7. Family visibility
+8. Functions visibility
+9. Italian/pasta visibility
+10. Stockist discovery
+
+==================================================
+OBJECTIVE 1 — SEARCH CONSOLE DATA MODEL
+=======================================
+
+Create a documented SEO reporting framework using:
+
+* clicks
+* impressions
+* CTR
+* average position
+* queries
+* landing pages
+* country/device where useful
+* date comparisons
+
+Do not fabricate actual values.
+
+==================================================
+OBJECTIVE 2 — PAGE GROUPING
+===========================
+
+Group pages:
+
+CORE:
+/
+/menu
+
+LOCATION:
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+
+GUIDES:
+/guides/*
+
+COMMERCIAL:
+/stockists
+/contact
+
+This allows future analysis by intent.
+
+==================================================
+OBJECTIVE 3 — QUERY GROUPS
+==========================
+
+Create reporting categories:
+
+Pizza
+Wood-fired pizza
+Ballarat
+Buninyong
+Meredith
+Italian
+Pasta
+Gluten-free
+Family
+Kids
+Functions
+Dessert
+Stockists
+
+Do not hard-code rankings.
+
+==================================================
+OBJECTIVE 4 — CONVERSION FUNNEL
+===============================
+
+Document:
+
+Organic landing
+↓
+Page engagement
+↓
+Menu
+↓
+Order online
+↓
+WowApps
+
+and:
+
+Organic landing
+↓
+Location / guide
+↓
+Book table
+↓
+Contact/booking
+
+and:
+
+Organic landing
+↓
+Functions
+↓
+Group enquiry
+
+Track only actions that can actually be observed.
+
+==================================================
+OBJECTIVE 5 — WOWAPPS
+=====================
+
+Use the event model from STEP 6.
+
+At minimum:
+
+order_online_click
+menu_item_order_click
+
+Do not claim actual completed WowApps orders unless a supported integration provides that data.
+
+==================================================
+OBJECTIVE 6 — SEO EXPERIMENTATION
+=================================
+
+Create a documented procedure for:
+
+1. Identify query/page opportunity.
+2. Confirm search intent.
+3. Determine whether existing page satisfies intent.
+4. Improve content/metadata/internal links.
+5. Deploy.
+6. Wait for sufficient data.
+7. Compare before/after.
+8. Keep, revert or iterate.
+
+Do not make changes based on one day's data.
+
+==================================================
+OBJECTIVE 7 — CANNIBALISATION MONITORING
+========================================
+
+Monitor whether:
+
+/locations/ballarat
+/locations/buninyong
+/locations/meredith
+/guides/*
+
+begin competing for the same query sets.
+
+Document a process for identifying:
+
+* multiple pages receiving impressions for same primary query
+* URL switching
+* unexpected ranking pages
+
+Do not automatically merge pages.
+
+==================================================
+OBJECTIVE 8 — QUICK WIN IDENTIFICATION
+======================================
+
+Define future quick-win criteria such as:
+
+* impressions but low CTR
+* average position approaching page 1
+* strong query/page relevance
+* high commercial intent
+* existing page already matching intent
+
+Do not hard-code arbitrary thresholds without documenting them.
+
+==================================================
+OBJECTIVE 9 — CONVERSION PRIORITISATION
+=======================================
+
+Prioritise pages based on:
+
+Business value
++
+Search opportunity
++
+Conversion opportunity
+
+A page with lower traffic but high function-booking value may be more important than a high-traffic informational page.
+
+==================================================
+OBJECTIVE 10 — SEO DASHBOARD PREPARATION
+========================================
+
+If the repository contains an existing dashboard/reporting architecture, assess whether it can support:
+
+* organic clicks
+* impressions
+* CTR
+* average position
+* top queries
+* top landing pages
+* order clicks
+* booking clicks
+* group enquiries
+* phone clicks
+* directions clicks
+
+Do not build a full dashboard unless a current project requirement exists.
+
+Instead create the data specification if no dashboard currently exists.
+
+==================================================
+OBJECTIVE 11 — MONTHLY SEO REVIEW
+=================================
+
+Create a reusable SEO review document/template covering:
+
+Technical health
+Indexation
+Search performance
+Local visibility
+Top queries
+Top pages
+CTR opportunities
+Conversion performance
+New opportunities
+Cannibalisation
+Content updates
+Competitor changes
+Next-month priorities
+
+==================================================
+VALIDATION
+==========
+
+Run:
+
+* typecheck
+* lint
+* production build
+
+Verify no tracking regressions.
+
+Do not claim external platform connectivity unless verified.
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# STEP 10 COMPLETED
+
+## 1. Files changed
+
+## 2. Reporting framework
+
+## 3. Search Console framework
+
+## 4. Conversion framework
+
+## 5. WowApps measurement
+
+## 6. Cannibalisation monitoring
+
+## 7. Quick-win framework
+
+## 8. Monthly SEO process
+
+## 9. External configuration still required
+
+## 10. Tests performed

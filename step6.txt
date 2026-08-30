@@ -1,0 +1,443 @@
+You are implementing STEP 6 of the Red Door Pizza SEO improvement project.
+
+STEP 1–5 have been completed.
+
+Your task is to implement a clean measurement and conversion-tracking foundation for Red Door Pizza.
+
+The website is:
+
+https://www.reddoorpizza.com.au/
+
+The ordering system is:
+
+WowApps
+https://orders.wowapps.com/order/reddoorpizzeria
+
+==================================================
+STRICT RULES
+============
+
+1. Read the current repository before changing anything.
+2. Inspect package.json and existing tracking code.
+3. Do not install analytics packages if an existing/native approach is sufficient.
+4. Do not duplicate analytics scripts.
+5. Do not change the visual design.
+6. Do not change SEO content.
+7. Do not modify WowApps business logic.
+8. Do not attempt to track inside WowApps unless an officially supported integration already exists.
+9. Do not collect unnecessary personal information.
+10. Do not send sensitive customer information to analytics.
+11. Follow the site's existing privacy policy and applicable consent requirements.
+12. Do not fabricate conversion data.
+
+==================================================
+OBJECTIVE
+=========
+
+Measure the commercial journey:
+
+SEARCH
+↓
+LANDING PAGE
+↓
+ENGAGEMENT
+↓
+ORDER / BOOK / CALL / DIRECTIONS / ENQUIRY
+↓
+EXTERNAL ORDERING OR CONTACT FLOW
+
+Primary business outcomes:
+
+1. Order Online intent
+2. Book a Table intent
+3. Group/function enquiry
+4. Phone call intent
+5. Directions/map intent
+
+Secondary:
+
+* menu engagement
+* guide engagement
+* location-page engagement
+* stockist engagement
+
+==================================================
+TASK 1 — IDENTIFY EXISTING ANALYTICS
+====================================
+
+Search the repository for:
+
+* Google Analytics
+* GA4
+* Google Tag Manager
+* Google Ads
+* Meta Pixel
+* Microsoft Clarity
+* Hotjar
+* other analytics/tracking
+
+If an existing system is present:
+
+* document it
+* do not duplicate it
+* preserve existing valid functionality
+* improve only where necessary
+
+==================================================
+TASK 2 — ANALYTICS ARCHITECTURE
+===============================
+
+If no analytics exists, prepare the code for a standard Google Analytics 4 implementation using the cleanest approach compatible with the current Next.js App Router.
+
+IMPORTANT:
+
+Do not invent a Measurement ID.
+
+Use an environment variable.
+
+Example conceptual variable:
+
+NEXT_PUBLIC_GA_MEASUREMENT_ID
+
+Do not hard-code secrets.
+
+If the project already uses another environment-variable naming convention, follow it.
+
+==================================================
+TASK 3 — CORE EVENTS
+====================
+
+Implement or prepare tracking for:
+
+order_online_click
+book_table_click
+phone_click
+directions_click
+group_enquiry
+contact_submission
+
+Where appropriate also:
+
+menu_view
+menu_item_order_click
+location_page_view
+stockist_click
+
+Do not create dozens of unnecessary events.
+
+==================================================
+TASK 4 — WOWAPPS ORDER TRACKING
+===============================
+
+WowApps links currently appear in:
+
+* Hero
+* Header
+* Mobile navigation
+* Floating order button
+* Menu items
+* Contact section
+* Footer
+* other existing order CTAs
+
+Create a consistent event:
+
+order_online_click
+
+For individual menu item ordering:
+
+menu_item_order_click
+
+Useful event parameters may include:
+
+* page_location
+* page_path
+* menu_item
+* menu_category
+* button_location
+
+Do not send:
+
+* customer names
+* phone numbers
+* email addresses
+* order contents
+* payment information
+* other personally identifiable information
+
+unless an explicitly approved integration requires it.
+
+==================================================
+TASK 5 — BOOKING TRACKING
+=========================
+
+Track "Book a Table" interactions.
+
+Event:
+
+book_table_click
+
+Useful parameters:
+
+button_location
+page_path
+
+Possible locations:
+
+hero
+menu
+functions
+contact
+location_page
+
+Do not invent a booking provider if booking simply routes to /contact or another existing path.
+
+==================================================
+TASK 6 — PHONE TRACKING
+=======================
+
+Track clicks on telephone links.
+
+Event:
+
+phone_click
+
+Parameter:
+
+page_path
+
+Do not capture the phone number as a user-level parameter.
+
+==================================================
+TASK 7 — DIRECTIONS TRACKING
+============================
+
+Where the site links to Google Maps/directions, track:
+
+directions_click
+
+Parameter:
+
+page_path
+
+==================================================
+TASK 8 — GROUP ENQUIRY
+======================
+
+Track the meaningful completion of a group/function enquiry.
+
+If the current form is only an SMS deep link:
+
+Inspect the implementation carefully.
+
+Do not falsely report "form submitted" if the site only opens an SMS application.
+
+Use an event such as:
+
+group_enquiry_click
+
+for the outbound action unless an actual successful submission can be measured.
+
+Do not pretend SMS delivery is confirmed.
+
+==================================================
+TASK 9 — MENU EVENTS
+====================
+
+Do not track every UI animation.
+
+Track only meaningful menu interactions.
+
+Potential events:
+
+menu_view
+menu_item_order_click
+
+If tracking menu item ordering:
+
+event:
+menu_item_order_click
+
+parameters:
+menu_item
+menu_category
+page_path
+
+Use the actual menu data.
+
+==================================================
+TASK 10 — LOCATION PAGE DATA
+============================
+
+We want to understand performance by geographic landing page.
+
+Make sure GA4 can distinguish:
+
+/locations/ballarat
+/locations/buninyong
+/locations/meredith
+
+via page_path automatically.
+
+Do not create custom geographic user profiles.
+
+==================================================
+TASK 11 — UTM / EXTERNAL ORDERING
+=================================
+
+Inspect existing WowApps links.
+
+Do NOT automatically append arbitrary UTM parameters to every link.
+
+If campaign attribution is needed, assess whether a consistent strategy can be added later.
+
+For now, preserve clean destination URLs unless there is a proven reason to add parameters.
+
+==================================================
+TASK 12 — GOOGLE SEARCH CONSOLE
+===============================
+
+Search Console verification typically occurs outside the codebase.
+
+Do not attempt to fabricate verification.
+
+If a DNS/HTML verification mechanism exists in the project, document it.
+
+Otherwise report:
+
+"Search Console verification requires external configuration."
+
+Do not claim it is connected unless the repository proves this.
+
+==================================================
+TASK 13 — CONSENT / PRIVACY
+===========================
+
+Review the privacy page and existing consent architecture.
+
+If analytics is introduced, ensure the implementation does not conflict with the site's privacy/consent requirements.
+
+Do not silently implement tracking that violates the existing consent model.
+
+If a consent banner/platform is required but does not exist, document it for follow-up instead of inventing one without a clear requirement.
+
+==================================================
+TASK 14 — PERFORMANCE
+=====================
+
+Analytics must be loaded in a way appropriate for Next.js and must not unnecessarily block rendering.
+
+Avoid:
+
+* synchronous blocking scripts
+* duplicate loading
+* loading multiple analytics libraries unnecessarily
+
+==================================================
+TASK 15 — TESTING
+=================
+
+After implementation:
+
+1. Typecheck
+2. Lint
+3. Production build
+
+Then inspect source/runtime to verify:
+
+* analytics loads once
+* events are attached to correct elements
+* WowApps clicks still work
+* booking links still work
+* phone links still work
+* direction links still work
+* forms still work
+* no duplicate script tags
+* no console errors introduced
+
+Do not claim events were received by GA4 unless live GA4 access exists.
+
+==================================================
+TASK 16 — DOCUMENTATION
+=======================
+
+Create a concise developer-facing tracking document if the project has an appropriate documentation location.
+
+Document:
+
+Event:
+order_online_click
+
+Parameters:
+page_path
+button_location
+
+Event:
+menu_item_order_click
+
+Parameters:
+page_path
+menu_item
+menu_category
+
+Event:
+book_table_click
+
+Parameters:
+page_path
+button_location
+
+Event:
+phone_click
+
+Parameters:
+page_path
+
+Event:
+directions_click
+
+Parameters:
+page_path
+
+Event:
+group_enquiry_click
+
+Parameters:
+page_path
+form_location
+
+Keep documentation aligned with actual implementation.
+
+==================================================
+FINAL RESPONSE
+==============
+
+Return:
+
+# STEP 6 COMPLETED
+
+## 1. Files changed
+
+## 2. Analytics implementation
+
+## 3. Events implemented
+
+## 4. WowApps tracking
+
+## 5. Booking tracking
+
+## 6. Phone/directions tracking
+
+## 7. Group enquiry tracking
+
+## 8. Consent/privacy considerations
+
+## 9. Search Console status
+
+## 10. Tests performed
+
+## 11. Events that require live-platform verification
+
+## 12. Recommended focus for STEP 7
+
+Do not perform STEP 7 automatically.

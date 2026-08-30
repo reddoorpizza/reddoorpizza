@@ -1,0 +1,463 @@
+You are implementing STEP 3 of the Red Door Pizza SEO improvement project.
+
+STEP 1 and STEP 2 have already been completed.
+
+Your task is now to improve:
+
+* crawlability
+* indexability
+* XML sitemap
+* robots.txt
+* dynamic-route control
+* menu crawlability
+
+This is a technical SEO implementation task.
+
+==================================================
+STRICT RULES
+============
+
+1. Read the current codebase.
+2. Verify STEP 1 and STEP 2 changes.
+3. Do not redesign the site.
+4. Do not create duplicate URLs.
+5. Do not change existing URL structure.
+6. Do not alter WowApps functionality.
+7. Do not add analytics.
+8. Do not perform major schema work.
+9. Prefer native Next.js App Router functionality.
+10. Do not install a sitemap/SEO plugin if native Next.js functionality is sufficient.
+11. Do not create hundreds of pages.
+12. Do not remove useful existing menu content.
+13. Preserve current menu UX.
+
+==================================================
+CURRENT SEO ARCHITECTURE
+========================
+
+Review all current routes.
+
+Important routes include:
+
+/
+/menu
+/contact
+/stockists
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/family-friendly-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/guides/gluten-free-pizza-ballarat
+/privacy
+/terms
+
+Use the actual repository as the source of truth.
+
+==================================================
+TASK 1 — ROBOTS.TXT
+===================
+
+Implement robots.txt using the native Next.js App Router approach.
+
+Desired conceptual behaviour:
+
+User-agent: *
+Allow: /
+
+Sitemap:
+https://www.reddoorpizza.com.au/sitemap.xml
+
+Do not block:
+
+* homepage
+* menu
+* locations
+* guides
+* stockists
+* contact
+* CSS
+* JS
+* image resources necessary for rendering
+
+Do not add aggressive crawl-delay rules.
+
+Do not attempt to control WowApps robots behaviour from this project.
+
+Verify:
+
+https://www.reddoorpizza.com.au/robots.txt
+
+==================================================
+TASK 2 — XML SITEMAP
+====================
+
+Implement a native Next.js XML sitemap.
+
+Include legitimate canonical/indexable website pages.
+
+At minimum review:
+
+/
+/menu
+/contact
+/stockists
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/family-friendly-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/guides/gluten-free-pizza-ballarat
+/privacy
+/terms
+
+Use the repository to identify any additional legitimate routes.
+
+==================================================
+SITEMAP EXCLUSIONS
+==================
+
+Do NOT include:
+
+* WowApps URLs
+* external URLs
+* query-string URLs
+* fragment URLs
+* invalid routes
+* [invalid] fallback URLs
+* assets
+* JavaScript files
+* image URLs unless intentionally required
+* preview URLs
+* localhost
+* duplicate pages
+
+All sitemap URLs must use:
+
+https://www.reddoorpizza.com.au/
+
+as the production origin.
+
+==================================================
+TASK 3 — CANONICAL / SITEMAP CONSISTENCY
+========================================
+
+Every sitemap URL must correspond to that page's canonical URL.
+
+There must be no mismatch such as:
+
+sitemap:
+https://www.reddoorpizza.com.au/menu/
+
+canonical:
+https://www.reddoorpizza.com.au/menu
+
+unless that is the site's deliberate URL convention.
+
+Follow the actual routing behaviour of the application.
+
+==================================================
+TASK 4 — DYNAMIC ROUTES
+=======================
+
+Inspect:
+
+/locations/[city]
+/guides/[slug]
+
+Ensure only valid content routes are generated.
+
+Verify that arbitrary slugs do not accidentally become valid indexable pages.
+
+For example:
+
+/locations/randomcity
+
+should not silently become a generic SEO page unless explicitly supported.
+
+Likewise:
+
+/guides/random-slug
+
+should not produce an indexable generic guide.
+
+Use existing generateStaticParams/notFound architecture if present.
+
+Do not rewrite valid route behaviour unnecessarily.
+
+==================================================
+TASK 5 — INDEXABILITY
+=====================
+
+Inspect all important pages for:
+
+* robots meta
+* noindex
+* nofollow
+* canonical conflicts
+* inaccessible page content
+* accidental disallow rules
+
+Important commercial content must remain indexable:
+
+/
+/menu
+/locations/*
+/guides/*
+/stockists
+
+==================================================
+TASK 6 — MENU CRAWLABILITY — HIGH PRIORITY
+==========================================
+
+This is a strategic priority.
+
+The Red Door menu is one of the site's strongest content assets.
+
+The menu includes:
+
+Wood-fired pizza
+Starters & sides
+Pasta
+Kids/Teen/Seniors
+Dessert
+Drinks
+Gluten-free options
+
+The menu also contains distinctive product/entity information such as:
+
+* lamb pizza
+* garlic prawn pizza
+* pumpkin pizza
+* vegetarian pizzas
+* lasagna
+* spaghetti bolognese
+* gluten-free spaghetti
+* lamb ragu
+* kids pizzas
+* gelato
+* tiramisu
+* affogato
+
+The COMPLETE important menu content should be available to search engine crawlers in the server-rendered page output.
+
+==================================================
+IMPORTANT MENU REQUIREMENT
+==========================
+
+Inspect the current /menu implementation carefully.
+
+Determine:
+
+1. What content exists in server-rendered HTML?
+2. What content only appears after client-side interaction?
+3. Does "View All" render content only after interaction?
+4. Does category switching remove content from the DOM?
+5. Does Framer Motion prevent important content from being available in the initial output?
+6. Are all menu descriptions/indexable text present without requiring a click?
+
+Do not assume client-side JavaScript automatically makes content unavailable.
+
+Actually inspect the rendered/build output where possible.
+
+==================================================
+MENU TARGET ARCHITECTURE
+========================
+
+Preferred architecture:
+
+All meaningful menu content exists in the initial server-rendered HTML.
+
+JavaScript can still:
+
+* filter
+* animate
+* collapse
+* expand
+* change visual presentation
+
+but should not be the only mechanism by which important menu text becomes available.
+
+Do NOT destroy the existing interactive menu.
+
+Do NOT duplicate every item unnecessarily.
+
+Do NOT create individual URLs for every dish in this step.
+
+Do NOT make the page visually cluttered.
+
+If a minimal architectural modification can expose the full content in the HTML while preserving the current UI, implement it.
+
+If a larger rewrite would be required, do not perform it automatically.
+
+Instead report the exact architectural problem and propose the safest next-step implementation.
+
+==================================================
+TASK 7 — INTERNAL DISCOVERABILITY
+=================================
+
+Verify every important SEO page is internally reachable.
+
+Important:
+
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/menu
+/stockists
+/guides/family-friendly-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/guides/gluten-free-pizza-ballarat
+
+Do NOT put every page into global navigation merely for SEO.
+
+Use contextual links.
+
+The intended conceptual relationship is:
+
+Homepage
+→ Ballarat
+→ Buninyong
+→ Meredith
+→ Menu
+→ Family
+→ Gluten-Free
+→ Functions
+→ Stockists
+
+Location pages should be able to link naturally to:
+
+* menu
+* relevant guides
+* booking/contact
+* order online
+
+Guide pages should be able to link naturally to:
+
+* menu
+* relevant location
+* contact/booking
+
+Do not create an excessive footer link dump.
+
+==================================================
+TASK 8 — ORPHAN / DEAD ROUTE CHECK
+==================================
+
+Confirm:
+
+* no true orphan SEO pages
+* no links to deleted pages
+* no broken internal links
+* no malformed URLs
+
+Pay attention to the guides.
+
+Do not conclude a page is "orphaned" simply because it isn't in global navigation if contextual internal links exist.
+
+==================================================
+TASK 9 — URL / HOST CONSISTENCY
+===============================
+
+Verify that internal URL generation does not accidentally produce:
+
+* localhost
+* deployment preview domains
+* http instead of https
+* alternate production hostnames
+
+Canonical, sitemap and robots should use the production domain.
+
+==================================================
+TASK 10 — VALIDATION
+====================
+
+Run:
+
+* typecheck
+* lint
+* production build
+
+Then verify:
+
+/robots.txt
+/sitemap.xml
+
+Inspect generated content.
+
+Verify:
+
+* correct sitemap URLs
+* correct production hostname
+* no invalid routes
+* no WowApps URLs
+* no duplicate URLs
+
+For the key pages inspect rendered output where possible.
+
+Especially verify:
+
+/
+/menu
+/locations/ballarat
+/locations/buninyong
+/locations/meredith
+
+==================================================
+IMPORTANT — DO NOT DO STEP 4
+============================
+
+Do NOT yet implement:
+
+* major internal-link redesign
+* large schema expansion
+* GA4
+* Search Console tracking
+* WowApps event tracking
+* competitor SEO work
+* backlink work
+* additional location pages
+* large content campaigns
+* individual menu-item URLs
+
+Those belong to later steps.
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# STEP 3 COMPLETED
+
+## 1. Files changed
+
+## 2. robots.txt implementation
+
+## 3. sitemap implementation
+
+## 4. Sitemap URLs included
+
+## 5. Sitemap URLs excluded and why
+
+## 6. Dynamic route validation
+
+## 7. Indexability findings
+
+## 8. Menu crawlability investigation
+
+Include:
+
+* initial server HTML behaviour
+* client-side behaviour
+* whether content is crawlable
+* exact changes made
+* any remaining limitations
+
+## 9. Internal linking findings
+
+## 10. Tests performed
+
+## 11. Issues requiring STEP 4
+
+Do not perform STEP 4 automatically.

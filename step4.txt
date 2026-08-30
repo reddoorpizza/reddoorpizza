@@ -1,0 +1,582 @@
+You are implementing STEP 4 of the Red Door Pizza SEO improvement project.
+
+STEP 1, STEP 2 and STEP 3 have already been completed.
+
+Your task is now to improve the existing site's:
+
+* information architecture
+* menu architecture
+* internal linking
+* topical relationships
+* user navigation between commercial pages
+* geographic relevance
+* discoverability of supporting content
+
+This is NOT a redesign.
+
+==================================================
+STRICT RULES
+============
+
+1. Read the current project before editing.
+2. Verify STEP 1–3 changes are present.
+3. Inspect actual routes/components before modifying them.
+4. Preserve the current visual design.
+5. Preserve current Tailwind styling.
+6. Preserve current animations unless a change is necessary for accessibility/crawlability.
+7. Do not create hundreds of SEO pages.
+8. Do not create individual pages for every menu item.
+9. Do not create duplicate location pages.
+10. Do not keyword-stuff anchors.
+11. Do not add fake or irrelevant internal links.
+12. Do not alter WowApps destination URLs.
+13. Do not add analytics yet.
+14. Do not make major schema changes yet.
+15. Do not change the business facts established in STEP 1.
+
+==================================================
+CURRENT INFORMATION ARCHITECTURE
+================================
+
+Known routes:
+
+/
+/menu
+/contact
+/stockists
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/family-friendly-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/guides/gluten-free-pizza-ballarat
+/privacy
+/terms
+
+Use the actual repository as the source of truth.
+
+Do not create duplicate versions such as:
+
+/pizza-ballarat
+/best-pizza-ballarat
+/pizza-buninyong
+
+unless explicitly requested in a later step.
+
+==================================================
+BUSINESS / ENTITY HIERARCHY
+===========================
+
+PRIMARY:
+
+Red Door Pizza
+→ Wood-Fired Pizzeria
+→ Buninyong
+→ Near Ballarat
+
+GEOGRAPHY:
+
+Ballarat:
+Primary customer acquisition market
+
+Buninyong:
+Physical restaurant location
+
+Meredith:
+Regional target market / legitimate local relationship
+
+SUPPORTING BUSINESS ENTITIES:
+
+* premium Italian ingredients
+* fresh local produce
+* pasta
+* gluten-free options
+* family dining
+* kids
+* groups/functions
+* work functions
+* Christmas parties
+* locally made Il Piccolo Gelato
+* take-home pizzas
+* local retail stockists
+
+==================================================
+OBJECTIVE 1 — ESTABLISH A CLEAR INTERNAL LINK GRAPH
+===================================================
+
+Build a deliberate internal linking network.
+
+The intended conceptual structure is:
+
+Homepage
+│
+├── Menu
+├── Ballarat location
+├── Buninyong location
+├── Meredith location
+├── Family dining content
+├── Gluten-free content
+├── Functions/group content
+└── Stockists
+
+Location pages
+│
+├── Menu
+├── Contact / booking
+├── relevant guides
+└── Order Online
+
+Guides
+│
+├── relevant location page
+├── Menu
+├── Contact / booking
+└── related guide where genuinely useful
+
+Stockists
+│
+├── Menu
+├── Homepage
+└── relevant geographic content where natural
+
+Do NOT add every possible page link to every page.
+
+Links must make sense to a human visitor.
+
+==================================================
+OBJECTIVE 2 — HOMEPAGE INTERNAL LINKING
+=======================================
+
+Ensure the homepage naturally links to the most important commercial pages.
+
+At minimum consider contextual links to:
+
+/menu
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+/guides/family-friendly-pizza-ballarat
+/guides/gluten-free-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/stockists
+/contact
+
+Use descriptive but natural anchor text.
+
+Good examples:
+
+"wood-fired pizza near Ballarat"
+
+"our full menu"
+
+"family-friendly dining"
+
+"group and function bookings"
+
+"gluten-free options"
+
+"where to buy our pizzas"
+
+Do not repeat exact-match keyword anchors excessively.
+
+==================================================
+OBJECTIVE 3 — BALLARAT PAGE
+===========================
+
+Review:
+
+/locations/ballarat
+
+This page should internally connect to:
+
+* /menu
+* /contact
+* family guide
+* gluten-free guide
+* functions guide where contextually relevant
+* /locations/buninyong where useful
+
+The page should strongly clarify:
+
+Red Door Pizza is in Buninyong.
+
+It is approximately 11 km / 12 minutes from Ballarat CBD.
+
+Do not imply the restaurant is physically located in Ballarat.
+
+==================================================
+OBJECTIVE 4 — BUNINYONG PAGE
+============================
+
+Review:
+
+/locations/buninyong
+
+This page should establish the physical local entity.
+
+Link naturally to:
+
+* menu
+* booking/contact
+* functions
+* family dining
+* gluten-free
+* stockists where useful
+
+Do not over-optimise anchor text.
+
+==================================================
+OBJECTIVE 5 — MEREDITH PAGE
+===========================
+
+Review:
+
+/locations/meredith
+
+Ensure the page accurately reflects the real relationship between Red Door Pizza and Meredith.
+
+Do not state or imply:
+
+"located in Meredith"
+
+unless the business facts explicitly support it.
+
+If Meredith is primarily a regional customer/service area, the internal links should reinforce that relationship.
+
+If Meredith appears as an ingredient/entity reference such as Meredith Dairy, do not confuse that with physical location.
+
+==================================================
+OBJECTIVE 6 — MENU INFORMATION ARCHITECTURE
+===========================================
+
+The /menu page is one of the strongest SEO/content assets on the website.
+
+It must clearly communicate:
+
+WOOD-FIRED PIZZA
+
+* core business
+* specialty pizzas
+* vegetarian options
+* lamb options
+* prawn options
+* other current pizza categories
+
+PASTA
+
+* lasagna
+* spaghetti bolognese
+* gluten-free spaghetti where currently available
+* lamb ragu
+
+STARTERS & SIDES
+
+KIDS / FAMILY
+
+DESSERTS / GELATO
+
+DRINKS
+
+GLUTEN-FREE OPTIONS
+
+Do not create separate URLs for each food item.
+
+Instead ensure category headings, item names and descriptions are crawlable and semantically clear.
+
+==================================================
+OBJECTIVE 7 — TOPICAL RELATIONSHIPS
+===================================
+
+Use internal links to establish real relationships between topics.
+
+For example:
+
+Wood-fired pizza
+→ menu
+
+Gluten-free pizza
+→ gluten-free guide
+→ menu
+
+Family dining
+→ family guide
+→ menu
+→ contact
+
+Group dining
+→ functions guide
+→ contact
+
+Italian-style dining
+→ menu
+→ pasta content
+
+Local ingredients
+→ relevant menu/about content
+
+Stockists
+→ take-home pizza content
+→ retailer page
+
+Do not invent pages that do not exist.
+
+==================================================
+OBJECTIVE 8 — MENU CATEGORY LINKS
+=================================
+
+If the current menu UI uses visual category filters:
+
+All
+Wood-Fired Pizzas
+Starters & Sides
+Pasta
+Kids/Teen/Seniors
+Dessert
+Drinks
+
+preserve the visual filtering behaviour.
+
+Where practical, expose useful contextual links within the page without changing the UX.
+
+Do not introduce URL fragments as the primary SEO architecture unless there is a genuine usability reason.
+
+==================================================
+OBJECTIVE 9 — GUIDE CROSS-LINKING
+=================================
+
+Review the current guides:
+
+/guides/family-friendly-pizza-ballarat
+/guides/work-christmas-party-venues-buninyong
+/guides/gluten-free-pizza-ballarat
+
+Add contextual internal links where genuinely relevant.
+
+Examples:
+
+Family guide
+→ Ballarat page
+→ Menu
+→ Contact
+
+Gluten-free guide
+→ Menu
+→ Ballarat page
+→ Contact
+
+Functions guide
+→ Buninyong page
+→ Contact
+
+Do not force all guides to link to all other guides.
+
+==================================================
+OBJECTIVE 10 — STOCKISTS
+========================
+
+Review:
+
+/stockists
+
+Ensure users can move naturally from:
+
+Stockists
+→ Menu
+→ Homepage
+→ relevant regional information
+
+The purpose is to communicate that the supermarket product is a separate but related Red Door Pizza offering.
+
+==================================================
+OBJECTIVE 11 — NAVIGATION
+=========================
+
+Do not automatically add every SEO page to the header.
+
+Keep the main navigation concise.
+
+Potential primary nav:
+
+Home
+Menu
+Locations
+Functions / Groups
+Contact
+Order Online
+
+If the current navigation already works, improve only where needed.
+
+Footer can expose additional useful pages.
+
+Use user experience as the primary consideration.
+
+==================================================
+OBJECTIVE 12 — BREADCRUMBS
+==========================
+
+Assess whether breadcrumbs would materially improve usability on:
+
+* location pages
+* guide pages
+* stockists
+
+Do not add breadcrumbs merely for SEO.
+
+If breadcrumbs are useful for deeper pages, implement them consistently and accessibly.
+
+Do not introduce unnecessary visual clutter.
+
+==================================================
+OBJECTIVE 13 — RELATED CONTENT MODULES
+======================================
+
+Where appropriate, create reusable "Related" or "Explore" components.
+
+Examples:
+
+Location page:
+"Explore Red Door"
+→ Menu
+→ Family Dining
+→ Gluten-Free
+→ Groups
+
+Guide page:
+"Plan Your Visit"
+→ Menu
+→ Location
+→ Contact
+
+Do not create a generic link farm.
+
+==================================================
+OBJECTIVE 14 — ANCHOR TEXT POLICY
+=================================
+
+Anchor text must be:
+
+* descriptive
+* natural
+* varied
+* relevant
+
+Avoid repeatedly using:
+
+"best pizza Ballarat"
+
+as the anchor text.
+
+Examples of natural anchors:
+
+"wood-fired pizza"
+
+"view our menu"
+
+"family-friendly dining"
+
+"groups and functions"
+
+"gluten-free options"
+
+"find a Red Door Pizza stockist"
+
+==================================================
+OBJECTIVE 15 — ORPHAN / DEAD-END REVIEW
+=======================================
+
+Re-check the complete site.
+
+There should be no genuine orphan pages.
+
+For every useful commercial/SEO page identify:
+
+* inbound links
+* outbound links
+* parent/related pages
+* primary purpose
+
+Do not judge orphan status only by global navigation.
+
+==================================================
+OBJECTIVE 16 — AVOID CANNIBALISATION
+====================================
+
+Do not make these pages compete unnecessarily:
+
+/locations/buninyong
+/locations/ballarat
+/locations/meredith
+
+Each must have a distinct geographic purpose.
+
+Do not create duplicate copy between these pages.
+
+Do not repeat the exact same paragraph across all three location pages.
+
+==================================================
+VALIDATION
+==========
+
+After implementation:
+
+1. Typecheck
+2. Lint
+3. Production build
+
+Then inspect:
+
+Homepage
+Menu
+Ballarat
+Buninyong
+Meredith
+All guides
+Stockists
+Contact
+
+Verify:
+
+* no broken internal links
+* no broken routes
+* no duplicate anchor spam
+* navigation remains usable
+* mobile navigation still works
+* no visual regressions
+* menu remains usable
+* WowApps links remain unchanged
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# STEP 4 COMPLETED
+
+## 1. Files changed
+
+## 2. Internal linking changes
+
+## 3. Homepage linking
+
+## 4. Ballarat linking
+
+## 5. Buninyong linking
+
+## 6. Meredith linking
+
+## 7. Menu architecture
+
+## 8. Guide linking
+
+## 9. Stockists linking
+
+## 10. Navigation changes
+
+## 11. Cannibalisation risks discovered
+
+## 12. Tests performed
+
+## 13. Issues requiring STEP 5
+
+Do not perform STEP 5 automatically.

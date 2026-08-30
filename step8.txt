@@ -1,0 +1,394 @@
+You are implementing STEP 8 of the Red Door Pizza SEO improvement project.
+
+STEP 1–7 have been completed.
+
+This step focuses on:
+
+* people-first content
+* topical authority
+* semantic relevance
+* customer questions
+* AI search/recommendation visibility
+* content differentiation
+* useful local information
+
+The objective is to make Red Door Pizza an authoritative, trustworthy and easy-to-understand source for customers searching around Ballarat, Buninyong and Meredith.
+
+==================================================
+STRICT RULES
+============
+
+1. Do not create large numbers of pages.
+2. Do not create pages solely because a keyword exists.
+3. Do not keyword stuff.
+4. Do not write generic AI-generated filler.
+5. Do not create duplicate location pages.
+6. Do not repeat the same paragraph across pages.
+7. Do not fabricate customer testimonials.
+8. Do not fabricate statistics.
+9. Do not fabricate awards.
+10. Do not claim "best" unless supported appropriately.
+11. Do not invent delivery areas.
+12. Do not invent menu items.
+13. Do not create individual menu pages unless specifically justified.
+14. Preserve the existing brand voice.
+15. Use first-party facts from the existing website/client information.
+16. Do not change WowApps functionality.
+17. Do not redesign the website.
+
+==================================================
+PRIMARY ENTITY
+==============
+
+Red Door Pizza
+→ wood-fired pizzeria
+→ Buninyong
+→ approximately 11 km / 12 minutes from Ballarat CBD
+
+Secondary themes:
+
+* Italian-style food
+* pasta
+* premium Italian ingredients
+* local produce
+* gluten-free options
+* family dining
+* kids
+* groups/functions
+* work events
+* Christmas parties
+* gelato
+* local stockists
+* take-home pizzas
+
+Geography:
+
+Ballarat:
+primary acquisition
+
+Buninyong:
+physical location
+
+Meredith:
+regional target/legitimate relationship
+
+==================================================
+OBJECTIVE 1 — CONTENT INVENTORY
+===============================
+
+Inspect every existing page and guide.
+
+Create a table:
+
+Page
+Primary topic
+Search intent
+Existing content
+Missing useful content
+Potential duplication
+Recommended action
+
+Do not change pages solely because they have low keyword density.
+
+==================================================
+OBJECTIVE 2 — CORE CONTENT TOPICS
+=================================
+
+Evaluate current coverage of:
+
+1. Wood-fired pizza
+2. Pizza near Ballarat
+3. Pizza Buninyong
+4. Italian-style dining
+5. Pasta
+6. Gluten-free options
+7. Family dining
+8. Kids
+9. Groups/functions
+10. Local ingredients
+11. Gelato/desserts
+12. Take-home pizzas
+13. Local stockists
+
+Determine which are already adequately covered.
+
+Do not create a new page when an existing page can satisfy the intent.
+
+==================================================
+OBJECTIVE 3 — CUSTOMER QUESTION CONTENT
+=======================================
+
+Review the site against questions such as:
+
+* Where is Red Door Pizza?
+* How far is Red Door Pizza from Ballarat CBD?
+* What pizzas are available?
+* Does Red Door Pizza offer gluten-free pizza?
+* Are there gluten-free pasta options?
+* Is Red Door Pizza family friendly?
+* Does Red Door have a kids area?
+* Is there a lounge area?
+* Can groups book?
+* Can I book a work event?
+* Can I hold a Christmas party there?
+* What are the opening hours?
+* Can I order online?
+* Where can I buy Red Door's take-home pizzas?
+* Does Red Door offer pasta?
+* What desserts are available?
+* Is the gelato locally made?
+* What local ingredients are used?
+
+Identify gaps.
+
+==================================================
+OBJECTIVE 4 — AI-FRIENDLY INFORMATION
+=====================================
+
+Review whether pages provide direct, unambiguous answers.
+
+Important principle:
+
+Do not create "AI SEO" language.
+
+Instead make information:
+
+* explicit
+* factual
+* well structured
+* easy to quote/paraphrase
+* supported by page context
+* consistent with the actual business
+
+For example:
+
+Bad:
+"Experience an unforgettable culinary journey."
+
+Better:
+"Red Door Pizza is a wood-fired pizzeria in Buninyong, approximately 11 km from Ballarat CBD."
+
+==================================================
+OBJECTIVE 5 — SUPPORTING CONTENT
+================================
+
+Evaluate these potential content assets:
+
+A. Why Ballarat customers visit Red Door Pizza
+
+B. Our wood-fired pizza
+
+C. Family-friendly dining
+
+D. Gluten-free options
+
+E. Groups and functions
+
+F. Italian ingredients and local produce
+
+G. Red Door take-home pizzas and stockists
+
+H. Pasta / Italian-style dining
+
+Only implement pages where there is genuine information to support them.
+
+Do not blindly create all eight.
+
+==================================================
+OBJECTIVE 6 — MENU TOPICAL AUTHORITY
+====================================
+
+The menu is an important source of first-party information.
+
+Ensure the menu naturally communicates:
+
+Pizza:
+wood-fired core business
+
+Pasta:
+house-made dishes
+
+Gluten-free:
+available options + limitations
+
+Family:
+kids offerings
+
+Dessert:
+gelato + desserts
+
+Ingredients:
+Italian + local
+
+Do not insert keyword blocks into the menu.
+
+==================================================
+OBJECTIVE 7 — LOCATION DIFFERENTIATION
+======================================
+
+Ensure:
+
+Ballarat page:
+customer acquisition / proximity
+
+Buninyong page:
+physical location / local restaurant
+
+Meredith page:
+regional relationship
+
+Avoid identical templates with city names swapped.
+
+==================================================
+OBJECTIVE 8 — GUIDE QUALITY
+===========================
+
+Review all existing guides.
+
+For each guide assess:
+
+* genuine usefulness
+* uniqueness
+* first-party evidence
+* local information
+* conversion path
+* supporting internal links
+
+If a guide is thin or repetitive, improve it.
+
+Do not create more guides until current guides are strong.
+
+==================================================
+OBJECTIVE 9 — AUTHORITATIVE FIRST-PARTY INFORMATION
+===================================================
+
+Prioritise facts Red Door can verify itself:
+
+* opening hours
+* address
+* distance from Ballarat
+* menu
+* ingredients
+* gluten-free options
+* kids area
+* lounge
+* group capacity
+* booking process
+* stockists
+* gelato
+* ordering
+
+Avoid unsupported third-party claims.
+
+==================================================
+OBJECTIVE 10 — CONTENT TEMPLATES
+================================
+
+Where beneficial, create reusable components for:
+
+* key facts
+* opening hours
+* location/directions
+* booking CTA
+* order CTA
+* related content
+* FAQs
+
+Do not over-componentise simple text.
+
+==================================================
+OBJECTIVE 11 — CONVERSION
+=========================
+
+Every commercial content page should have an appropriate next action.
+
+Possible CTAs:
+
+* View Menu
+* Book a Table
+* Order Online
+* Contact Us
+* Group Enquiry
+* Find a Stockist
+
+Do not put five CTAs above the fold.
+
+Choose the CTA according to intent.
+
+==================================================
+OBJECTIVE 12 — CONTENT QUALITY
+==============================
+
+Content should be:
+
+specific
+local
+human
+useful
+credible
+non-repetitive
+
+Avoid:
+
+"Whether you're..."
+"Experience..."
+"Discover..."
+"something for everyone..."
+generic AI phrasing
+
+unless naturally appropriate.
+
+==================================================
+VALIDATION
+==========
+
+Run:
+
+* typecheck
+* lint
+* production build
+
+Check:
+
+* all routes render
+* no duplicate content accidentally introduced
+* no broken links
+* no altered WowApps destinations
+* mobile remains usable
+* no visual regressions
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# STEP 8 COMPLETED
+
+## 1. Files changed
+
+## 2. Content inventory
+
+## 3. Pages improved
+
+## 4. New content created
+
+## 5. AI/search-intent improvements
+
+## 6. Ballarat content
+
+## 7. Buninyong content
+
+## 8. Meredith content
+
+## 9. Menu/content improvements
+
+## 10. Conversion improvements
+
+## 11. Content gaps intentionally left for future work
+
+## 12. Tests performed
+
+## 13. Recommended focus for STEP 9
+
+Do not perform STEP 9 automatically.
