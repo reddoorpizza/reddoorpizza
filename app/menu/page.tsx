@@ -38,6 +38,15 @@ export const metadata: Metadata = {
   },
 };
 
+const categoryIntros: Record<string, string> = {
+  pizzas: "Our signature wood-fired pizzas, baked in a traditional oven at 400°C using imported Italian fior di latte and locally sourced toppings.",
+  starters: "Garlic bread, olives, loaded fries, and our Red Door Salad with Meredith goat cheese.",
+  pasta: "House-made pasta dishes — our beef and pork bolognese and slow-cooked lamb ragu are made fresh daily.",
+  kids: "10-inch pizzas and chicken nuggets for younger guests, with an optional kids juice and ice cream combo for $5.",
+  dessert: "Locally made il piccolo gelato, dessert pizzas, house-made tiramisu, and affogato.",
+  drinks: "Soft drinks, coffee, tea, and Hepburn natural sparkling water.",
+};
+
 interface MenuItem {
   name: string;
   description?: string;
@@ -462,6 +471,11 @@ export default function MenuPage() {
                   {cat.categoryNote && (
                     <p className="mt-3 text-xs text-brand-terracotta font-medium">
                       {cat.categoryNote}
+                    </p>
+                  )}
+                  {categoryIntros[cat.id] && (
+                    <p className="mt-3 text-sm text-[#262626]/70 max-w-xl mx-auto">
+                      {categoryIntros[cat.id]}
                     </p>
                   )}
                 </div>

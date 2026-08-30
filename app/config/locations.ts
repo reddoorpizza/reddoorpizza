@@ -19,20 +19,20 @@ export interface LocationData {
 }
 
 export const locationData: Record<CitySlug, LocationData> = {
-  buninyong: {
+    buninyong: {
     name: "Buninyong",
     heading: "Authentic Wood-Fired Pizza in Buninyong",
     distanceHook: "Located right in the heart of historic Buninyong.",
-    title: "Wood-Fired Pizza Buninyong",
-    description: "Buninyong's premier wood-fired pizzeria. Featuring imported fior di latte, gluten-free options, a dedicated kids corner, and seating for 100 guests.",
+    title: "Wood-Fired Pizza in Buninyong",
+    description: "Buninyong's wood-fired pizzeria. Featuring imported fior di latte, gluten-free options, a dedicated kids corner, and seating for 100 guests.",
     schemaLocality: "Buninyong",
-    bodyCopy: "Join us at 401 Warrenheip St for the ultimate local dining experience. Whether you're craving our signature slow-cooked lamb ragu, a classic Margherita, or our rave-worthy gluten-free pizza bases, every dish is crafted with passion in our traditional wood-fire oven.",
-    premiumHook: "We source our slow-cooked meats right down the road from the Buninyong Butcher and fresh produce from Peaches Fruit Market, perfectly paired with our imported Italian fior di latte cheese and local dessert by il piccolo gelato.",
-    familyEventsCopy: "Looking for the perfect venue? Our relaxed lounge area is ideal for families, featuring a kids corner with a play kitchen, books, and coloring pages. We also host group bookings, work break-ups, and Christmas parties with a maximum capacity of 100 guests.",
+    bodyCopy: "Red Door Pizza is at 401 Warrenheip St, Buninyong — our home since day one. Every pizza is baked in our traditional wood-fire oven using imported Italian fior di latte, slow-cooked meats from the Buninyong Butcher, and fresh produce from Peaches Fruit Market. Whether you're after a classic Margherita, our popular gluten-free bases, or a 10-hour slow-cooked lamb ragu, each dish is made with care in our kitchen.",
+    premiumHook: "We source our slow-cooked meats from the Buninyong Butcher and fresh produce from Peaches Fruit Market, paired with imported Italian fior di latte and locally made il piccolo gelato for dessert.",
+    familyEventsCopy: "Our relaxed lounge area is set up for families — a kids corner with a play kitchen, books, and colouring pages keeps the little ones busy while you enjoy your meal. We also host group bookings, work break-ups, and Christmas parties for up to 100 guests in our festoon-lit beer garden.",
     faqs: [
-      { question: "Is Red Door Pizza in Buninyong family-friendly?", answer: "Yes! We have a dedicated kids corner with a play kitchen and books, plus a great Kids & Teens menu." },
-      { question: "Do you offer gluten-free pizza in Buninyong?", answer: "Absolutely. Our customers rave about our premium gluten-free pizza bases and our gluten-free spaghetti bolognese." },
-      { question: "Can I book a function at Red Door Pizza Buninyong?", answer: "Yes, our venue can accommodate up to 100 guests, making it perfect for Christmas parties, birthdays, and work events." }
+      { question: "Is Red Door Pizza in Buninyong family-friendly?", answer: "Yes. We have a dedicated kids corner with a play kitchen and books, plus a Kids & Teens menu with 10-inch pizzas and chicken nuggets." },
+      { question: "Do you offer gluten-free pizza in Buninyong?", answer: "We do. Our gluten-free pizza bases are popular with customers, and we also serve gluten-free spaghetti bolognese." },
+      { question: "Can I book a function at Red Door Pizza Buninyong?", answer: "Yes. Our venue holds up to 100 guests across indoor and outdoor areas — suitable for Christmas parties, birthdays, and work events. Enquire via our contact page." }
     ]
   },
   ballarat: {
@@ -40,14 +40,14 @@ export const locationData: Record<CitySlug, LocationData> = {
     heading: "Wood-Fired Pizza Near Ballarat",
     distanceHook: "Just a 12-minute scenic drive (11km) from the Ballarat CBD.",
     title: "Wood-Fired Pizza Near Ballarat",
-    description: "Escape the Ballarat CBD. Just a 12-minute drive to Buninyong for authentic fior di latte pizza, gluten-free pastas, and a relaxed, kid-friendly courtyard.",
+    description: "Red Door Pizza in Buninyong — just a 12-minute drive from Ballarat for authentic fior di latte pizza, gluten-free pastas, and a relaxed, kid-friendly courtyard.",
     schemaLocality: "Ballarat",
-    bodyCopy: "Leave the city traffic behind. Red Door Pizza offers a premium dining escape just 11km from Ballarat. Enjoy free parking, a spacious outdoor courtyard, and the finest wood-fired crust in the region, baked to perfection.",
-    premiumHook: "Our commitment to quality means using authentic imported fior di latte, alongside the freshest local ingredients from Peaches Fruit Market and the Buninyong Butcher. Don't forget to try our dessert pizzas or locally made il piccolo gelato.",
-    familyEventsCopy: "Finding a great family restaurant near Ballarat is easy. We offer a dedicated kids play area so parents can relax. Planning a work Christmas party or group event? We can host up to 100 guests in our rustic, festoon-lit venue.",
+    bodyCopy: "Red Door Pizza is in historic Buninyong, 11km from the Ballarat CBD. Free parking, a spacious outdoor courtyard, and a traditional wood-fire oven — a different pace from the city. Our menu features imported fior di latte, slow-cooked meats, gluten-free options, and locally made gelato.",
+    premiumHook: "Our kitchen uses imported Italian fior di latte alongside local produce from Peaches Fruit Market and the Buninyong Butcher. Dessert options include il piccolo gelato, made locally.",
+    familyEventsCopy: "We offer a dedicated kids play area so parents can relax. Planning a work Christmas party or group event? Our venue hosts up to 100 guests across indoor and outdoor spaces with festoon lighting.",
     faqs: [
-      { question: "How far is Red Door Pizza from Ballarat?", answer: "We are just a short 12-minute drive (11km) from the Ballarat CBD, located in historic Buninyong." },
-      { question: "What is the best family-friendly restaurant near Ballarat?", answer: "Red Door Pizza offers a relaxed atmosphere with a dedicated kids corner (featuring a play kitchen) and a specialized kids menu, just minutes from Ballarat." },
+      { question: "How far is Red Door Pizza from Ballarat?", answer: "We are 12 minutes by car (11km) from the Ballarat CBD, located in historic Buninyong." },
+      { question: "Is Red Door Pizza family-friendly?", answer: "We have a dedicated kids corner with a play kitchen and books, plus a Kids & Teens menu with 10-inch pizzas and chicken nuggets." },
       { question: "Where can I buy Red Door Pizza bases in Ballarat?", answer: "Our vacuum-sealed, wood-fired pizza bases are stocked at local IGAs across the Ballarat region, including Beaufort, Creswick, and Elaine Farmgate." }
     ]
   },
@@ -56,15 +56,15 @@ export const locationData: Record<CitySlug, LocationData> = {
     heading: "Wood-Fired Pizza Takeaway & Dine-In Near Meredith",
     distanceHook: "A short, scenic drive straight up the Midland Hwy from Meredith.",
     title: "Pizza Near Meredith",
-    description: "Looking for premium food near Meredith? Drive up to Red Door Pizza in Buninyong for authentic wood-fired pizzas, homemade pastas, and a great family atmosphere.",
+    description: "Red Door Pizza in Buninyong — a short drive from Meredith for authentic wood-fired pizzas, homemade pastas, and a family-friendly atmosphere.",
     schemaLocality: "Meredith",
-    bodyCopy: "Skip the standard takeaway. Red Door Pizza provides a premium culinary destination just a short drive from Meredith. Pre-order your meal via Wowapps for a perfectly timed pickup, or settle into our cozy indoor lounge and outdoor beer garden.",
-    premiumHook: "Taste the difference of true craftsmanship. We use imported Italian fior di latte cheese, locally sourced meats, and offer dietary options including our highly-rated gluten-free pizza bases and vegetarian selections.",
-    familyEventsCopy: "Whether it's a weekend family dinner or a large gathering, our venue is designed for connection. We feature a kids corner to keep the little ones entertained and offer private event bookings for up to 100 guests—ideal for your next celebration.",
+    bodyCopy: "Red Door Pizza is a short drive from Meredith along the Midland Highway. Pre-order via Wowapps for a timed pickup, or sit in our relaxed indoor lounge and outdoor beer garden. Our wood-fired menu features imported fior di latte, slow-cooked meats, gluten-free bases, and locally made gelato.",
+    premiumHook: "We use imported Italian fior di latte cheese alongside locally sourced meats. Our gluten-free pizza bases and vegetarian options are popular choices.",
+    familyEventsCopy: "Our venue has a kids corner for younger guests and accommodates group bookings for up to 100 guests — suitable for family dinners, celebrations, and work events.",
     faqs: [
-      { question: "Where is the best pizza near Meredith?", answer: "Red Door Pizza in Buninyong serves authentic, wood-fired pizza just a short drive north of Meredith along the Midland Highway." },
-      { question: "Can I order takeaway pizza near Meredith?", answer: "Yes, you can pre-order your wood-fired pizzas and homemade pastas via Wowapps for a quick and easy pickup." },
-      { question: "Do you cater for dietary requirements?", answer: "Yes, we have extensive vegetarian options and gluten-free pizza bases that our customers highly recommend." }
+      { question: "Where is the best pizza near Meredith?", answer: "Red Door Pizza in Buninyong serves wood-fired pizza just a short drive north of Meredith along the Midland Highway." },
+      { question: "Can I order takeaway pizza near Meredith?", answer: "Yes. Pre-order via Wowapps for a timed pickup from our Buninyong kitchen." },
+      { question: "Do you cater for dietary requirements?", answer: "We have vegetarian options and gluten-free pizza bases. The gluten-free Spaghetti Bolognese is also available." }
     ]
   }
 };

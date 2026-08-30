@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Wood-Fired Pizza Near Ballarat | Red Door Pizza",
+    title: "Wood-Fired Pizza Near Ballarat",
     description:
       "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte, locally sourced meats, and family-friendly dining.",
     url: "https://www.reddoorpizza.com.au",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wood-Fired Pizza Near Ballarat | Red Door Pizza",
+    title: "Wood-Fired Pizza Near Ballarat",
     description:
       "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte and locally sourced ingredients.",
     images: ["/Banner.jpg"],
@@ -75,9 +75,9 @@ export default function Home() {
               Take Red Door Pizza Home
             </h2>
             <p className="mt-5 text-white/90 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-              Did you know our signature vacuum-sealed, wood-fired pizza bases
-              are stocked at local IGAs across Beaufort, Creswick, and Elaine
-              Farmgate?
+              Our vacuum-sealed, wood-fired pizza bases are pre-cooked in our
+              Buninyong oven and stocked at local IGAs across Beaufort,
+              Creswick, and Elaine Farmgate.
             </p>
             <Link
               href="/stockists"
@@ -94,7 +94,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-10 md:mb-14">
               <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-charcoal tracking-tight">
-                Wood-Fired Pizza Across the Ballarat Region
+                Wood-Fired Pizza in the Ballarat Region
               </h2>
               <p className="mt-3 text-brand-muted text-sm md:text-base max-w-xl mx-auto">
                 Locally sourced, wood-fired, and served with pride — find Red

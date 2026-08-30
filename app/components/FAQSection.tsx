@@ -5,44 +5,40 @@ import { OPENING_HOURS, ADDRESS } from "@/app/config/constants";
 
 const faqs = [
   {
-    question: "Why is Red Door Pizza considered Buninyong's premium wood-fired pizza?",
-    answer: "We focus on uncompromised quality: long-fermentation artisan dough, high-grade Italian mozzarella, imported San Marzano tomato base, and fresh local produce cooked at 400°C in our wood-fired oven. Every pizza delivers an authentic crisp crust and rich flavor that cheap conveyor-belt pizzas cannot match."
+    question: "What makes Red Door Pizza different?",
+    answer: "Our pizzas are cooked in a traditional wood-fire oven at 400°C using long-fermentation artisan dough, imported Italian mozzarella, and San Marzano tomato base. We source slow-cooked meats from the Buninyong Butcher and fresh produce from Peaches Fruit Market."
   },
   {
     question: "Do you have outdoor seating or a beer garden?",
-    answer: "Yes! We feature Buninyong's premier open-air courtyard beer garden complete with cozy festoon lighting, rustic wooden bench tables, and garden planters. It's the perfect setting for relaxed weekend dining under the stars."
+    answer: "Yes. Our outdoor courtyard has festoon lighting, rustic wooden benches, and garden planters. It's open for weekend dining and group events."
   },
   {
-    question: "Is Red Door Pizza family and kid-friendly?",
-    answer: "Absolutely. Our spacious outdoor garden area provides a safe, relaxed, and welcoming environment for families with kids. We also offer dedicated Kids/Teen menu options suited for younger tastes."
+    question: "Is Red Door Pizza family-friendly?",
+    answer: "We have a dedicated kids corner with a play kitchen, books, and colouring pages. Our Kids & Teens menu has 10-inch pizzas and chicken nuggets."
   },
   {
-    question: "What are your trading hours for dine-in and takeaway?",
-    answer: `We are open ${OPENING_HOURS.map((e) => `${e.days} from ${e.hours}`).join(", and ")}. Our outdoor courtyard and indoor seating cater to both dine-in guests and quick takeaway pickups.`
+    question: "What are your opening hours?",
+    answer: `We are open ${OPENING_HOURS.map((e) => `${e.days} ${e.hours}`).join(", ")}. Our courtyard and indoor seating are available for both dine-in and takeaway.`
   },
   {
-    question: "Do you offer lunch specials on weekends?",
-    answer: "Yes! We run our popular $23 All Pizzas Lunch Special every Friday, Saturday, and Sunday from 12:00 PM to 3:00 PM."
+    question: "Do you offer lunch specials?",
+    answer: "Yes. Our $23 All Pizzas Lunch Special runs Friday, Saturday, and Sunday from 12pm to 3pm."
   },
   {
-    question: "How do I order online for pickup or delivery?",
-    answer: "You can easily place your order online directly through our WowApps ordering system by clicking any 'Order Online' button on our website for fast and direct kitchen submission."
+    question: "How do I order online?",
+    answer: "Click any 'Order Online' button on our website to order through WowApps for pickup."
   },
   {
-    question: "Do you offer vegetarian, vegan, or dietary options?",
-    answer: "Yes, we cater to various dietary preferences including popular vegetarian pizzas like our Pumpkin & Beet Pizza and Margherita, as well as customizable toppings upon request."
+    question: "Do you have vegetarian or dietary options?",
+    answer: "We have vegetarian pizzas (Pumpkin & Beet, Margherita, Mushroom, Potato), gluten-free bases, and gluten-free pasta."
   },
   {
-    question: "Can we host private events, birthdays, or group functions?",
-    answer: "Yes! Our unique heritage venue and outdoor garden space make an ideal backdrop for private functions, birthdays, and group gatherings. You can fill out our website Event Inquiry form to check availability."
+    question: "Can we host private events or group functions?",
+    answer: "Yes. Our venue holds up to 100 guests across indoor and outdoor spaces. We host work break-ups, Christmas parties, and private events. Enquire via our contact page."
   },
   {
-    question: "Where are you located in Buninyong?",
-    answer: `We are located at ${ADDRESS.display}, right in the heart of the historic township.`
-  },
-  {
-    question: "Do I need to make a reservation for outdoor dining?",
-    answer: "While walk-ins are always welcome in our courtyard, we recommend booking ahead during peak Friday and Saturday dinner hours to secure your table under the fairy lights."
+    question: "Where are you located?",
+    answer: `${ADDRESS.display}. We are 11km (12 minutes) from the Ballarat CBD.`
   }
 ];
 

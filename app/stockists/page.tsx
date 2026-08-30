@@ -99,7 +99,7 @@ export default function StockistsPage() {
               Enjoy Red Door Pizza at Home
             </h1>
             <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
-              Our signature vacuum-sealed pizzas are pre-cooked in our traditional wood-fire oven in Buninyong, locking in that authentic flavor for you to bake fresh at home.
+              Our vacuum-sealed pizza bases are pre-cooked in our traditional wood-fire oven in Buninyong, then stocked at local supermarkets for you to bake at home.
             </p>
           </div>
         </section>
@@ -135,7 +135,7 @@ export default function StockistsPage() {
             <div className="text-center mb-12">
               <Store className="w-10 h-10 text-brand-terracotta mx-auto mb-4"/>
               <h2 className="font-serif text-3xl font-bold text-brand-charcoal">Where to Buy</h2>
-              <p className="text-[#262626] mt-3">Find our retail range at these fantastic local stockists.</p>
+              <p className="text-[#262626] mt-3">Find our take-home range at these local stockists.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {stockists.map((stockist) => (
@@ -160,9 +160,9 @@ export default function StockistsPage() {
         <section className="py-24 px-6 bg-brand-charcoal text-white text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-serif text-3xl font-bold mb-6">Want to stock Red Door Pizza?</h2>
-            <p className="text-gray-300 leading-relaxed mb-8">
-              We are actively partnering with local supermarkets, delis, and farmgates across the Ballarat and regional Victoria area. Elevate your retail offerings with authentic, locally-made wood-fired pizza.
-            </p>
+              <p className="text-gray-300 leading-relaxed mb-8">
+                We partner with local supermarkets, delis, and farmgates across the Ballarat region and regional Victoria. Stock our vacuum-sealed, wood-fired pizza bases in your store.
+              </p>
             <Link className="inline-flex items-center justify-center gap-2 bg-brand-terracotta hover:bg-brand-terracotta-dark text-white font-semibold py-4 px-8 rounded-xl transition-colors text-sm uppercase tracking-wider shadow-lg shadow-brand-terracotta/20" href="/contact">
               Become a Stockist <ArrowRight className="w-4 h-4"/>
             </Link>

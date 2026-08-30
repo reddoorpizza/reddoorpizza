@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { PHONE_NUMBER_DISPLAY } from "@/app/config/constants";
+import { PHONE_NUMBER_DISPLAY, ADDRESS } from "@/app/config/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -142,8 +142,8 @@ const sections: Section[] = [
     paragraphs: [
       <>
         If you have any questions about this Privacy Policy or how we handle
-        your personal information, please contact us at 401 Warrenheip St,
-        Buninyong VIC 3357, call us on {PHONE_NUMBER_DISPLAY}, or visit our{" "}
+        your personal information, please contact us at {ADDRESS.display}, call
+        us on {PHONE_NUMBER_DISPLAY}, or visit our{" "}
         <Link href="/contact" className="text-[#ac511a] font-medium hover:underline">
           contact page
         </Link>

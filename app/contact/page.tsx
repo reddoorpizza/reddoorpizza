@@ -8,14 +8,14 @@ import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS, ADDRESS } from "
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Red Door Pizza in Buninyong. Call us, find us at 401 Warrenheip St, or send a booking, function, or general enquiry online.",
+    "Get in touch with Red Door Pizza in Buninyong. Call us, visit us at 401 Warrenheip St, or send a booking, function, or general enquiry online.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Us | Red Door Pizza",
     description:
-      "Get in touch with Red Door Pizza in Buninyong. Call us, find us at 401 Warrenheip St, or send a booking, function, or general enquiry online.",
+      "Get in touch with Red Door Pizza in Buninyong. Call us, visit us at 401 Warrenheip St, or send a booking, function, or general enquiry online.",
     url: "https://www.reddoorpizza.com.au/contact",
     siteName: "Red Door Pizza",
     type: "website",

@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 
 const usps = [
   {
-    title: "Local Buninyong Butcher",
+    title: "Local Sourcing",
     description:
-      "Slow-cooked meats sourced right down the road from Buninyong Butcher, and fresh produce from Peaches Fruit Market.",
+      "Slow-cooked meats from the Buninyong Butcher and fresh produce from Peaches Fruit Market, paired with imported Italian fior di latte.",
   },
   {
-    title: "Outdoor Pizza Garden",
+    title: "Indoor & Outdoor Dining",
     description:
-      "Cosy indoor dining, relaxed lounge seating, and a spacious outdoor beer garden with festoon lighting.",
+      "Indoor lounge seating, a relaxed kids area, and a spacious outdoor beer garden with festoon lighting.",
   },
   {
-    title: "Bake-At-Home Pizza Kits",
+    title: "Take-Home Pizza Bases",
     description:
-      "Enjoy our signature wood-fired bases anytime — stocked locally at Buninyong FoodWorks.",
+      "Vacuum-sealed, wood-fired pizza bases — pre-cooked in our Buninyong oven and stocked at local IGAs.",
   },
 ];
 
@@ -49,11 +49,10 @@ export default function USPSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-5xl font-serif text-[#ac511a] text-center tracking-tight mb-3">
-            Why Buninyong Loves Us
+            What Makes Us Different
           </h2>
           <p className="text-sm md:text-base text-[#1A1A1A]/70 text-center max-w-xl mx-auto mb-16 font-sans">
-            More than just pizza — a local community hub built on authentic
-            craft.
+            Local ingredients, traditional methods, and a wood-fire oven — that&apos;s the basis of everything we cook.
           </p>
         </motion.div>
 

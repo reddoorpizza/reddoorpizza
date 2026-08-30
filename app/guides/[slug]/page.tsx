@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `/guides/${normalizedSlug}`,
     },
     openGraph: {
-      title: `${data.title} | Red Door Pizza`,
+      title: data.title,
       description: data.description,
       url: `https://www.reddoorpizza.com.au/guides/${normalizedSlug}`,
       siteName: "Red Door Pizza",
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${data.title} | Red Door Pizza`,
+      title: data.title,
       description: data.description,
       images: ["/Banner.jpg"],
     },

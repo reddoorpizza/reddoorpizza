@@ -88,11 +88,10 @@ export default function ContactSection() {
         >
           <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-[#ac511a]/10 w-full">
             <h3 className="text-2xl font-serif text-[#18181B] font-bold mb-3">
-              Order Pickup or Delivery
+              Order Online for Pickup
             </h3>
             <p className="text-sm text-[#262626]/70 leading-relaxed mb-6">
-              Enjoy our authentic wood-fired pizzas at home via our official
-              online ordering system.
+              Order through WowApps for a timed pickup from our Buninyong kitchen.
             </p>
             <a
               href={WOWAPPS_ORDER_URL}

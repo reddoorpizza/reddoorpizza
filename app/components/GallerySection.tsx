@@ -1,9 +1,17 @@
 import Image from "next/image";
 
-const galleryImages = Array.from({ length: 10 }, (_, i) => ({
-  src: `/Gallery/img-${i + 1}.webp`,
-  alt: `Red Door Pizza gallery image ${i + 1}`,
-}));
+const galleryImages = [
+  { src: "/Gallery/img-1.webp", alt: "Wood-fired pizza coming out of the oven at Red Door Pizza" },
+  { src: "/Gallery/img-2.webp", alt: "Outdoor courtyard dining area with festoon lighting" },
+  { src: "/Gallery/img-3.webp", alt: "Wood-fired pizza with fresh toppings" },
+  { src: "/Gallery/img-4.webp", alt: "Interior dining area at Red Door Pizza Buninyong" },
+  { src: "/Gallery/img-5.webp", alt: "Fresh pasta being prepared" },
+  { src: "/Gallery/img-6.webp", alt: "Kids corner play area" },
+  { src: "/Gallery/img-7.webp", alt: "Il piccolo gelato dessert" },
+  { src: "/Gallery/img-8.webp", alt: "Group dining in the beer garden" },
+  { src: "/Gallery/img-9.webp", alt: "Take-home vacuum-sealed pizza bases" },
+  { src: "/Gallery/img-10.webp", alt: "Red Door Pizza storefront in Buninyong" },
+];
 
 export default function GallerySection() {
   return (
@@ -15,7 +23,7 @@ export default function GallerySection() {
             Life at Red Door Pizza
           </h2>
           <p className="text-gray-600 text-sm max-w-xl mx-auto">
-            Wood-fired craft, heritage vibes, and moments shared in Buninyong.
+            Wood-fired craft, local ingredients, and our heritage venue in historic Buninyong.
           </p>
         </div>
 

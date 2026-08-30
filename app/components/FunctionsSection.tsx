@@ -35,9 +35,9 @@ export default function FunctionsSection() {
 
           {/* Description */}
           <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-            From work break-ups and Christmas parties to group bookings and
-            private celebrations — our rustic venue and dedicated team will
-            make your occasion unforgettable. Group bookings may be available
+            Work break-ups, Christmas parties, group bookings, and private
+            celebrations in our rustic venue. Wood-fired catering, festoon-lit
+            beer garden, and indoor lounge. Group bookings may be available
             outside normal opening hours by enquiry.
           </p>
 

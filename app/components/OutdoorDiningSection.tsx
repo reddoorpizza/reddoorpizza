@@ -17,7 +17,7 @@ export default function OutdoorDiningSection() {
               Dine Under the Stars in Our Rustic Beer Garden
             </h2>
             <p className="text-gray-300 text-base leading-relaxed">
-              Experience Buninyong&apos;s premier outdoor dining venue. Enjoy hot, wood-fired pizzas under warm festoon lighting in our spacious, family-friendly outdoor courtyard. Perfect for weekend gatherings, relaxed family dinners, and warm evening drinks.
+              Our spacious outdoor courtyard in Buninyong is set under warm festoon lighting with rustic wooden benches. Wood-fired pizzas, relaxed family dinners, and weekend gatherings — all in a family-friendly beer garden setting.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-2">
