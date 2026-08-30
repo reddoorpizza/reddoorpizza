@@ -72,3 +72,9 @@ export function trackStockistClick() {
     page_path: window.location.pathname,
   });
 }
+
+export function trackContactSubmission() {
+  trackEvent("contact_submission", {
+    page_path: window.location.pathname,
+  });
+}

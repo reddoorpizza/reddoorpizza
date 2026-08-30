@@ -1,0 +1,507 @@
+You are implementing a targeted P0/P1 remediation for the Red Door Pizza website.
+
+IMPORTANT:
+This is a focused corrective implementation.
+
+Do NOT perform a general SEO rewrite.
+Do NOT make unrelated SEO changes.
+Do NOT redesign the website.
+Do NOT change the URL architecture.
+Do NOT change metadata, sitemap, robots, structured data, analytics architecture or WowApps unless directly required by the tasks below.
+Preserve the current design system, Tailwind styling, responsive behaviour and animations.
+
+Before modifying anything:
+
+1. Inspect the existing relevant components.
+2. Inspect the current form implementation.
+3. Inspect the current footer.
+4. Inspect the existing testimonials component.
+5. Inspect the current contact/enquiry flow.
+6. Verify existing analytics functions.
+7. Make a concise implementation plan.
+
+==================================================
+TASK 1 — REPLACE UNSOURCED / FABRICATED TESTIMONIALS
+====================================================
+
+The existing testimonial section must not present invented customer reviews as authentic testimonials.
+
+Replace the current fabricated testimonials with the following three genuine Google reviews supplied by the business owner.
+
+IMPORTANT:
+
+* Preserve the review wording exactly as supplied below, except for harmless whitespace/formatting changes.
+* Do not paraphrase.
+* Do not "improve" grammar.
+* Do not change meaning.
+* Do not invent a star rating unless the actual Google review rating is explicitly known.
+* Do not add a rating icon such as "5★" unless verified from the actual source.
+* Attribute each review to the real reviewer name.
+* Link the reviewer's name to the supplied Google Maps contribution URL.
+* Open external review links in a new tab.
+* Use rel="noopener noreferrer".
+* Make the external nature of the link accessible.
+
+REVIEW 1
+
+Reviewer:
+Rhiannon
+
+Google contribution:
+https://www.google.com/maps/contrib/115102488511871542521/reviews?hl=en-GB
+
+Review:
+"A lovely Pizza restaurant.love the atmosphere and Country style. I door and outdoor eating. Wood fire Pizza.......oh my gosh.....in the Winter a wood fire...so cosy and warm.
+Staff very friendly and accommodating. Great to relax on your own as a couple, date or family.
+Check out the lunch time special.
+Can't wait to come back."
+
+REVIEW 2
+
+Reviewer:
+Purple Rainbow
+
+Google contribution:
+https://www.google.com/maps/contrib/103933397812927027234/reviews?hl=en-GB
+
+Review:
+"Feel like pizza, a short drive from Ballarat to Buninyong is Red Door PIZZA. Friendly staff and a menu with good variety of food.
+We chose the beef and mushroom along with the Inferno pizza. Both the pizzas where delicious.
+They had music playing in the background and the indoor fireplace going, nice setting for a lazy Sunday arvo lunch.
+Also a great selection of gelato ice-cream for dessert 🍨"
+
+REVIEW 3
+
+Reviewer:
+Isaac Stolk
+
+Google contribution:
+https://www.google.com/maps/contrib/110103370271408804227/reviews?hl=en-GB
+
+Review:
+"Fantastic evening.
+Cheers to the crew and a great setup.
+They have a family friendly space, and with a reservation, a pool table for a fun night out.
+Not to mention a great range of delicious Pizza 🍕.
+I would definitely recommend."
+
+==================================================
+GOOGLE BUSINESS PROFILE REFERENCE
+=================================
+
+The business owner states:
+
+Google Business Profile:
+4.6 rating
+276 reviews
+
+IMPORTANT:
+Do NOT invent or hard-code these values into Review/aggregateRating schema unless they are independently verified or supplied as an approved current source for implementation.
+
+For this task, the primary requirement is to replace fabricated testimonials with the three genuine reviews.
+
+Create an unobtrusive "Read more reviews on Google" link if the existing design has a suitable place for it.
+
+If the existing site already has a canonical Google Business Profile URL, use that.
+
+Otherwise, use the supplied Google reviewer links only for the individual testimonials.
+
+Do not fabricate a Google Business Profile URL.
+
+==================================================
+REVIEW SECTION SEMANTICS
+========================
+
+Clearly label the section as something such as:
+
+"What Our Guests Say"
+
+Do not describe the reviews as:
+
+* "verified 5-star reviews"
+* "Google's best reviews"
+* "276 verified reviews"
+
+unless actually verified and explicitly supported.
+
+Do not mark up the reviews with Review/AggregateRating schema in this task.
+
+The purpose of this task is trust and truthful attribution.
+
+==================================================
+TASK 2 — FUNCTIONS FORM
+=======================
+
+The audit identified that the FunctionsSection form currently has no functional onSubmit behaviour.
+
+Inspect:
+
+FunctionsSection.tsx
+
+The form must no longer silently do nothing when the user clicks Submit.
+
+Use the existing project architecture and contact flow.
+
+Business requirement:
+
+Function enquiries should be sent to:
+
+[info@reddoorpizza.com.au](mailto:info@reddoorpizza.com.au)
+
+IMPORTANT:
+Do not use:
+info@https://reddoorpizza.com.au/
+
+That is invalid email syntax.
+
+Use:
+[info@reddoorpizza.com.au](mailto:info@reddoorpizza.com.au)
+
+==================================================
+FORM IMPLEMENTATION
+===================
+
+First inspect whether the project already has:
+
+* server actions
+* API routes
+* form action
+* email provider
+* webhook
+* transactional email service
+* existing environment variables related to email
+
+Prefer an existing project-supported solution.
+
+If an existing email infrastructure exists:
+
+* integrate with it safely.
+
+If no email infrastructure exists:
+DO NOT invent a fake backend implementation.
+DO NOT pretend an email was sent when no mail service exists.
+
+Instead implement the safest production-ready architecture supported by the current repository and clearly document any external credential/service configuration still required.
+
+Potential implementation options, in priority order:
+
+1. Existing server-side email infrastructure.
+2. Next.js server action/API route + configured email provider.
+3. A clearly documented external form/email integration if already used by the project.
+
+Do NOT send the form directly from the browser using exposed SMTP credentials.
+
+==================================================
+FUNCTION FORM FIELDS
+====================
+
+Preserve the existing fields where possible:
+
+* Name
+* Email
+* Phone
+* Event Type
+* Guest count
+* Message
+
+Validate:
+
+* required fields
+* valid email format
+* sensible guest count
+* message length
+
+Do not collect unnecessary personal information.
+
+==================================================
+SUCCESS / ERROR UX
+==================
+
+After a successful submission:
+
+Show a clear success state.
+
+Example concept:
+
+"Thanks — your enquiry has been sent. We'll be in touch."
+
+Do not claim:
+"Email sent"
+unless the server actually confirms successful delivery/submission.
+
+On error:
+
+Show a clear user-friendly message.
+
+Preserve all existing styling and responsive behaviour.
+
+Prevent duplicate submissions while a request is processing.
+
+Provide loading state on the submit button.
+
+==================================================
+ANALYTICS
+=========
+
+The site already has group_enquiry_click tracking.
+
+Do not remove it.
+
+When the form is actually successfully submitted through a backend/server action, implement:
+
+contact_submission
+
+only if the existing analytics architecture supports it.
+
+Do NOT fire contact_submission merely when the user clicks Submit.
+
+The event should represent a genuine successful submission response.
+
+Do not include:
+
+* name
+* email
+* phone
+* message
+* other PII
+
+as analytics parameters.
+
+==================================================
+TASK 3 — EXISTING CONTACT FORM
+==============================
+
+Inspect the existing /contact EnquiryForm.
+
+The current project may use an SMS deep-link.
+
+Do not automatically remove the SMS option if it is a deliberate fallback.
+
+Instead:
+
+1. Determine whether the new email workflow can be used here as well.
+2. Avoid creating two completely different enquiry systems without good reason.
+3. Prefer a consistent production enquiry mechanism for:
+
+   * general enquiries
+   * booking enquiries
+   * group/function enquiries
+
+If the business wants email as the primary destination, configure the site accordingly.
+
+Do not claim a successful submission if the system only opens the user's SMS application.
+
+==================================================
+TASK 4 — REVIEW FOOTER WINE / COCKTAIL CLAIM
+============================================
+
+The current footer contains wording similar to:
+
+"Quality handcrafted wood-fired pizza, local wines, cocktails & fresh desserts..."
+
+DO NOT automatically assume this is accurate.
+
+Inspect the current actual drinks menu/data in the repository.
+
+Determine whether the business currently offers:
+
+* wine
+* cocktails
+* both
+* neither
+* some other drinks
+
+The business owner has specifically stated that they do not really offer drinks packages.
+
+That does NOT necessarily mean wine/cocktails are not sold individually.
+
+Therefore:
+
+A. If the current menu clearly confirms wine/cocktails:
+Keep accurate wording, but remove any implication of "drinks packages" unless explicitly offered.
+
+B. If the current menu does not confirm wine/cocktails:
+Remove those unsupported claims from the footer.
+
+C. If the source is ambiguous:
+Do not invent.
+Replace the footer wording with a safe, verified food-focused statement.
+
+Prefer wording centered around:
+
+* wood-fired pizza
+* fresh/local ingredients
+* pasta
+* desserts
+* family-friendly dining
+
+Do not add "bar", "cocktail bar", "full bar", "beverage packages" or similar unsupported language.
+
+==================================================
+TASK 5 — BUSINESS FACT CHECK
+============================
+
+After implementation, search the entire codebase for:
+
+"live music"
+"weekend live music"
+"120"
+"30–120"
+"drinks package"
+"drink package"
+"beverage package"
+"full bar"
+"high-speed takeaway"
+
+These should remain absent from customer-visible content unless independently supported.
+
+Also search for:
+"local wines"
+"cocktails"
+
+and report their remaining locations.
+
+==================================================
+TASK 6 — TRUST / REVIEW SOURCE DOCUMENTATION
+============================================
+
+Add a small developer note if the project has an appropriate documentation location.
+
+Document that the testimonial section uses genuine Google reviews supplied by the business owner.
+
+Include:
+
+* reviewer
+* Google contribution URL
+* date supplied by owner if known
+
+Do not create fake review dates.
+
+==================================================
+TASK 7 — ACCESSIBILITY
+======================
+
+While touching the testimonial and form components:
+
+Review:
+
+* semantic headings
+* form labels
+* aria attributes
+* keyboard interaction
+* visible focus
+* external-link accessibility
+
+Specifically ensure all form fields have actual <label> elements associated with inputs.
+
+Do not rely only on placeholders.
+
+Make external Google review links understandable to screen readers.
+
+==================================================
+TASK 8 — VALIDATION
+===================
+
+Run:
+
+npm run lint
+npm run build
+
+If a typecheck command exists, run it.
+
+Then verify:
+
+1. Homepage loads.
+2. Testimonials display the three genuine reviews.
+3. Reviewer names link to their supplied Google contribution pages.
+4. Links open safely in a new tab.
+5. Functions form can actually submit.
+6. Form validation works.
+7. Success/error states work.
+8. Email destination is [info@reddoorpizza.com.au](mailto:info@reddoorpizza.com.au).
+9. No PII is sent to analytics.
+10. Existing WowApps links remain unchanged.
+11. Existing booking/order CTAs remain functional.
+12. Footer drinks wording is factually supported.
+13. No outdated client claims remain.
+
+==================================================
+IMPORTANT — DO NOT DO
+=====================
+
+Do NOT:
+
+* add Review schema
+* add AggregateRating schema
+* add BreadcrumbList
+* add SearchAction
+* add speakable schema
+* create new location pages
+* create new menu pages
+* alter URL structure
+* redesign the homepage
+* change WowApps destination
+* fabricate Google Business Profile information
+* fabricate email delivery
+* expose email service credentials
+* install unnecessary packages
+
+==================================================
+FINAL REPORT
+============
+
+Return:
+
+# P0/P1 REMEDIATION COMPLETED
+
+## 1. Files changed
+
+## 2. Genuine reviews implemented
+
+For each:
+
+* reviewer
+* Google link
+* wording preserved
+
+## 3. Functions form
+
+Explain:
+
+* submission architecture
+* destination
+* validation
+* success state
+* error state
+
+## 4. Contact form
+
+Explain whether and how it was changed.
+
+## 5. Footer drinks verification
+
+State exactly what the current menu supports and what wording was retained/removed.
+
+## 6. Accessibility improvements
+
+## 7. Analytics changes
+
+## 8. Outdated content search
+
+Report remaining matches.
+
+## 9. Tests performed
+
+## 10. External configuration required
+
+For example:
+
+* email provider credentials
+* DNS/email setup
+* GA4 verification
+
+Do not claim external services are active unless verified.
+
+## 11. Issues requiring the next step
+
+Do not perform unrelated SEO work automatically.

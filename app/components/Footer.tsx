@@ -33,8 +33,8 @@ export default function Footer() {
             />
           </Link>
           <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
-            Quality handcrafted wood-fired pizza, local wines, cocktails &
-            fresh desserts in historic Buninyong.
+            Quality handcrafted wood-fired pizza, fresh pasta, locally made
+            gelato &amp; family-friendly dining in historic Buninyong.
           </p>
         </div>
 
