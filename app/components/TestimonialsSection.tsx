@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
                     <Star className="w-4 h-4 fill-current" key={i}/>
                   ))}
                 </div>
-                <p className="text-gray-700 text-sm italic leading-relaxed">"{rev.text}"</p>
+                <p className="text-gray-700 text-sm italic leading-relaxed">&ldquo;{rev.text}&rdquo;</p>
               </div>
               <div className="mt-6 border-t border-gray-200/80 pt-3">
                 <p className="font-semibold text-[#18181B] text-sm">{rev.name}</p>

@@ -13,7 +13,7 @@ export interface GuideData {
 
 export const guidesData: Record<GuideSlug, GuideData> = {
   "family-friendly-pizza-ballarat": {
-    title: "Family Friendly Pizza near Ballarat | Kids Corner | Red Door Pizza",
+    title: "Family-Friendly Pizza Near Ballarat",
     description: "Looking for a kid-friendly restaurant near Ballarat? Red Door Pizza features a dedicated kids corner, a specialized menu, and a spacious outdoor courtyard.",
     heading: "The Ultimate Family-Friendly Pizza Experience Near Ballarat",
     subheading: "Enjoy a relaxed dinner while the kids play, just a 12-minute drive from the Ballarat CBD.",
@@ -40,7 +40,7 @@ export const guidesData: Record<GuideSlug, GuideData> = {
     ]
   },
   "work-christmas-party-venues-buninyong": {
-    title: "Work Christmas Party Venues Buninyong & Ballarat | Red Door Pizza",
+    title: "Group & Christmas Functions Near Ballarat",
     description: "Book your work break-up or Christmas party at Red Door Pizza. Capacity for 100 guests, custom packages, and a festive beer garden just outside Ballarat.",
     heading: "Host Your Work Christmas Party or Private Event",
     subheading: "A premium, rustic venue in Buninyong with capacity for up to 100 guests.",
@@ -67,7 +67,7 @@ export const guidesData: Record<GuideSlug, GuideData> = {
     ]
   },
   "gluten-free-pizza-ballarat": {
-    title: "Best Gluten-Free Pizza & Pasta near Ballarat | Red Door Pizza",
+    title: "Gluten-Free Pizza Near Ballarat",
     description: "Discover the best gluten-free pizza bases and GF spaghetti bolognese near Ballarat. Safe, delicious, and made with authentic Italian ingredients.",
     heading: "Premium Gluten-Free Pizza and Pasta Near Ballarat",
     subheading: "Dietary needs shouldn't mean compromising on taste or quality.",

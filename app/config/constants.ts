@@ -8,3 +8,22 @@ export const OPENING_HOURS = [
   { days: "Monday – Thursday", hours: "5:00 PM – 9:00 PM" },
   { days: "Friday – Sunday", hours: "12:00 PM – 9:00 PM" },
 ];
+
+export const OPENING_HOURS_SHORT = [
+  { days: "Mon–Thu", hours: "5pm–9pm" },
+  { days: "Fri–Sun", hours: "12pm–9pm" },
+];
+
+export const ADDRESS = {
+  street: "401 Warrenheip St",
+  locality: "Buninyong",
+  region: "VIC",
+  postcode: "3357",
+  country: "AU",
+  display: "401 Warrenheip St, Buninyong VIC 3357, Australia",
+  mapsUrl: "https://maps.google.com/?q=401+Warrenheip+St+Buninyong+VIC+3357",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=401+Warrenheip+St+Buninyong+VIC+3357&output=embed",
+};
+
+export const VENUE_CAPACITY = 100;

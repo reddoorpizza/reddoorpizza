@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, HelpCircle } from "lucide-react";
+import { ArrowRight, HelpCircle, MapPin } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { guideSlugs, guidesData, type GuideSlug } from "@/app/config/guides";
+import { locationData, type CitySlug } from "@/app/config/locations";
 
 export function generateStaticParams(): { slug: string }[] {
   return guideSlugs.map((slug) => ({
@@ -28,6 +29,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: data.description,
     alternates: {
       canonical: `/guides/${normalizedSlug}`,
+    },
+    openGraph: {
+      title: `${data.title} | Red Door Pizza`,
+      description: data.description,
+      url: `https://www.reddoorpizza.com.au/guides/${normalizedSlug}`,
+      siteName: "Red Door Pizza",
+      type: "article",
+      locale: "en_AU",
+      images: [
+        {
+          url: "/Banner.jpg",
+          width: 1200,
+          height: 630,
+          alt: `Red Door Pizza — ${data.heading}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${data.title} | Red Door Pizza`,
+      description: data.description,
+      images: ["/Banner.jpg"],
     },
   };
 }
@@ -73,6 +96,13 @@ export default async function GuidePage({ params }: Props) {
   };
 
   const isExternalCTA = data.ctaLink.startsWith("http");
+
+  const guideLocationMap: Partial<Record<GuideSlug, CitySlug>> = {
+    "family-friendly-pizza-ballarat": "ballarat",
+    "work-christmas-party-venues-buninyong": "buninyong",
+    "gluten-free-pizza-ballarat": "ballarat",
+  };
+  const relatedCity = guideLocationMap[normalizedSlug];
 
   return (
     <>
@@ -138,6 +168,29 @@ export default async function GuidePage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* Related Location */}
+        {relatedCity && (
+          <section className="max-w-3xl mx-auto px-6 mt-8">
+            <Link
+              href={`/locations/${relatedCity}`}
+              className="flex items-center gap-3 bg-white p-5 rounded-xl border border-brand-terracotta/10 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <div className="w-10 h-10 bg-brand-terracotta/10 rounded-full flex items-center justify-center shrink-0">
+                <MapPin className="w-5 h-5 text-brand-terracotta" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-brand-muted uppercase tracking-wider font-semibold">
+                  Visit us at
+                </p>
+                <p className="font-serif font-bold text-brand-charcoal group-hover:text-brand-terracotta transition-colors">
+                  {locationData[relatedCity].name}
+                </p>
+              </div>
+              <ArrowRight className="w-4 h-4 text-brand-muted group-hover:text-brand-terracotta transition-colors" />
+            </Link>
+          </section>
+        )}
 
         {/* FAQ Section */}
         <section className="max-w-3xl mx-auto px-6 mt-8">

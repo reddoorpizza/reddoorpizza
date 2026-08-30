@@ -14,6 +14,40 @@ import MobileStickyNav from "./components/MobileStickyNav";
 import FloatingOrderButton from "./components/FloatingOrderButton";
 import Link from "next/link";
 import { MapPin, Store, ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Wood-Fired Pizza Near Ballarat | Red Door Pizza",
+  description:
+    "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte, locally sourced meats, gluten-free options, and a family-friendly venue with kids corner.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Wood-Fired Pizza Near Ballarat | Red Door Pizza",
+    description:
+      "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte, locally sourced meats, and family-friendly dining.",
+    url: "https://www.reddoorpizza.com.au",
+    siteName: "Red Door Pizza",
+    type: "website",
+    locale: "en_AU",
+    images: [
+      {
+        url: "/Banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Red Door Pizza — Wood-Fired Pizza in Buninyong",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wood-Fired Pizza Near Ballarat | Red Door Pizza",
+    description:
+      "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte and locally sourced ingredients.",
+    images: ["/Banner.jpg"],
+  },
+};
 
 export default function Home() {
   return (

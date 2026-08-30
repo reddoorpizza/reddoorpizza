@@ -5,9 +5,21 @@ import Footer from "@/app/components/Footer";
 import { PHONE_NUMBER_DISPLAY } from "@/app/config/constants";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Red Door Pizza Buninyong",
+  title: "Privacy Policy",
   description:
     "How Red Door Pizza collects, uses, and protects your personal information when you use our website, order online, or contact us.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Red Door Pizza",
+    description:
+      "How Red Door Pizza collects, uses, and protects your personal information when you use our website, order online, or contact us.",
+    url: "https://www.reddoorpizza.com.au/privacy",
+    siteName: "Red Door Pizza",
+    type: "website",
+    locale: "en_AU",
+  },
 };
 
 type Section = {

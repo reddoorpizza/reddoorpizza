@@ -11,7 +11,7 @@ const usps = [
   {
     title: "Outdoor Pizza Garden",
     description:
-      "Cosy indoor dining, relaxed lounge seating, outdoor garden, and weekend live music sessions.",
+      "Cosy indoor dining, relaxed lounge seating, and a spacious outdoor beer garden with festoon lighting.",
   },
   {
     title: "Bake-At-Home Pizza Kits",

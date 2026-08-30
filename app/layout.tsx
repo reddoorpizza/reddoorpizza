@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { PHONE_NUMBER_TEL } from "@/app/config/constants";
+import { PHONE_NUMBER_TEL, ADDRESS } from "@/app/config/constants";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,9 +16,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Red Door Pizza | Wood-Fired Pizza in Buninyong, VIC",
+  metadataBase: new URL("https://www.reddoorpizza.com.au"),
+  title: {
+    default: "Red Door Pizza | Wood-Fired Pizza in Buninyong, VIC",
+    template: "%s | Red Door Pizza",
+  },
   description:
-    "Top-rated wood-fired pizzeria in Buninyong, Australia. Locally sourced meats, fresh Italian ingredients, and warm rustic dining. Rated 4.6 stars.",
+    "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte, locally sourced ingredients, gluten-free options, and family-friendly dining.",
   keywords: [
     "pizza",
     "buninyong",
@@ -37,6 +41,30 @@ export const metadata: Metadata = {
       { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
     ],
   },
+  openGraph: {
+    siteName: "Red Door Pizza",
+    locale: "en_AU",
+    type: "website",
+    title: "Red Door Pizza | Wood-Fired Pizza in Buninyong",
+    description:
+      "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte, locally sourced ingredients, and family-friendly dining.",
+    url: "https://www.reddoorpizza.com.au",
+    images: [
+      {
+        url: "/Banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Red Door Pizza — Wood-Fired Pizza in Buninyong",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Red Door Pizza | Wood-Fired Pizza in Buninyong",
+    description:
+      "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat. Imported fior di latte and locally sourced ingredients.",
+    images: ["/Banner.jpg"],
+  },
 };
 
 const jsonLd = {
@@ -46,18 +74,18 @@ const jsonLd = {
   image: "https://www.reddoorpizza.com.au/logo.png",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "401 Warrenheip St",
-    addressLocality: "Buninyong",
-    addressRegion: "VIC",
-    postalCode: "3357",
-    addressCountry: "AU",
+    streetAddress: ADDRESS.street,
+    addressLocality: ADDRESS.locality,
+    addressRegion: ADDRESS.region,
+    postalCode: ADDRESS.postcode,
+    addressCountry: ADDRESS.country,
   },
   geo: {
     "@type": "GeoCoordinates",
     latitude: -37.6534,
     longitude: 143.8821,
   },
-  telephone: "0353418235",
+  telephone: PHONE_NUMBER_TEL.replace("tel:", ""),
   priceRange: "$$",
   servesCuisine: ["Pizza", "Italian"],
   url: "https://www.reddoorpizza.com.au",

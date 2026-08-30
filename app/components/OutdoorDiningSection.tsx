@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ADDRESS, OPENING_HOURS_SHORT } from "@/app/config/constants";
 
 export default function OutdoorDiningSection() {
   return (
@@ -44,7 +45,7 @@ export default function OutdoorDiningSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
             <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 text-xs text-gray-200">
-              📍 401 Warrenheip St Courtyard — Mon–Thu 5–9 PM · Fri–Sun 12–9 PM
+              📍 {ADDRESS.street} Courtyard — {OPENING_HOURS_SHORT.map((e) => `${e.days} ${e.hours}`).join(" · ")}
             </div>
           </div>
 

@@ -3,19 +3,40 @@ import { Phone, MapPin, Clock } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import EnquiryForm from "./EnquiryForm";
-import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS } from "@/app/config/constants";
+import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS, ADDRESS } from "@/app/config/constants";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Red Door Pizza Buninyong",
+  title: "Contact Us",
   description:
     "Get in touch with Red Door Pizza in Buninyong. Call us, find us at 401 Warrenheip St, or send a booking, function, or general enquiry online.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Us | Red Door Pizza",
+    description:
+      "Get in touch with Red Door Pizza in Buninyong. Call us, find us at 401 Warrenheip St, or send a booking, function, or general enquiry online.",
+    url: "https://www.reddoorpizza.com.au/contact",
+    siteName: "Red Door Pizza",
+    type: "website",
+    locale: "en_AU",
+    images: [
+      {
+        url: "/Banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Red Door Pizza — Contact Us",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | Red Door Pizza",
+    description:
+      "Get in touch with Red Door Pizza in Buninyong. Call, visit, or send an enquiry online.",
+    images: ["/Banner.jpg"],
+  },
 };
-
-const MAPS_URL =
-  "https://maps.google.com/?q=401+Warrenheip+St+Buninyong+VIC+3357";
-
-const MAPS_EMBED_URL =
-  "https://www.google.com/maps?q=401+Warrenheip+St+Buninyong+VIC+3357&output=embed";
 
 const infoCards = [
   {
@@ -28,8 +49,8 @@ const infoCards = [
   {
     icon: MapPin,
     label: "Visit Us",
-    lines: ["401 Warrenheip St", "Buninyong VIC 3357, Australia"],
-    href: MAPS_URL,
+    lines: [ADDRESS.street, `Buninyong VIC ${ADDRESS.postcode}, Australia`],
+    href: ADDRESS.mapsUrl,
     external: true,
   },
   {
@@ -156,7 +177,7 @@ export default function ContactPage() {
 
         <section className="border-t border-gray-200/80">
           <iframe
-            src={MAPS_EMBED_URL}
+            src={ADDRESS.mapsEmbedUrl}
             title="Red Door Pizza location map — 401 Warrenheip St, Buninyong VIC 3357"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

@@ -5,11 +5,35 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Wood-Fired Pizza Stockists | Beaufort, Creswick & Elaine | Red Door Pizza",
+  title: "Stockists | Ballarat Region",
   description:
     "Take home our authentic, vacuum-sealed wood-fired pizzas. Pre-cooked in our Buninyong oven and stocked at local IGAs in Beaufort, Creswick, and Elaine Farmgate.",
   alternates: {
     canonical: "/stockists",
+  },
+  openGraph: {
+    title: "Stockists | Ballarat Region | Red Door Pizza",
+    description:
+      "Take home our authentic, vacuum-sealed wood-fired pizzas. Pre-cooked in our Buninyong oven and stocked at local IGAs in Beaufort, Creswick, and Elaine Farmgate.",
+    url: "https://www.reddoorpizza.com.au/stockists",
+    siteName: "Red Door Pizza",
+    type: "website",
+    locale: "en_AU",
+    images: [
+      {
+        url: "/Banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Red Door Pizza — Take Home Pizza Range",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stockists | Ballarat Region | Red Door Pizza",
+    description:
+      "Take home our authentic, vacuum-sealed wood-fired pizzas. Pre-cooked in our Buninyong oven and stocked at local IGAs.",
+    images: ["/Banner.jpg"],
   },
 };
 

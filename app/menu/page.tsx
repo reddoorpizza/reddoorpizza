@@ -5,11 +5,35 @@ import Footer from "@/app/components/Footer";
 import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
 
 export const metadata: Metadata = {
-  title: "Wood-Fired Pizza & Italian Menu | Red Door Pizza Buninyong",
+  title: "Wood-Fired Pizza & Italian Menu",
   description:
     "Explore our authentic menu featuring imported fior di latte wood-fired pizzas, homemade pastas, gluten-free options, and local gelato in Buninyong.",
   alternates: {
     canonical: "/menu",
+  },
+  openGraph: {
+    title: "Wood-Fired Pizza & Italian Menu | Red Door Pizza",
+    description:
+      "Explore our authentic menu featuring imported fior di latte wood-fired pizzas, homemade pastas, gluten-free options, and local gelato in Buninyong.",
+    url: "https://www.reddoorpizza.com.au/menu",
+    siteName: "Red Door Pizza",
+    type: "website",
+    locale: "en_AU",
+    images: [
+      {
+        url: "/Banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Red Door Pizza — Wood-Fired Pizza & Italian Menu",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wood-Fired Pizza & Italian Menu | Red Door Pizza",
+    description:
+      "Explore our authentic menu featuring wood-fired pizzas, homemade pastas, gluten-free options, and local gelato.",
+    images: ["/Banner.jpg"],
   },
 };
 

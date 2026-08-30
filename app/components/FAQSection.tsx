@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { OPENING_HOURS, ADDRESS } from "@/app/config/constants";
 
 const faqs = [
   {
@@ -17,7 +18,7 @@ const faqs = [
   },
   {
     question: "What are your trading hours for dine-in and takeaway?",
-    answer: "We are open Monday to Thursday from 5:00 PM to 9:00 PM, and Friday to Sunday from 12:00 PM to 9:00 PM. Our outdoor courtyard and indoor seating cater to both dine-in guests and quick takeaway pickups."
+    answer: `We are open ${OPENING_HOURS.map((e) => `${e.days} from ${e.hours}`).join(", and ")}. Our outdoor courtyard and indoor seating cater to both dine-in guests and quick takeaway pickups.`
   },
   {
     question: "Do you offer lunch specials on weekends?",
@@ -37,7 +38,7 @@ const faqs = [
   },
   {
     question: "Where are you located in Buninyong?",
-    answer: "We are located at 401 Warrenheip St, Buninyong VIC 3357, right in the heart of the historic township."
+    answer: `We are located at ${ADDRESS.display}, right in the heart of the historic township.`
   },
   {
     question: "Do I need to make a reservation for outdoor dining?",

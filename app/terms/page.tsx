@@ -5,9 +5,21 @@ import Footer from "@/app/components/Footer";
 import { PHONE_NUMBER_DISPLAY } from "@/app/config/constants";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Red Door Pizza Buninyong",
+  title: "Terms & Conditions",
   description:
     "Terms and conditions for using the Red Door Pizza website, ordering online, and dining at our Buninyong wood-fired pizzeria.",
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms & Conditions | Red Door Pizza",
+    description:
+      "Terms and conditions for using the Red Door Pizza website, ordering online, and dining at our Buninyong wood-fired pizzeria.",
+    url: "https://www.reddoorpizza.com.au/terms",
+    siteName: "Red Door Pizza",
+    type: "website",
+    locale: "en_AU",
+  },
 };
 
 type Section = {

@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Flame, Trees, PartyPopper, Zap } from "lucide-react";
+import { MapPin, Phone, Clock, Flame, Trees, PartyPopper, ShoppingBag } from "lucide-react";
 import { WOWAPPS_ORDER_URL, PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS } from "@/app/config/constants";
 
 const features = [
   { icon: Flame, label: "Fireplace Dining" },
   { icon: Trees, label: "Alfresco Beer Garden" },
   { icon: PartyPopper, label: "Private Functions" },
-  { icon: Zap, label: "High-Speed Takeaway" },
+  { icon: ShoppingBag, label: "Takeaway Available" },
 ];
 
 export default function ContactSection() {

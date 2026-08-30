@@ -32,12 +32,12 @@ export default function Hero() {
         >
           {/* Title */}
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-white tracking-wide mb-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-            RED DOOR PIZZA
+            Wood-Fired Pizza in Buninyong, Just 12 Minutes from Ballarat
           </h1>
 
           {/* Subtitle */}
           <p className="text-xs md:text-sm tracking-widest uppercase font-medium text-[#eccb57] mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            Authentic Wood-Fired Pizza in Buninyong
+            Authentic Italian Ingredients · Local Produce · Family Friendly
           </p>
 
           {/* Action Buttons */}

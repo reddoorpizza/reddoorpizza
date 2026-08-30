@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import { VENUE_CAPACITY } from "@/app/config/constants";
 
 const bullets = [
-  "Flexible seating for 30–120 guests",
-  "Custom menu packages available",
-  "Full bar & beverage packages",
-  "Live music & entertainment options",
+  `Flexible seating for up to ${VENUE_CAPACITY} guests`,
+  "Work break-ups, Christmas parties, and group bookings",
+  "Dietary options including gluten-free & vegetarian",
+  "Festoon-lit outdoor beer garden",
 ];
 
 export default function FunctionsSection() {
@@ -34,9 +35,10 @@ export default function FunctionsSection() {
 
           {/* Description */}
           <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-            From intimate gatherings to weddings, corporate events, and local
-            fundraisers — our rustic venue and dedicated team will make your
-            occasion unforgettable.
+            From work break-ups and Christmas parties to group bookings and
+            private celebrations — our rustic venue and dedicated team will
+            make your occasion unforgettable. Group bookings may be available
+            outside normal opening hours by enquiry.
           </p>
 
           {/* Bullet List */}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   MapPin,
   Phone,
@@ -25,7 +26,9 @@ import {
   PHONE_NUMBER_DISPLAY,
   PHONE_NUMBER_TEL,
   OPENING_HOURS,
+  ADDRESS,
 } from "@/app/config/constants";
+import { guidesData, type GuideSlug } from "@/app/config/guides";
 
 export function generateStaticParams(): { city: string }[] {
   return citySlugs.map((city) => ({ city }));
@@ -54,6 +57,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `/locations/${normalizedCity}`,
     },
+    openGraph: {
+      title: `${data.title} | Red Door Pizza`,
+      description: data.description,
+      url: `https://www.reddoorpizza.com.au/locations/${normalizedCity}`,
+      siteName: "Red Door Pizza",
+      type: "website",
+      locale: "en_AU",
+      images: [
+        {
+          url: "/Banner.jpg",
+          width: 1200,
+          height: 630,
+          alt: `Red Door Pizza — ${data.heading}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${data.title} | Red Door Pizza`,
+      description: data.description,
+      images: ["/Banner.jpg"],
+    },
   };
 }
 
@@ -63,36 +88,14 @@ export default async function LocationPage({ params }: Props) {
   const data = locationData[normalizedCity];
 
   if (!data) {
-    // 404 Fallback UI
-    return (
-      <>
-        <Header />
-        <main className="bg-brand-offwhite">
-          <section className="max-w-3xl mx-auto px-6 py-24 text-center">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-brand-charcoal">
-              Location not found
-            </h1>
-            <p className="mt-4 text-brand-muted">
-              We couldn&apos;t find that location. Explore where to find us
-              near Buninyong, Ballarat, and Meredith.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              {citySlugs.map((slug) => (
-                <Link
-                  key={slug}
-                  href={`/locations/${slug}`}
-                  className="inline-flex items-center gap-2 bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider hover:bg-brand-terracotta-dark transition-colors"
-                >
-                  {locationData[slug].name}
-                </Link>
-              ))}
-            </div>
-          </section>
-        </main>
-        <Footer />
-      </>
-    );
+    notFound();
   }
+
+  const locationGuides: Partial<Record<CitySlug, GuideSlug[]>> = {
+    buninyong: ["work-christmas-party-venues-buninyong"],
+    ballarat: ["family-friendly-pizza-ballarat", "gluten-free-pizza-ballarat"],
+  };
+  const relatedGuides = locationGuides[normalizedCity] ?? [];
 
   // --- STRUCTURED DATA BLOCK ---
   const jsonLd = {
@@ -101,17 +104,17 @@ export default async function LocationPage({ params }: Props) {
     name: "Red Door Pizza",
     image: "https://www.reddoorpizza.com.au/logo.png",
     url: `https://www.reddoorpizza.com.au/locations/${normalizedCity}`,
-    telephone: "0353418235",
+    telephone: PHONE_NUMBER_TEL.replace("tel:", ""),
     priceRange: "$$",
     servesCuisine: ["Pizza", "Italian", "Gluten-Free", "Vegetarian"],
     menu: WOWAPPS_ORDER_URL,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "401 Warrenheip St",
+      streetAddress: ADDRESS.street,
       addressLocality: data.schemaLocality,
-      addressRegion: "VIC",
-      postalCode: "3357",
-      addressCountry: "AU",
+      addressRegion: ADDRESS.region,
+      postalCode: ADDRESS.postcode,
+      addressCountry: ADDRESS.country,
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -324,6 +327,28 @@ export default async function LocationPage({ params }: Props) {
             </div>
           </div>
         </section>
+        {/* Related Guides */}
+        {relatedGuides.length > 0 && (
+          <section className="bg-brand-offwhite py-10 px-6 border-t border-brand-terracotta/10">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="font-serif text-xl font-bold text-brand-charcoal mb-4">
+                Learn More
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {relatedGuides.map((guideSlug) => (
+                  <Link
+                    key={guideSlug}
+                    href={`/guides/${guideSlug}`}
+                    className="inline-flex items-center gap-2 bg-white text-brand-charcoal text-sm font-semibold px-4 py-2.5 rounded-full border border-brand-terracotta/20 hover:bg-brand-terracotta hover:text-white transition-colors"
+                  >
+                    {guidesData[guideSlug].title}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
         {/* 3. Social Proof (Trust/EEAT) */}
         <TestimonialsSection />
         {/* 4. SEO FAQs (Semantic Content) */}
