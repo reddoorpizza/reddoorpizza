@@ -7,7 +7,6 @@ import {
   Clock,
   ArrowRight,
   UtensilsCrossed,
-  ShoppingBag,
   ChefHat,
   Users,
   HelpCircle,
@@ -16,17 +15,16 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import MenuSection from "@/app/components/MenuSection";
 import TestimonialsSection from "@/app/components/TestimonialsSection";
+import WowAppsLink from "@/app/components/WowAppsLink";
 import {
   citySlugs,
   locationData,
   type CitySlug,
 } from "@/app/config/locations";
 import {
-  WOWAPPS_ORDER_URL,
   PHONE_NUMBER_DISPLAY,
   PHONE_NUMBER_TEL,
   OPENING_HOURS,
-  ADDRESS,
 } from "@/app/config/constants";
 import { guidesData, type GuideSlug } from "@/app/config/guides";
 
@@ -98,30 +96,8 @@ export default async function LocationPage({ params }: Props) {
   const relatedGuides = locationGuides[normalizedCity] ?? [];
 
   // --- STRUCTURED DATA BLOCK ---
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    name: "Red Door Pizza",
-    image: "https://www.reddoorpizza.com.au/logo.png",
-    url: `https://www.reddoorpizza.com.au/locations/${normalizedCity}`,
-    telephone: PHONE_NUMBER_TEL.replace("tel:", ""),
-    priceRange: "$$",
-    servesCuisine: ["Pizza", "Italian", "Gluten-Free", "Vegetarian"],
-    menu: WOWAPPS_ORDER_URL,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: ADDRESS.street,
-      addressLocality: data.schemaLocality,
-      addressRegion: ADDRESS.region,
-      postalCode: ADDRESS.postcode,
-      addressCountry: ADDRESS.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -37.6534,
-      longitude: 143.8821,
-    },
-  };
+  // Location pages reference the main Restaurant entity from layout.tsx
+  // Only page-specific schemas (FAQ, Menu highlights) are included here
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -136,7 +112,7 @@ export default async function LocationPage({ params }: Props) {
     })),
   };
 
-  // High-value Menu Schema explicitly for AI Overviews
+  // Highlighted menu items relevant to this location page's content
   const menuJsonLd = {
     "@context": "https://schema.org",
     "@type": "Menu",
@@ -166,11 +142,7 @@ export default async function LocationPage({ params }: Props) {
 
   return (
     <>
-      {/* Injecting all schemas safely into the head */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {/* Page-specific schemas — Restaurant entity is in layout.tsx */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -240,16 +212,10 @@ export default async function LocationPage({ params }: Props) {
             </div>
             {/* Right Column: CTA, Contact & Navigation */}
             <div className="lg:col-span-5 space-y-6 sticky top-24">
-              <a
-                href={WOWAPPS_ORDER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Pre-order wood fired pizza online"
+              <WowAppsLink
+                buttonLocation="location_page"
                 className="flex items-center justify-center gap-2 w-full bg-brand-terracotta hover:bg-brand-terracotta-dark text-white font-semibold py-4 px-6 rounded-xl transition-colors text-sm uppercase tracking-wider shadow-lg shadow-brand-terracotta/20"
-              >
-                <ShoppingBag className="w-5 h-5" />
-                Pre-Order via Wowapps
-              </a>
+              />
               <Link
                 aria-label="View our pizza, pasta, and dessert menu"
                 className="flex items-center justify-center gap-2 w-full bg-white hover:bg-gray-50 text-brand-charcoal font-semibold py-4 px-6 rounded-xl border border-brand-terracotta/20 transition-colors text-sm uppercase tracking-wider shadow-sm"
@@ -324,6 +290,16 @@ export default async function LocationPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
+              <Link
+                href="/stockists"
+                className="flex items-center justify-between bg-white rounded-2xl p-5 shadow-sm border border-brand-terracotta/10 hover:shadow-md transition-shadow group"
+              >
+                <div>
+                  <p className="text-xs text-brand-muted uppercase tracking-wider font-semibold">Take Red Door Home</p>
+                  <p className="font-serif font-bold text-brand-charcoal group-hover:text-brand-terracotta transition-colors text-sm mt-1">Find a Stockist</p>
+                </div>
+                <ArrowRight className="w-4 h-4 text-brand-muted group-hover:text-brand-terracotta" />
+              </Link>
             </div>
           </div>
         </section>

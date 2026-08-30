@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
+import { trackOrderOnlineClick, trackBookTableClick } from "@/app/lib/analytics";
 
 export default function Hero() {
   return (
@@ -48,6 +49,7 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
+                onClick={() => trackBookTableClick("hero")}
                 className="block bg-white text-black font-semibold px-8 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#eccb57] transition-colors shadow-lg"
               >
                 Book a Table
@@ -57,6 +59,7 @@ export default function Hero() {
               href={WOWAPPS_ORDER_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackOrderOnlineClick("hero")}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="bg-[#ac511a] text-white font-semibold px-8 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#c05c1e] transition-colors shadow-lg"

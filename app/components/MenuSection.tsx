@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   UtensilsCrossed,
@@ -7,6 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
+import { trackMenuItemOrderClick } from "@/app/lib/analytics";
 
 interface FeaturedItem {
   name: string;
@@ -105,6 +108,7 @@ export default function MenuSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Order ${item.name} on WowApps`}
+                    onClick={() => trackMenuItemOrderClick(item.name, "Featured Favorites")}
                     className="min-h-[44px] inline-flex items-center gap-1.5 bg-[#ac511a] hover:bg-[#8e4215] text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition-all shadow-sm hover:shadow"
                   >
                     <span>Order</span>

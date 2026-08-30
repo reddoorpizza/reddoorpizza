@@ -4,13 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, MapPin, Clock } from "lucide-react";
 import { WOWAPPS_ORDER_URL, PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS } from "@/app/config/constants";
+import { trackOrderOnlineClick, trackPhoneClick } from "@/app/lib/analytics";
 
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Menu", href: "/menu" },
+  { label: "Stockists", href: "/stockists" },
   { label: "Functions", href: "/contact" },
-  { label: "About", href: "/#about" },
-  { label: "Guides", href: "/guides/family-friendly-pizza-ballarat" },
+  { label: "Family Dining", href: "/guides/family-friendly-pizza-ballarat" },
+  { label: "Gluten-Free", href: "/guides/gluten-free-pizza-ballarat" },
   { label: "Contact", href: "/contact" },
   { label: "Order Online", href: WOWAPPS_ORDER_URL, external: true },
 ];
@@ -18,7 +20,7 @@ const quickLinks = [
 export default function Footer() {
   return (
     <footer className="bg-[#18181B] text-gray-300 py-16 px-6 border-t border-white/10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 py-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 px-6 py-16">
         {/* ── Column 1: Brand ── */}
         <div>
           <Link href="/" className="flex items-center gap-2 mb-4">
@@ -49,6 +51,7 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackOrderOnlineClick("footer")}
                     className="text-sm text-gray-400 hover:text-[#eccb57] transition-colors"
                   >
                     {link.label}
@@ -68,7 +71,31 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* ── Column 3: Hours & Location ── */}
+        {/* ── Column 3: Locations ── */}
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-[#ac511a] mb-4">
+            Locations
+          </h4>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/locations/buninyong" className="text-sm text-gray-400 hover:text-[#eccb57] transition-colors">
+                Buninyong
+              </Link>
+            </li>
+            <li>
+              <Link href="/locations/ballarat" className="text-sm text-gray-400 hover:text-[#eccb57] transition-colors">
+                Ballarat
+              </Link>
+            </li>
+            <li>
+              <Link href="/locations/meredith" className="text-sm text-gray-400 hover:text-[#eccb57] transition-colors">
+                Meredith
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* ── Column 4: Visit Us ── */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-widest text-[#ac511a] mb-4">
             Visit Us
@@ -134,6 +161,7 @@ export default function Footer() {
             <li>
               <a
                 href={PHONE_NUMBER_TEL}
+                onClick={() => trackPhoneClick()}
                 className="flex items-center gap-2.5 text-sm text-gray-300 hover:text-white transition-colors mt-3"
               >
                 <Phone className="w-4 h-4 text-[#ac511a]" />

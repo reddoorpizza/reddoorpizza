@@ -80,6 +80,10 @@ export default async function GuidePage({ params }: Props) {
         url: "https://www.reddoorpizza.com.au/logo.png",
       },
     },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.reddoorpizza.com.au/guides/${normalizedSlug}`,
+    },
   };
 
   const faqJsonLd = {
@@ -103,6 +107,13 @@ export default async function GuidePage({ params }: Props) {
     "gluten-free-pizza-ballarat": "ballarat",
   };
   const relatedCity = guideLocationMap[normalizedSlug];
+
+  const guideCrossLinks: Partial<Record<GuideSlug, GuideSlug[]>> = {
+    "family-friendly-pizza-ballarat": ["gluten-free-pizza-ballarat", "work-christmas-party-venues-buninyong"],
+    "work-christmas-party-venues-buninyong": ["family-friendly-pizza-ballarat"],
+    "gluten-free-pizza-ballarat": ["family-friendly-pizza-ballarat"],
+  };
+  const relatedGuides = guideCrossLinks[normalizedSlug] ?? [];
 
   return (
     <>
@@ -189,6 +200,29 @@ export default async function GuidePage({ params }: Props) {
               </div>
               <ArrowRight className="w-4 h-4 text-brand-muted group-hover:text-brand-terracotta transition-colors" />
             </Link>
+          </section>
+        )}
+
+        {/* Related Guides */}
+        {relatedGuides.length > 0 && (
+          <section className="max-w-3xl mx-auto px-6 mt-6">
+            <h3 className="text-sm font-semibold text-brand-muted uppercase tracking-wider mb-3">
+              You might also find helpful
+            </h3>
+            <div className="space-y-3">
+              {relatedGuides.map((guideSlug) => (
+                <Link
+                  key={guideSlug}
+                  href={`/guides/${guideSlug}`}
+                  className="flex items-center justify-between bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
+                >
+                  <span className="font-serif font-bold text-brand-charcoal group-hover:text-brand-terracotta transition-colors text-sm">
+                    {guidesData[guideSlug].title}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-brand-muted group-hover:text-brand-terracotta" />
+                </Link>
+              ))}
+            </div>
           </section>
         )}
 

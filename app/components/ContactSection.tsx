@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Flame, Trees, PartyPopper, ShoppingBag } from "lucide-react";
 import { WOWAPPS_ORDER_URL, PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL, OPENING_HOURS } from "@/app/config/constants";
+import { trackOrderOnlineClick, trackPhoneClick, trackDirectionsClick } from "@/app/lib/analytics";
 
 const features = [
   { icon: Flame, label: "Fireplace Dining" },
@@ -31,6 +32,7 @@ export default function ContactSection() {
               href="https://maps.google.com/?q=401+Warrenheip+St+Buninyong+VIC+3357"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackDirectionsClick()}
               className="flex items-start gap-3 text-[#262626] hover:text-[#ac511a] transition-colors group"
             >
               <MapPin className="w-5 h-5 mt-0.5 shrink-0 group-hover:text-[#ac511a]" />
@@ -43,6 +45,7 @@ export default function ContactSection() {
 
             <a
               href={PHONE_NUMBER_TEL}
+              onClick={() => trackPhoneClick()}
               className="flex items-center gap-3 text-[#262626] hover:text-[#ac511a] transition-colors group"
             >
               <Phone className="w-5 h-5 shrink-0 group-hover:text-[#ac511a]" />
@@ -95,6 +98,7 @@ export default function ContactSection() {
               href={WOWAPPS_ORDER_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackOrderOnlineClick("contact")}
               className="inline-flex items-center justify-center w-full bg-[#ac511a] hover:bg-[#c05c1e] text-white font-semibold py-3.5 px-6 rounded-xl transition-colors duration-200 text-sm uppercase tracking-wider shadow-lg shadow-[#ac511a]/20"
             >
               Order Online Now

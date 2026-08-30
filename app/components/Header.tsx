@@ -6,6 +6,7 @@ import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { WOWAPPS_ORDER_URL, PHONE_NUMBER_TEL } from "@/app/config/constants";
+import { trackOrderOnlineClick, trackBookTableClick, trackPhoneClick } from "@/app/lib/analytics";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -71,6 +72,7 @@ export default function Header() {
             <div className="flex items-center gap-3 justify-end">
               <Link
                 href="/contact"
+                onClick={() => trackBookTableClick("header")}
                 className="text-xs uppercase tracking-wider text-white hover:text-[#eccb57] px-4 py-2 font-medium transition-colors"
               >
                 Book Table
@@ -79,6 +81,7 @@ export default function Header() {
                 href={WOWAPPS_ORDER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackOrderOnlineClick("header")}
                 className="bg-[#ac511a] hover:bg-[#c05c1e] text-white text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md transition-all"
               >
                 Order Online
@@ -117,6 +120,7 @@ export default function Header() {
             {/* Phone Call Button */}
               <a
                 href={PHONE_NUMBER_TEL}
+                onClick={() => trackPhoneClick()}
                 className="w-10 h-10 bg-[#ac511a] rounded-full flex items-center justify-center text-white hover:bg-[#c05c1e] transition-colors"
                 aria-label="Call us"
               >

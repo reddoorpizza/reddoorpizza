@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
+import Link from "next/link";
+import OrderButton from "@/app/components/OrderButton";
 
 export const metadata: Metadata = {
   title: "Wood-Fired Pizza & Italian Menu",
@@ -499,22 +500,34 @@ export default function MenuPage() {
                             </span>
                           )}
                         </div>
-                        <a
-                          href={WOWAPPS_ORDER_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Order ${item.name} on WowApps`}
-                          className="min-h-[44px] inline-flex items-center gap-1.5 bg-brand-terracotta hover:bg-brand-terracotta-dark text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition-all shadow-sm hover:shadow"
-                        >
-                          <span>Order on WowApps</span>
-                          <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                        </a>
+                        <OrderButton itemName={item.name} category={cat.category} />
                       </div>
                     </article>
                   ))}
                 </div>
               </section>
             ))}
+          </div>
+        </section>
+
+        {/* Explore Red Door */}
+        <section className="py-16 px-6 bg-white border-t border-gray-100">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="font-serif text-2xl font-bold text-brand-charcoal mb-3">Enjoy Red Door at Home</h2>
+            <p className="text-brand-muted text-sm mb-6 max-w-xl mx-auto">
+              Our vacuum-sealed, wood-fired pizza bases are stocked at local IGAs across the Ballarat region.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/stockists" className="inline-flex items-center gap-2 bg-brand-terracotta text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-terracotta-dark transition-colors">
+                Find a Stockist <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link href="/locations/buninyong" className="inline-flex items-center gap-2 bg-white text-brand-charcoal text-sm font-semibold px-5 py-2.5 rounded-full border border-brand-terracotta/20 hover:bg-brand-terracotta hover:text-white transition-colors">
+                Visit Us in Buninyong <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-brand-charcoal text-sm font-semibold px-5 py-2.5 rounded-full border border-brand-terracotta/20 hover:bg-brand-terracotta hover:text-white transition-colors">
+                Contact &amp; Bookings <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>

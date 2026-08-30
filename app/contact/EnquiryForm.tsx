@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { PHONE_NUMBER_TEL, PHONE_NUMBER_DISPLAY } from "@/app/config/constants";
+import { trackGroupEnquiryClick } from "@/app/lib/analytics";
 
 const RESTAURANT_SMS_NUMBER = "0353418235";
 const RESTAURANT_PHONE_DISPLAY = PHONE_NUMBER_DISPLAY;
@@ -43,6 +44,7 @@ export default function EnquiryForm() {
     window.location.href = `sms:${RESTAURANT_SMS_NUMBER}?&body=${encodeURIComponent(
       lines.join("\n")
     )}`;
+    trackGroupEnquiryClick("contact");
     setSent(true);
   };
 

@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import MobileStickyNav from "./components/MobileStickyNav";
 import FloatingOrderButton from "./components/FloatingOrderButton";
 import Link from "next/link";
-import { MapPin, Store, ArrowRight } from "lucide-react";
+import { MapPin, Store, ArrowRight, BookOpen } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -164,6 +164,64 @@ export default function Home() {
                   Pre-Order Now
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Guides / Discover More */}
+        <section className="bg-white py-16 md:py-24 px-6 border-y border-gray-100">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-charcoal tracking-tight">
+                Plan Your Visit
+              </h2>
+              <p className="mt-3 text-brand-muted text-sm md:text-base max-w-xl mx-auto">
+                Helpful guides for families, groups, and dietary needs.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Link
+                href="/guides/family-friendly-pizza-ballarat"
+                className="group bg-brand-offwhite border border-brand-terracotta/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="w-10 h-10 bg-brand-terracotta/10 rounded-full flex items-center justify-center mb-4">
+                  <BookOpen className="w-5 h-5 text-brand-terracotta" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-brand-charcoal group-hover:text-brand-terracotta transition-colors">
+                  Family-Friendly Dining
+                </h3>
+                <p className="text-[#262626] text-sm leading-relaxed mt-2">
+                  Kids corner, dedicated kids menu, and a relaxed courtyard — perfect for family dinners near Ballarat.
+                </p>
+              </Link>
+              <Link
+                href="/guides/gluten-free-pizza-ballarat"
+                className="group bg-brand-offwhite border border-brand-terracotta/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="w-10 h-10 bg-brand-terracotta/10 rounded-full flex items-center justify-center mb-4">
+                  <BookOpen className="w-5 h-5 text-brand-terracotta" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-brand-charcoal group-hover:text-brand-terracotta transition-colors">
+                  Gluten-Free Options
+                </h3>
+                <p className="text-[#262626] text-sm leading-relaxed mt-2">
+                  Premium gluten-free pizza bases and GF spaghetti bolognese — safe, delicious, and wood-fired.
+                </p>
+              </Link>
+              <Link
+                href="/guides/work-christmas-party-venues-buninyong"
+                className="group bg-brand-offwhite border border-brand-terracotta/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="w-10 h-10 bg-brand-terracotta/10 rounded-full flex items-center justify-center mb-4">
+                  <BookOpen className="w-5 h-5 text-brand-terracotta" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-brand-charcoal group-hover:text-brand-terracotta transition-colors">
+                  Groups &amp; Functions
+                </h3>
+                <p className="text-[#262626] text-sm leading-relaxed mt-2">
+                  Work break-ups, Christmas parties, and group bookings for up to 100 guests in our beer garden.
+                </p>
               </Link>
             </div>
           </div>

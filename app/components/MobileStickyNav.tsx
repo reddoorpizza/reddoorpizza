@@ -2,6 +2,7 @@
 
 import { Phone, ShoppingBag, MapPin } from "lucide-react";
 import { WOWAPPS_ORDER_URL, PHONE_NUMBER_TEL } from "@/app/config/constants";
+import { trackPhoneClick, trackOrderOnlineClick, trackDirectionsClick } from "@/app/lib/analytics";
 
 export default function MobileStickyNav() {
   return (
@@ -9,6 +10,7 @@ export default function MobileStickyNav() {
       <div className="flex items-center justify-around py-2 px-2">
         <a
           href={PHONE_NUMBER_TEL}
+          onClick={() => trackPhoneClick()}
           className="flex flex-col items-center gap-1 px-4 py-2 text-brand-gold/80 hover:text-brand-gold transition-colors"
         >
           <Phone className="w-5 h-5" />
@@ -20,6 +22,7 @@ export default function MobileStickyNav() {
           href={WOWAPPS_ORDER_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackOrderOnlineClick("mobile_nav")}
           className="flex flex-col items-center gap-1 px-6 py-2 -mt-4 bg-brand-gold text-brand-terracotta rounded-full shadow-lg"
         >
           <ShoppingBag className="w-6 h-6" />
@@ -31,6 +34,7 @@ export default function MobileStickyNav() {
           href="https://maps.google.com/?q=401+Warrenheip+St+Buninyong+VIC+3357"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackDirectionsClick()}
           className="flex flex-col items-center gap-1 px-4 py-2 text-brand-gold/80 hover:text-brand-gold transition-colors"
         >
           <MapPin className="w-5 h-5" />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { PHONE_NUMBER_TEL, ADDRESS } from "@/app/config/constants";
+import Analytics from "@/app/components/Analytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -70,8 +71,14 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
+  "@id": "https://www.reddoorpizza.com.au/#restaurant",
   name: "Red Door Pizza",
   image: "https://www.reddoorpizza.com.au/logo.png",
+  url: "https://www.reddoorpizza.com.au",
+  telephone: PHONE_NUMBER_TEL.replace("tel:", ""),
+  priceRange: "$$",
+  servesCuisine: ["Pizza", "Italian"],
+  menu: "https://www.reddoorpizza.com.au/menu",
   address: {
     "@type": "PostalAddress",
     streetAddress: ADDRESS.street,
@@ -85,12 +92,21 @@ const jsonLd = {
     latitude: -37.6534,
     longitude: 143.8821,
   },
-  telephone: PHONE_NUMBER_TEL.replace("tel:", ""),
-  priceRange: "$$",
-  servesCuisine: ["Pizza", "Italian"],
-  url: "https://www.reddoorpizza.com.au",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      opens: "17:00",
+      closes: "21:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Friday", "Saturday", "Sunday"],
+      opens: "12:00",
+      closes: "21:00",
+    },
+  ],
   areaServed: ["Buninyong", "Ballarat", "Meredith"],
-  menu: "https://orders.wowapps.com/order/reddoorpizzeria",
   sameAs: [
     "https://www.facebook.com/share/1EsfTmXM4o/?mibextid=wwXIfr",
     "https://www.instagram.com/reddoor_pizza/",
@@ -109,6 +125,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
       </head>
       <body className="min-h-screen bg-brand-gold text-brand-charcoal antialiased">
         {children}

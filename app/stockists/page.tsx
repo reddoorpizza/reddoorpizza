@@ -168,6 +168,24 @@ export default function StockistsPage() {
             </Link>
           </div>
         </section>
+
+        {/* Explore Red Door */}
+        <section className="py-16 px-6 bg-brand-offwhite border-t border-brand-terracotta/10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-serif text-2xl font-bold text-brand-charcoal mb-6 text-center">Explore Red Door</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/menu" className="inline-flex items-center gap-2 bg-white text-brand-charcoal text-sm font-semibold px-5 py-2.5 rounded-full border border-brand-terracotta/20 hover:bg-brand-terracotta hover:text-white transition-colors">
+                View Our Full Menu <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link href="/locations/buninyong" className="inline-flex items-center gap-2 bg-white text-brand-charcoal text-sm font-semibold px-5 py-2.5 rounded-full border border-brand-terracotta/20 hover:bg-brand-terracotta hover:text-white transition-colors">
+                Visit Us in Buninyong <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-brand-charcoal text-sm font-semibold px-5 py-2.5 rounded-full border border-brand-terracotta/20 hover:bg-brand-terracotta hover:text-white transition-colors">
+                Contact &amp; Bookings <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer/>
