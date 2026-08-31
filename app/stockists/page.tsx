@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Store, MapPin, Package, ShoppingBag, ArrowRight } from "lucide-react";
+import { Store, Package, ShoppingBag, ArrowRight } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import StockistCard from "@/app/components/StockistCard";
 
 export const metadata: Metadata = {
   title: "Stockists | Ballarat Region",
@@ -71,6 +72,8 @@ export default function StockistsPage() {
     })),
     offers: {
       "@type": "AggregateOffer",
+      lowPrice: "10.00",
+      highPrice: "15.00",
       priceCurrency: "AUD",
       availability: "https://schema.org/InStock",
       seller: {
@@ -139,18 +142,12 @@ export default function StockistsPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {stockists.map((stockist) => (
-                <div key={stockist.name} className="flex items-center justify-between p-5 bg-gray-50 rounded-xl border border-gray-100">
-                  <div className="flex items-center gap-4">
-                    <MapPin className="w-6 h-6 text-brand-terracotta/70"/>
-                    <div>
-                      <h3 className="font-bold text-brand-charcoal">{stockist.name}</h3>
-                      <p className="text-xs text-brand-muted uppercase tracking-wider">{stockist.type}</p>
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-brand-terracotta bg-brand-terracotta/10 px-3 py-1 rounded-full">
-                    {stockist.location}
-                  </span>
-                </div>
+                <StockistCard
+                  key={stockist.name}
+                  name={stockist.name}
+                  type={stockist.type}
+                  location={stockist.location}
+                />
               ))}
             </div>
           </div>

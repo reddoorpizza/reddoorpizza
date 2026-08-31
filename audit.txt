@@ -1,883 +1,1145 @@
-You are performing the FINAL ENTERPRISE-LEVEL SEO, TECHNICAL, CONTENT, LOCAL SEO, AI SEARCH VISIBILITY, UX, CONVERSION AND CODEBASE AUDIT for the Red Door Pizza website.
+# RED DOOR PIZZA — MASTER SEO INTELLIGENCE AUDIT
 
-This is a FINAL AUDIT.
-
-The website has already gone through 10 implementation stages.
-
-Your job is NOT to assume those steps were completed successfully.
-
-Your job is to independently inspect the current codebase and determine:
-
-1. What is actually implemented?
-2. What is partially implemented?
-3. What is missing?
-4. What is incorrectly implemented?
-5. What is technically weak?
-6. What is strategically weak?
-7. What could prevent organic growth?
-8. What could prevent local visibility?
-9. What could prevent AI/search recommendations?
-10. What could reduce conversions?
-11. What still requires external configuration?
-12. Is the website genuinely production-ready?
-13. Can the website reasonably be considered "100/100"?
-
-IMPORTANT:
-
-Do NOT make any code changes.
-
-This is an AUDIT ONLY.
-
-Do NOT:
-
-* modify files
-* create files
-* delete files
-* rename files
-* format files
-* install dependencies
-* change package.json
-* change configuration
-* change metadata
-* change schema
-* change content
-* change URLs
-* alter WowApps
-* alter analytics
-* alter styling
-
-You may run read-only inspection, tests, builds, static checks and validation commands.
-
-==================================================
-BUSINESS CONTEXT — SOURCE OF TRUTH
-==================================
-
-Business:
-
-Red Door Pizza
-
-Website:
+You are conducting an independent, enterprise-level SEO and search visibility audit for:
 
 https://www.reddoorpizza.com.au/
 
-Physical address:
+This is NOT a coding task.
 
+DO NOT modify the codebase.
+
+DO NOT create, delete, rename, move or edit files.
+
+DO NOT install dependencies.
+
+DO NOT change SEO, content, design, analytics, schema or configuration.
+
+Your job is to perform a comprehensive audit and produce an evidence-based strategic report covering:
+
+1. Technical SEO
+2. On-page SEO
+3. Content quality
+4. Keyword strategy
+5. Search intent
+6. Internal linking
+7. External linking
+8. Local SEO
+9. Google Business Profile readiness
+10. Off-page SEO
+11. Backlinks
+12. Citations
+13. Reviews/reputation
+14. Competitor SEO
+15. SERP landscape
+16. AI search / answer-engine visibility
+17. Google AI Overviews / AI Mode where accessible
+18. Bing/Copilot visibility where accessible
+19. Entity/knowledge-graph clarity
+20. Conversion / CRO
+21. Performance
+22. Mobile UX
+23. Accessibility
+24. Analytics / measurement
+25. Indexation / crawlability
+26. Content gaps
+27. Cannibalisation
+28. Local geographic targeting
+29. Search opportunity
+30. Remaining growth opportunities
+
+IMPORTANT:
+
+Do not assume previous SEO work is correct simply because the files or previous audit say it is complete.
+
+Independently verify everything possible.
+
+==================================================
+BUSINESS SOURCE OF TRUTH
+========================
+
+Business:
+Red Door Pizza
+
+Website:
+https://www.reddoorpizza.com.au/
+
+Physical address:
 401 Warrenheip St
 Buninyong VIC 3357
 Australia
 
-Primary business:
-
-Wood-fired pizzeria / pizza restaurant
-
-PRIMARY BUSINESS POSITIONING:
-
-Wood-fired pizza in Buninyong, just approximately 11 km / 12 minutes from Ballarat CBD.
-
-GEOGRAPHIC PRIORITY:
-
-1. Ballarat
-   Primary customer acquisition market
-
-2. Buninyong
-   Physical restaurant location and strongest local entity
-
-3. Meredith
-   Regional target market / legitimate geographic relationship
-
-IMPORTANT:
-
-Do NOT treat Ballarat, Buninyong and Meredith as identical SEO locations.
-
-Buninyong:
-physical location
-
-Ballarat:
-primary commercial acquisition market
-
-Meredith:
-regional market / legitimate service or contextual relationship only
-
-The site must NOT misrepresent the physical address as Ballarat or Meredith.
-
-==================================================
-CURRENT BUSINESS FACTS
-======================
+Phone:
+(03) 5341 8235
 
 Opening hours:
+Monday–Thursday: 5pm–9pm
+Friday–Sunday: 12pm–9pm
 
-Monday–Thursday:
-5pm–9pm
+Primary business:
+Wood-fired pizzeria / pizza restaurant
 
-Friday–Sunday:
-12pm–9pm
+Primary geographic acquisition market:
+Ballarat
 
-Capacity:
+Physical location:
+Buninyong
 
-Maximum 100 guests
+Additional regional target:
+Meredith
 
-Family:
+Ballarat relationship:
+Approximately 11 km / 12 minutes' drive from Ballarat CBD.
 
-* lounge area
+Venue:
+Up to 100 guests.
+
+Family offering:
+
+* lounge
 * kids corner
 * play kitchen
 * books
 * colouring pages
-* TV access
+* TV
 * family-friendly
-* suitable for groups
-* customers encouraged to book lounge
+* kids menu
 
 Functions:
 
+* group bookings
 * work breakups
 * Christmas parties
-* group bookings
-* potential out-of-hours group bookings by enquiry
+* private/group functions
+* possible out-of-hours group bookings by enquiry
 
 Dietary:
 
 * gluten-free pizza bases
 * gluten-free options
-* gluten-free pasta option where currently supported by the menu
+* gluten-free pasta where currently offered
 * preserve accurate cross-contact warning
-* do NOT claim a fully gluten-free kitchen
+* never claim a fully gluten-free kitchen
+
+Food/menu:
+
+* wood-fired pizza
+* starters
+* sides
+* pasta
+* kids/teen/seniors
+* desserts
+* gelato
+* drinks
+* vegetarian options
+* lamb pizzas
+* prawn pizzas
+* Italian ingredients
+* local produce
 
 Gelato:
+Il Piccolo Gelato
+Locally made in Ballarat.
 
-* Il Piccolo Gelato
-* locally made in Ballarat
-* range changes regularly
+Local supplier relationships:
 
-Ingredients:
-
-* premium Italian ingredients
-* imported Italian ingredients/cheese where accurate
-* fresh local produce
 * Buninyong Butcher
-* Peaches
-* Meredith Dairy / Meredith-related ingredient references where genuinely applicable
+* Peaches Fruit Market
+* other suppliers only where verified
 
-Take-home/supermarket product:
+Take-home product:
+Vacuum-sealed pizzas / bases pre-cooked in wood-fired oven.
 
-* vacuum-sealed pizzas
-* wood-fired bases pre-cooked in oven
-* local/regional retailers
-* confirmed examples include Beaufort, Creswick and Elaine Farmgate
+Known regional stockists:
 
-DO NOT CLAIM:
+* Beaufort
+* Creswick
+* Elaine Farmgate
+  Only report them as current if verified.
+
+IMPORTANT FACTUAL RESTRICTIONS:
+
+Do NOT imply Red Door Pizza is physically located in Ballarat.
+
+Do NOT imply Red Door Pizza is physically located in Meredith.
+
+Do NOT claim:
 
 * weekend live music
-* live music as a standard current offering
 * 120 guests
 * 30–120 guests
 * drinks packages
-* full beverage packages
 * high-speed takeaway
 * unsupported delivery areas
-* unsupported local partnerships
 * unsupported awards
-* fake "best" claims
+* fabricated reviews
 * fabricated statistics
 
 ==================================================
-CURRENT TECHNOLOGY
-==================
+BUSINESS POSITIONING
+====================
 
-Known technology:
+Primary entity:
 
-* Next.js
-* App Router
-* React
-* TypeScript
-* Tailwind CSS
-* Framer Motion
-* Lucide
-* WowApps for online ordering
+Red Door Pizza
+→ wood-fired pizzeria
+→ Buninyong
+→ approximately 11 km / 12 minutes from Ballarat CBD
 
-Ordering domain:
+Secondary entities:
 
-https://orders.wowapps.com/order/reddoorpizzeria
+* pizza
+* wood-fired pizza
+* Italian-style dining
+* pasta
+* gluten-free
+* vegetarian
+* lamb
+* prawns
+* family dining
+* kids
+* groups/functions
+* local ingredients
+* gelato
+* take-home pizzas
+* stockists
 
-The main SEO/content authority must remain:
+==================================================
+AUDIT PRINCIPLE
+===============
+
+For every important finding distinguish between:
+
+CONFIRMED
+
+VERIFIED FROM LIVE WEB
+
+VERIFIED FROM CODE
+
+INFERRED
+
+UNVERIFIED
+
+UNKNOWN
+
+Never present an inference as a fact.
+
+Never fabricate data.
+
+==================================================
+PART 1 — LIVE WEBSITE CRAWL
+===========================
+
+Crawl the live website:
 
 https://www.reddoorpizza.com.au/
 
-WowApps is the transaction/order destination.
+Identify every indexable URL.
+
+Record:
+
+* URL
+* HTTP status
+* canonical
+* title
+* meta description
+* H1
+* H2 structure
+* word count
+* internal links
+* external links
+* images
+* alt text
+* structured data
+* robots directives
+* CTA
+* content purpose
+* primary keyword/topic
+* location targeting
+
+Compare live output against what the codebase claims.
 
 ==================================================
-THE 10 IMPLEMENTATION STAGES THAT MUST NOW BE VERIFIED
-======================================================
-
-STEP 1:
-Business accuracy, homepage/entity positioning, menu foundation
-
-STEP 2:
-Metadata, canonical and search presentation foundation
-
-STEP 3:
-Robots, sitemap, crawlability and menu indexability
-
-STEP 4:
-Menu architecture, internal linking and topical structure
-
-STEP 5:
-Structured data and entity architecture
-
-STEP 6:
-Analytics, Search Console and WowApps conversion tracking
-
-STEP 7:
-Local SEO, geographic entity and local authority preparation
-
-STEP 8:
-Content architecture and AI/search visibility
-
-STEP 9:
-Competitor gap analysis and authority planning
-
-STEP 10:
-Measurement, Search Console analysis and continuous optimisation framework
-
-DO NOT assume any of these are complete.
-
-Verify each one independently.
-
-==================================================
-PART A — FULL CODEBASE AUDIT
-============================
-
-Inspect the entire repository.
-
-Map:
-
-* app/
-* routes
-* components
-* config
-* public
-* metadata
-* schema
-* tracking
-* analytics
-* utilities
-* middleware
-* configuration
-* package.json
-* Next.js configuration
-* Tailwind configuration
-* TypeScript configuration
-* deployment configuration
-
-Identify:
-
-* obsolete files
-* duplicate implementations
-* dead code
-* conflicting constants
-* inconsistent data
-* duplicated business information
-* unnecessary complexity
-* risky implementation choices
-
-Do not make changes.
-
-==================================================
-PART B — ROUTE INVENTORY
-========================
-
-Identify every public route.
-
-At minimum inspect:
-
-/
-/menu
-/contact
-/stockists
-/locations/buninyong
-/locations/ballarat
-/locations/meredith
-/guides/family-friendly-pizza-ballarat
-/guides/work-christmas-party-venues-buninyong
-/guides/gluten-free-pizza-ballarat
-/privacy
-/terms
-
-Also detect any additional routes.
-
-For every route report:
-
-* status
-* indexable?
-* canonical?
-* title?
-* meta description?
-* H1?
-* structured data?
-* sitemap?
-* internal links?
-* CTA?
-* business purpose?
-* primary SEO purpose?
-* content quality?
-* conversion quality?
-
-==================================================
-PART C — TECHNICAL SEO
+PART 2 — TECHNICAL SEO
 ======================
 
 Audit:
 
-* metadataBase
-* title tags
-* meta descriptions
-* canonical
-* robots metadata
 * robots.txt
 * sitemap.xml
-* URL consistency
-* https
-* hostname consistency
+* canonical
+* metadataBase
 * redirects
-* trailing slash behaviour
-* duplicate URLs
-* query URLs
-* fragment handling
-* 404
-* 500/error states
-* dynamic routes
-* notFound()
-* generateStaticParams()
-* middleware
+* HTTPS
+* hostname
+* trailing slash
 * indexability
 * crawlability
-* internal links
-* broken links
+* status codes
+* 404
+* 410
+* 301
+* 302
+* 5xx
+* duplicate URLs
+* parameters
+* fragments
+* dynamic routes
+* internal redirects
+* soft 404 risks
+* pagination if any
+* JavaScript-rendered content
+* server-rendered content
 
-Determine actual implementation.
+Check:
 
-Do not assume code existence means correct production behaviour.
+https://www.reddoorpizza.com.au/robots.txt
+
+https://www.reddoorpizza.com.au/sitemap.xml
+
+Do not rely solely on source code.
 
 ==================================================
-PART D — METADATA QUALITY
+PART 3 — INDEXATION
+===================
+
+Where live search access permits, investigate:
+
+site:reddoorpizza.com.au
+
+Determine:
+
+* indexed pages
+* unexpected pages
+* missing pages
+* duplicate/index variants
+* stale pages
+* wrong canonical pages
+* whether location pages appear indexed
+* whether guides appear indexed
+* whether menu page appears indexed
+
+Clearly state limitations of site: searches.
+
+==================================================
+PART 4 — ON-PAGE SEO
+====================
+
+For every important page audit:
+
+TITLE
+
+META DESCRIPTION
+
+H1
+
+H2/H3
+
+INTRO
+
+MAIN CONTENT
+
+IMAGE ALT
+
+ANCHOR TEXT
+
+CTA
+
+ENTITY TERMS
+
+LOCATION TERMS
+
+SEMANTIC RELEVANCE
+
+Assess whether the page actually satisfies its intended query.
+
+Do not score based merely on keyword frequency.
+
+==================================================
+PART 5 — KEYWORD AUDIT
+======================
+
+First extract ALL keywords/phrases currently used naturally in:
+
+* titles
+* headings
+* body copy
+* menu
+* FAQs
+* guides
+* location pages
+* image alt text
+* links
+* structured data
+
+Create:
+
+Keyword
+URL
+Location
+Intent
+Current use
+Commercial value
+Potential cannibalisation
+Status
+
+Then evaluate the strategic keyword set.
+
+CORE:
+
+pizza Ballarat
+pizza in Ballarat
+pizza near Ballarat
+best pizza Ballarat
+pizza restaurant Ballarat
+wood-fired pizza Ballarat
+wood-fired pizza near Ballarat
+pizzeria Ballarat
+
+BUNINYONG:
+
+pizza Buninyong
+best pizza Buninyong
+pizza restaurant Buninyong
+wood-fired pizza Buninyong
+pizzeria Buninyong
+
+MEREDITH:
+
+pizza Meredith
+pizza near Meredith
+wood-fired pizza near Meredith
+restaurant near Meredith
+
+RESTAURANT:
+
+Italian restaurant Ballarat
+Italian food Ballarat
+restaurant near Ballarat
+family restaurant Ballarat
+family friendly restaurant Ballarat
+
+DIETARY:
+
+gluten-free pizza Ballarat
+gluten-free restaurant Ballarat
+gluten-free food Ballarat
+gluten-free pasta Ballarat
+
+MENU LONG-TAIL:
+
+pasta Ballarat
+lasagna Ballarat
+lamb ragu Ballarat
+lamb pizza Ballarat
+prawn pizza Ballarat
+vegetarian pizza Ballarat
+dessert Ballarat
+gelato Ballarat
+
+FUNCTIONS:
+
+group dining Ballarat
+function venue Ballarat
+work function Ballarat
+Christmas party Ballarat
+Christmas party venue Ballarat
+
+STOCKISTS:
+
+take-home pizza Ballarat
+wood-fired pizza retail Ballarat
+where to buy Red Door Pizza
+Red Door Pizza stockists
+
+==================================================
+PART 6 — KEYWORD RESEARCH
 =========================
 
-For each important route evaluate:
+Use current external keyword/search data if available.
 
-Title:
+For important query groups attempt to determine:
 
-* unique?
-* accurate?
-* commercially useful?
-* location appropriate?
-* natural?
-* overly long?
-* keyword stuffed?
-* brand included where appropriate?
+* search volume
+* trend
+* commercial intent
+* SERP difficulty
+* local-pack presence
+* SERP features
+* competing domains
+* content type ranking
+* search intent
+* opportunity
 
-Description:
+DO NOT invent search volume.
 
-* unique?
-* useful?
-* persuasive?
-* accurate?
-* aligned with actual page?
+If exact search volume is unavailable, say so.
 
-Canonical:
+Separate:
 
-* present?
-* correct?
-* self-referencing where appropriate?
-* production hostname?
-* no conflicts?
+Observed
 
-Also inspect Open Graph and Twitter metadata.
+from:
 
-==================================================
-PART E — SITEMAP + ROBOTS
-=========================
+Estimated
 
-Inspect:
+from:
 
-/robots.txt
-/sitemap.xml
-
-Verify:
-
-* production hostname
-* HTTPS
-* valid URLs
-* only legitimate indexable pages
-* no WowApps URLs
-* no invalid route
-* no duplicate URLs
-* no localhost
-* no preview hostnames
-* no accidental exclusions
-
-Compare sitemap URLs against canonical URLs.
-
-Report every discrepancy.
+Unknown.
 
 ==================================================
-PART F — MENU AUDIT — HIGH PRIORITY
-===================================
+PART 7 — SEARCH INTENT
+======================
 
-Inspect /menu in depth.
+For each major keyword determine whether the dominant intent is:
 
-Determine:
+Transactional
+Commercial investigation
+Local
+Informational
+Navigational
 
-1. Is ALL important menu text available in initial server-rendered HTML?
-2. Are menu item names crawlable?
-3. Are descriptions crawlable?
-4. Are categories crawlable?
-5. Are prices crawlable?
-6. Is gluten-free information crawlable?
-7. Are food categories semantically clear?
-8. Does client-side filtering hide content from initial HTML?
-9. Does "View All" require interaction?
-10. Does Framer Motion affect discoverability?
-11. Is there duplicate menu data?
-12. Is WowApps the only source for any important food information?
+Then determine whether Red Door has the correct page satisfying that intent.
 
-The menu contains multiple business entities:
+Example:
 
-Wood-fired pizza
-Starters & sides
-Pasta
-Kids/Teen/Seniors
-Desserts
-Gelato
-Drinks
-Gluten-free options
+pizza Ballarat
+→ /locations/ballarat
 
-Evaluate whether these are represented properly.
+wood-fired pizza Ballarat
+→ /locations/ballarat
 
-DO NOT recommend dozens of food-item pages unless genuinely justified.
+pizza Buninyong
+→ /locations/buninyong
 
-==================================================
-PART G — MENU TOPICAL OPPORTUNITY
-=================================
+gluten-free pizza Ballarat
+→ /guides/gluten-free-pizza-ballarat
 
-Evaluate coverage of:
+family restaurant Ballarat
+→ family guide
 
-Pizza
-Wood-fired pizza
-Pasta
-Italian food
-Gluten-free
-Family
-Kids
-Vegetarian
-Lamb
-Prawn
-Dessert
-Gelato
-Local ingredients
-Functions
-Stockists
+functions
+→ functions guide
 
-Determine:
-
-* what is strong
-* what is weak
-* what is missing
-* what is already sufficient
-
-Do not score based on keyword count.
+Identify mismatches.
 
 ==================================================
-PART H — HOMEPAGE AUDIT
-=======================
-
-Inspect homepage.
-
-Evaluate:
-
-* H1
-* hero messaging
-* Ballarat relationship
-* Buninyong location
-* wood-fired pizza positioning
-* menu breadth
-* premium Italian ingredients
-* local produce
-* family experience
-* gluten-free
-* groups/functions
-* gelato
-* stockists
-* booking CTA
-* order CTA
-
-Determine whether a first-time visitor can understand within seconds:
-
-WHO:
-Red Door Pizza
-
-WHAT:
-wood-fired pizza / pizzeria / restaurant
-
-WHERE:
-Buninyong
-
-WHY:
-approximately 12 minutes from Ballarat
-
-WHAT ELSE:
-family, gluten-free, pasta, dessert, functions, etc.
-
-==================================================
-PART I — BALLARAT AUDIT
-=======================
-
-Inspect /locations/ballarat.
-
-Determine:
-
-* Is it genuinely useful?
-* Does it clearly explain Buninyong location?
-* Does it communicate the 11 km / 12 min relationship?
-* Does it target pizza intent naturally?
-* Does it provide enough unique value?
-* Does it link to menu?
-* booking?
-* order?
-* family?
-* gluten-free?
-* functions?
-* Does it duplicate Buninyong content?
-
-Assess whether it is a genuine local landing page or doorway-page risk.
-
-==================================================
-PART J — BUNINYONG AUDIT
+PART 8 — CANNIBALISATION
 ========================
 
-Inspect /locations/buninyong.
+Compare:
 
-Determine:
+/
+/locations/ballarat
+/locations/buninyong
+/locations/meredith
+/menu
+/guides/*
 
-* physical location clarity
-* local relevance
-* restaurant intent
-* menu relationship
-* family
-* functions
+Determine whether multiple pages target the same intent unnecessarily.
+
+Search live SERPs where possible for query variations.
+
+Identify:
+
+* duplicate targeting
+* URL switching
+* overlapping titles
+* overlapping H1s
+* overlapping content
+* location-page similarity
+* guide/page conflicts
+
+Do not recommend merging pages unless evidence supports it.
+
+==================================================
+PART 9 — MENU SEO
+=================
+
+Audit /menu in extreme detail.
+
+Determine whether search engines can understand:
+
+* wood-fired pizza
+* individual pizza names
+* descriptions
+* prices
+* pasta
 * gluten-free
-* booking
-* directions
+* vegetarian
+* lamb
+* prawns
+* kids
+* dessert
+* gelato
+* drinks
+
+Determine whether the menu produces useful long-tail search opportunities.
+
+Identify:
+
+Top 20 menu-related opportunities
+
+and
+
+Top 10 menu-related problems.
+
+Do not recommend a separate URL for every menu item unless evidence supports it.
 
 ==================================================
-PART K — MEREDITH AUDIT
-=======================
+PART 10 — INTERNAL LINKING
+==========================
 
-Inspect /locations/meredith.
+Build an actual internal link map.
 
-Determine:
+For each important page calculate:
 
-* why Meredith is being targeted
-* whether the relationship is legitimate
-* whether the page contains unique useful content
-* whether it accidentally implies physical presence
-* whether it might create a doorway-page risk
-* whether the relationship is customer market, service area, ingredient or combination
-
-Be particularly careful because Meredith can also occur in food/ingredient context.
-
-Do not assume "pizza Meredith" is valid simply because a page exists.
-
-==================================================
-PART L — INTERNAL LINKING
-=========================
-
-Build an internal linking graph.
-
-Measure:
-
-* inbound links
-* outbound links
+* inbound internal links
+* outbound internal links
 * anchor text
-* contextual links
-* global navigation
-* footer links
-* homepage links
-* guide links
-* location links
-* menu links
-* stockist links
-* booking/contact links
+* contextual vs navigation links
+* depth from homepage
+* orphan risk
+* overlinking
+* underlinking
 
-Evaluate whether internal linking reinforces:
+Evaluate whether the link graph reinforces:
 
 Red Door Pizza
 → wood-fired pizza
 → Buninyong
 → Ballarat
-→ Meredith
 
-and supporting topics:
+and:
 
 pizza
 → pasta
 → gluten-free
 → family
 → functions
-→ gelato
-→ local ingredients
+→ ingredients
 → stockists
+→ gelato
 
-Identify:
-
-* orphan pages
-* overlinked pages
-* underlinked important pages
-* poor anchor text
-* cannibalisation risk
+Identify the 10 most valuable internal-link improvements.
 
 ==================================================
-PART M — STRUCTURED DATA
-========================
+PART 11 — EXTERNAL LINKING
+==========================
 
-Audit all JSON-LD.
+Audit every outbound link.
+
+Classify:
+
+* WowApps
+* Google Maps
+* Instagram
+* Facebook
+* supplier
+* tourism
+* directory
+* citation
+* other
 
 Check:
 
-* Restaurant
-* LocalBusiness
-* WebSite
-* Menu
-* MenuItem
-* Product
-* Article
-* FAQPage
-* BreadcrumbList
-* Organization
-* any other schema
+* relevance
+* destination quality
+* anchor text
+* broken links
+* unnecessary links
+* external-link UX
+* security attributes
 
-For EVERY schema object determine:
+Ensure external links do not accidentally leak credibility to irrelevant destinations.
 
-* valid JSON?
-* appropriate type?
-* visible content?
-* accurate?
-* duplicate?
-* contradictory?
-* fake?
-* unsupported?
-* connected to main business entity?
+Do not recommend blanket nofollow on ordinary legitimate links.
 
-Pay special attention to:
+==================================================
+PART 12 — LOCAL SEO
+===================
 
+Audit local SEO for:
+
+Buninyong
+Ballarat
+Meredith
+
+Assess:
+
+* NAP
 * address
 * phone
-* URL
+* hours
+* location
 * geo
-* opening hours
-* cuisine
-* menu
-* images
-* social profiles
-* reviews
-* ratings
-* stockists
-* FAQs
+* maps
+* local content
+* proximity language
+* local supplier references
+* local authority references
+* service area language
 
-Do NOT give credit merely because schema exists.
+Determine whether location pages are:
 
-==================================================
-PART N — ENTITY ARCHITECTURE
-============================
-
-Evaluate whether search engines can clearly understand:
-
-# Red Door Pizza
-
-# Wood-fired pizzeria
-
-# Buninyong
-
-near Ballarat
-
-Supporting relationships:
-
-Italian-style dining
-Pasta
-Gluten-free
-Family
-Kids
-Functions
-Local produce
-Il Piccolo Gelato
-Stockists
-Take-home pizza
-
-Identify any contradictions.
+* useful
+* unique
+* accurate
+* locally relevant
+* doorway-page risks
 
 ==================================================
-PART O — AI / ANSWER ENGINE VISIBILITY
-======================================
+PART 13 — GOOGLE BUSINESS PROFILE
+=================================
 
-This is a strategic audit, not a claim of guaranteed AI rankings.
+This cannot be marked complete from code.
 
-Evaluate whether the site provides strong, explicit, trustworthy information that answer engines could use for questions such as:
-
-* Where can I get wood-fired pizza near Ballarat?
-* What is a good pizza restaurant near Ballarat?
-* Where can I get pizza in Buninyong?
-* Where can I get gluten-free pizza near Ballarat?
-* Is there a family-friendly pizza restaurant near Ballarat?
-* Where can I have a group dinner near Ballarat?
-* Where can I hold a Christmas/work function near Ballarat?
-* Where can I buy Red Door Pizza around Ballarat?
-* Does Red Door Pizza offer pasta?
-* Does Red Door Pizza offer gelato?
-* What local ingredients does Red Door Pizza use?
-* How far is Red Door Pizza from Ballarat CBD?
-
-Evaluate:
-
-* factual clarity
-* content depth
-* entity consistency
-* first-party evidence
-* local specificity
-* direct answers
-* content uniqueness
-* internal links
-* structured information
-
-Do not claim actual AI inclusion unless independently verified.
-
-==================================================
-PART P — LOCAL SEO
-==================
-
-Audit website-side readiness for:
-
-* Google Business Profile
-* Bing Places
-* Apple Maps / Business Connect
-* Tripadvisor
-* OpenTable
-* tourism/local directories
-* Buninyong community
-* Ballarat local ecosystem
+Investigate the live Google Business Profile where publicly accessible.
 
 Check:
 
-* NAP consistency
+* business name
+* primary category
+* secondary categories where visible
+* address
+* phone
+* website
+* hours
+* photos
+* description
+* services
+* menu
+* booking
+* ordering
+* attributes
+* reviews
+* review count
+* rating
+* owner responses
+* recent activity
+* Q&A if visible
+
+IMPORTANT:
+
+Do not invent data.
+
+Use current verified values.
+
+Compare against:
+
+GBP_BUSINESS_INFORMATION.md
+
+==================================================
+PART 14 — LOCAL CITATIONS
+=========================
+
+Search the web for the exact business:
+
+"Red Door Pizza" "401 Warrenheip St"
+
+Also search variants.
+
+Find existing mentions/listings.
+
+For every discovered citation:
+
+* platform
+* URL
+* business name
 * address
 * phone
 * hours
 * website
-* business name
-* location language
-* social links
-* booking link
-* ordering link
+* category
+* consistency
+* quality
+* duplicate risk
 
-Clearly separate:
+Identify incorrect listings.
 
-CODEBASE STATUS
-
-from:
-
-EXTERNAL PLATFORM STATUS
-
-Do not claim external listings are optimized unless verified.
+Do not assume missing listing = bad.
 
 ==================================================
-PART Q — CONTENT QUALITY
-========================
+PART 15 — REVIEWS / REPUTATION
+==============================
 
-Evaluate all content for:
+Assess:
+
+Google reviews
+Tripadvisor
+OpenTable
+other public review platforms
+
+For each available platform:
+
+* rating
+* review volume
+* recent review activity
+* recurring positive themes
+* recurring negative themes
+* owner responses
+* review freshness
+
+Look specifically for recurring themes around:
+
+* wood-fired pizza
+* Ballarat
+* Buninyong
+* family
+* atmosphere
+* gluten-free
+* gelato
+* service
+* pasta
+* value
+
+Do not manufacture review language.
+
+Do not claim a review is authentic unless source is identifiable.
+
+==================================================
+PART 16 — TESTIMONIAL VERIFICATION
+==================================
+
+Audit the on-site testimonial section.
+
+Verify the three supplied authentic Google reviewers:
+
+Rhiannon
+Purple Rainbow
+Isaac Stolk
+
+Verify that their displayed attribution links to the supplied Google contribution URLs.
+
+Do not add Review/AggregateRating schema unless independently justified.
+
+Flag any other review/testimonial content that appears unsourced.
+
+==================================================
+PART 17 — OFF-PAGE SEO
+======================
+
+Investigate external authority.
+
+Look for:
+
+* backlinks
+* referring domains
+* local publications
+* tourism sites
+* supplier mentions
+* retailer mentions
+* directory citations
+* food publications
+* community references
+* event references
+* social mentions
+
+Where tools permit, identify:
+
+* referring domain
+* URL
+* link type
+* relevance
+* authority
+* likely value
+* toxic/spam concern
+* acquisition difficulty
+
+Do NOT fabricate backlink counts.
+
+If backlink data requires a paid tool unavailable in the environment, say:
+
+"Not independently verifiable with available tooling."
+
+==================================================
+PART 18 — LOCAL AUTHORITY OPPORTUNITIES
+=======================================
+
+Use the existing relationship document and independently verify opportunities where possible.
+
+Known relationship categories:
+
+* Buninyong Butcher
+* Peaches
+* Il Piccolo Gelato
+* local IGAs
+* Ballarat tourism
+* Buninyong community
+* local events
+* local media
+
+Classify opportunities:
+
+High value / low effort
+High value / medium effort
+High value / high effort
+
+Do not recommend paid link schemes.
+
+==================================================
+PART 19 — COMPETITOR RESEARCH
+=============================
+
+Identify the actual top 5–10 competitors for relevant searches.
+
+Do not simply choose businesses by proximity.
+
+Use current SERPs for:
+
+pizza Ballarat
+wood-fired pizza Ballarat
+pizza near Ballarat
+best pizza Ballarat
+pizza Buninyong
+Italian restaurant Ballarat
+family restaurant Ballarat
+gluten-free pizza Ballarat
+group dining Ballarat
+
+For each major competitor document:
+
+* URL
+* business
+* physical location
+* Google visibility
+* organic ranking where observable
+* title
+* H1
+* menu depth
+* wood-fired proposition
+* Italian proposition
+* GF
+* family
+* functions
+* content
+* reviews
+* local authority
+* backlinks where available
+* technical strengths
+* technical weaknesses
+
+==================================================
+PART 20 — SERP FEATURE ANALYSIS
+===============================
+
+For major queries identify:
+
+* map pack
+* local results
+* review results
+* image results
+* AI Overview
+* featured snippets
+* People Also Ask
+* local packs
+* directories
+* restaurant platforms
+* video
+* other SERP features
+
+Determine what type of content Google is rewarding.
+
+==================================================
+PART 21 — AI SEARCH / ANSWER ENGINE AUDIT
+=========================================
+
+Test, where the environment allows, current AI/search systems.
+
+Investigate queries such as:
+
+"best wood-fired pizza near Ballarat"
+
+"where should I get pizza near Ballarat"
+
+"family-friendly pizza restaurant near Ballarat"
+
+"gluten-free pizza near Ballarat"
+
+"pizza in Buninyong"
+
+"restaurants near Ballarat"
+
+"where can I have a group dinner near Ballarat"
+
+"where can I hold a Christmas party near Ballarat"
+
+"where can I buy Red Door Pizza"
+
+"best restaurants in Buninyong"
+
+"pizza near Meredith"
+
+Use available:
+
+* Google AI Overviews
+* Google AI Mode
+* Bing/Copilot
+* other accessible answer engines
+
+For each query record:
+
+* Is Red Door mentioned?
+* Is Red Door linked/cited?
+* Which competitors are mentioned?
+* Which sources are cited?
+* What facts are used?
+* Why might Red Door be absent?
+* What evidence would increase eligibility?
+
+DO NOT claim AI visibility simply because the website contains relevant text.
+
+==================================================
+PART 22 — AI ENTITY / KNOWLEDGE CLARITY
+=======================================
+
+Assess whether external web sources consistently describe:
+
+Red Door Pizza
+→ wood-fired pizzeria
+→ Buninyong
+→ near Ballarat
+
+and supporting relationships:
+
+* pasta
+* gluten-free
+* family
+* functions
+* local ingredients
+* gelato
+* stockists
+
+Look for contradictions across websites.
+
+==================================================
+PART 23 — CONTENT QUALITY
+=========================
+
+Evaluate every indexable page for:
 
 * usefulness
+* first-party information
 * originality
-* factual accuracy
+* depth
 * specificity
-* local relevance
-* commercial intent
+* factual accuracy
+* local value
+* commercial value
+* trust
 * duplication
-* thin content
-* keyword stuffing
-* generic AI writing
+* thinness
+* AI-generated filler
 * unsupported claims
-* unnecessary pages
 
-Pay special attention to location pages and guides.
+Give each page:
+
+Content quality:
+0–10
+
+Commercial value:
+0–10
+
+Search usefulness:
+0–10
+
+AI answer usefulness:
+0–10
 
 ==================================================
-PART R — CONVERSION RATE OPTIMISATION
-=====================================
-
-Audit the site as a customer, not just as a search engine.
+PART 24 — E-E-A-T / TRUST
+=========================
 
 Evaluate:
 
-* Book a Table CTA
-* Order Online CTA
-* menu experience
-* phone CTA
-* directions CTA
-* group enquiry
-* functions
-* mobile sticky CTA
-* floating order button
-* page hierarchy
-* CTA placement
-* customer trust
-* social proof
-* menu accessibility
-* WowApps handoff
+* clear business identity
+* real address
+* phone
+* contact information
+* authorship where relevant
+* real reviews
+* supplier information
+* local evidence
+* first-party menu
+* transparent business information
+* policies
+* trust signals
 
-Ask:
-
-Can a customer quickly answer:
-
-"What do they sell?"
-"Where are they?"
-"How far from Ballarat?"
-"Can I book?"
-"Can I order?"
-"Is it family friendly?"
-"Can I bring a group?"
-"Do they have gluten-free options?"
+Do not equate E-E-A-T with a single ranking factor.
 
 ==================================================
-PART S — WOWAPPS
-================
+PART 25 — CONVERSION / CRO
+==========================
 
-Audit every WowApps integration.
+Audit:
+
+* Book a Table
+* Order Online
+* WowApps
+* phone
+* directions
+* group functions
+* menu
+* family content
+* gluten-free content
+
+Test the customer journey conceptually:
+
+Search
+→ landing page
+→ menu
+→ decision
+→ booking/order
+
+Identify friction.
+
+Focus on:
+
+* CTA clarity
+* CTA placement
+* mobile
+* form functionality
+* trust
+* menu usability
+* WowApps handoff
+* group enquiries
+
+==================================================
+PART 26 — WOWAPPS
+=================
+
+Audit every WowApps CTA.
 
 Verify:
 
-* destination URLs
-* CTA wording
-* accessibility
-* target behaviour
-* no broken links
-* consistency
-* event tracking
-* menu-item tracking
+* correct URL
+* consistent wording
+* tracking
+* external handoff
+* user experience
+* mobile experience if testable
 
-Determine whether the external handoff is clean.
+Determine whether customers can reach ordering quickly.
 
 Do not modify WowApps.
 
 ==================================================
-PART T — ANALYTICS
-==================
+PART 27 — ANALYTICS
+===================
 
-Inspect implementation of:
+Audit:
 
-* GA4
-* GTM
-* other analytics
-* event tracking
+GA4
+GTM
+Search Console
+conversion events
 
-Verify whether these events are actually implemented:
+Determine:
+
+* what is implemented
+* what is measurable
+* what requires live dashboard verification
+
+Important events:
 
 order_online_click
 menu_item_order_click
@@ -887,417 +1149,482 @@ directions_click
 group_enquiry_click
 contact_submission
 
-Check:
-
-* event naming
-* event parameters
-* duplicate scripts
-* PII risk
-* consent behaviour
-* loading performance
-
-Do not claim real event collection unless live platform access exists.
-
 ==================================================
-PART U — PERFORMANCE
-====================
+PART 28 — PERFORMANCE
+=====================
 
-Perform static/code-based performance review.
+Use live tools where possible.
 
-Inspect:
+Assess:
 
-* Next/Image
-* image dimensions
-* priority usage
-* lazy loading
+* LCP
+* CLS
+* INP
+* page weight
+* images
 * fonts
 * JavaScript
-* Framer Motion
-* client components
-* server components
-* third-party scripts
-* hydration
-* bundle-heavy dependencies
-* potential layout shift
-* unnecessary client rendering
+* third-party resources
+* mobile performance
+* desktop performance
 
-Run production build.
+Use:
 
-If runtime/browser performance can be tested in the current environment, do so.
+PageSpeed Insights
+Lighthouse
+CrUX
 
-Distinguish:
+where available.
 
-CONFIRMED
-
-from:
-
-POTENTIAL
-
-from:
-
-REQUIRES REAL-WORLD TESTING
+Clearly label actual measurements vs code inference.
 
 ==================================================
-PART V — ACCESSIBILITY
-======================
-
-Inspect:
-
-* semantic HTML
-* heading hierarchy
-* links
-* buttons
-* form labels
-* ARIA
-* alt text
-* keyboard navigation clues
-* focus states
-* mobile navigation
-* contrast implementation clues
-
-Do not equate accessibility automatically with ranking improvement.
-
-==================================================
-PART W — MOBILE UX
-==================
-
-Inspect responsive behaviour.
-
-Pay special attention to:
-
-* mobile menu
-* menu filtering
-* sticky order CTA
-* CTA overlap
-* hero
-* forms
-* menu cards
-* images
-* text wrapping
-* navigation
-
-If a visual/browser test is possible, perform it.
-
-==================================================
-PART X — SECURITY / DEPLOYMENT HEALTH
-=====================================
-
-Perform a basic production code health review for:
-
-* exposed secrets
-* environment variables
-* unsafe client-side credentials
-* broken configuration
-* console errors
-* build warnings
-* external dependency risks
-* invalid links
-
-Do not reveal secret values.
-
-==================================================
-PART Y — CLIENT BUSINESS FACT CHECK
-===================================
-
-Search the entire codebase for:
-
-* live music
-* weekend live music
-* 120
-* 30–120
-* drink packages
-* beverage packages
-* full bar
-* high-speed takeaway
-* outdated hours
-* outdated capacity
-* inaccurate location claims
-
-Report EVERY remaining occurrence.
-
-Distinguish:
-
-actual customer-visible content
-
-from:
-
-comments/documentation/dead code
-
-==================================================
-PART Z — BUILD / CODE QUALITY
-=============================
-
-Run:
-
-* typecheck
-* lint
-* production build
-
-Report:
-
-* errors
-* warnings
-* dependency issues
-* build issues
-* route generation issues
-
-Do not alter anything.
-
-==================================================
-SCORING SYSTEM
-==============
-
-Create an enterprise score out of 100.
-
-Use these categories:
-
-1. Technical SEO — 15 points
-2. Crawlability & Indexation — 10 points
-3. Information Architecture & Internal Linking — 10 points
-4. On-Page SEO — 10 points
-5. Menu / Topical Authority — 10 points
-6. Local SEO / Geographic Entity — 10 points
-7. Structured Data / Entity — 10 points
-8. AI / Answer Engine Readiness — 10 points
-9. Conversion / UX — 10 points
-10. Analytics / Measurement — 5 points
-
-TOTAL:
-100
-
-IMPORTANT:
-
-Do NOT award 100 simply because everything is implemented.
-
-Score based on quality, correctness and strategic effectiveness.
-
-==================================================
-SCORING RULES
-=============
-
-For every category report:
-
-Score:
-X / available points
-
-Status:
-GREEN / AMBER / RED
-
-Evidence:
-Exact evidence from code
-
-Problems:
-What is wrong
-
-Impact:
-LOW / MEDIUM / HIGH / CRITICAL
-
-Required action:
-What should happen
-
-==================================================
-100/100 STANDARD
-================
-
-Define "100/100" as:
-
-* technically sound
-* crawlable
-* indexable
-* logically structured
-* no major SEO errors
-* accurate business information
-* strong menu representation
-* strong Ballarat/Buninyong/Meredith differentiation
-* coherent entity architecture
-* strong internal linking
-* valid structured data
-* strong conversion paths
-* measurable conversion intent
-* strong local SEO foundation
-* high-quality useful content
-* no obvious cannibalisation
-* no obvious doorway-page risk
-* no serious performance issue
-* no broken production functionality
-
-Recognise that some factors cannot be verified from code alone.
-
-==================================================
-EXTERNAL VERIFICATION SECTION
-=============================
-
-Create a dedicated section:
-
-"REQUIRES EXTERNAL VERIFICATION"
-
-Include items such as appropriate:
-
-* Google Search Console
-* Google Business Profile
-* live Google index
-* live sitemap response
-* live robots response
-* GA4 real-time/event receipt
-* Core Web Vitals
-* Google Rich Results Test
-* PageSpeed Insights
-* actual Google rankings
-* local pack visibility
-* AI Overview / AI Mode visibility
-* Bing visibility
-* external citations
-* backlinks
-* reviews
-* WowApps transaction data
-
-Do not claim any of these are verified unless you actually verified them.
-
-==================================================
-FINAL 100/100 JUDGEMENT
+PART 29 — ACCESSIBILITY
 =======================
 
-At the end provide:
+Audit:
 
-# FINAL VERDICT
+* headings
+* labels
+* buttons
+* links
+* ARIA
+* alt text
+* keyboard navigation
+* contrast
+* forms
+* mobile navigation
 
-Choose exactly one:
-
-A. 100/100 — Production-ready and strategically complete
-
-B. 90–99 — Excellent but requires minor improvements
-
-C. 80–89 — Strong foundation but meaningful gaps remain
-
-D. 70–79 — Good foundation but substantial work remains
-
-E. Below 70 — Significant SEO/technical work remains
-
-If the site is not 100/100:
-
-List the exact blockers preventing 100/100.
-
-Rank blockers:
-
-P0
-P1
-P2
-P3
-
-P0 = must fix before considering SEO launch complete
-
-P1 = high-impact
-
-P2 = meaningful improvement
-
-P3 = optional optimisation
+Identify high-impact accessibility issues.
 
 ==================================================
-MOST IMPORTANT FINAL SECTION
-============================
+PART 30 — MOBILE UX
+===================
+
+Test key pages at mobile widths.
+
+At minimum:
+
+/
+/menu
+/locations/ballarat
+/locations/buninyong
+/locations/meredith
+/contact
+/guides/*
+
+Check:
+
+* sticky CTAs
+* menu usability
+* text
+* spacing
+* forms
+* image rendering
+* horizontal overflow
+* accidental overlap
+* tap targets
+
+==================================================
+PART 31 — SOCIAL / BRAND PRESENCE
+=================================
+
+Audit public presence on:
+
+Instagram
+Facebook
+Google
+Tripadvisor
+OpenTable
+other relevant platforms
+
+Check brand consistency and links.
+
+Do not treat follower count as an SEO ranking factor.
+
+==================================================
+PART 32 — IMAGE / IMAGE SEO
+===========================
+
+Audit:
+
+* filenames
+* alt text
+* dimensions
+* image quality
+* compression
+* schema image URLs
+* social images
+* useful food/location imagery
+
+Identify opportunities for genuine image-search visibility.
+
+==================================================
+PART 33 — LOCAL IMAGE / ENTITY OPPORTUNITY
+==========================================
+
+Identify useful images that could reinforce:
+
+* Buninyong
+* Ballarat proximity
+* wood-fired oven
+* pizzas
+* family lounge
+* kids corner
+* functions
+* local suppliers
+* gelato
+* take-home pizzas
+
+Do not recommend stock photography where genuine business photography is available.
+
+==================================================
+PART 34 — EXTERNAL LINKS / AUTHORITY
+====================================
+
+Analyze which external sites currently cite Red Door and what is missing.
 
 Create:
 
-# TOP 20 REMAINING ACTIONS
+Domain
+Type
+Current link?
+Quality
+Relevance
+Potential action
 
-For every action include:
-
-Priority
-Area
-Problem
-Evidence
-Recommended solution
-Expected impact
-Difficulty
-Code change required? YES/NO
-External action required? YES/NO
-
-Do NOT recommend changes that are already correctly implemented.
-
-Do NOT recommend unnecessary SEO busywork.
+Do not recommend spam.
 
 ==================================================
-FINAL OUTPUT
-============
+PART 35 — TECHNICAL + SEO PRIORITY MATRIX
+=========================================
 
-Return the audit in this structure:
+Create a final priority matrix.
 
-# RED DOOR PIZZA — FINAL SEO & WEBSITE AUDIT
+P0:
+Potentially damaging / must fix
 
-## 1. Executive Summary
+P1:
+High impact
 
-## 2. Overall Score /100
+P2:
+Meaningful improvement
 
-## 3. Scorecard
+P3:
+Optional
 
-## 4. STEP 1 Verification
+For every recommendation include:
 
-## 5. STEP 2 Verification
+Problem
+Evidence
+Impact
+Confidence
+Effort
+Code / External
+Expected outcome
 
-## 6. STEP 3 Verification
+==================================================
+PART 36 — SCORING
+=================
 
-## 7. STEP 4 Verification
+Score the CURRENT WEBSITE independently.
 
-## 8. STEP 5 Verification
+Use:
 
-## 9. STEP 6 Verification
+Technical SEO — 15
+On-page SEO — 10
+Keyword strategy — 10
+Content/topical authority — 10
+Internal linking — 5
+Local SEO — 10
+Off-page/authority — 10
+Structured data/entity — 10
+AI search readiness — 10
+CRO/UX — 5
+Performance/accessibility — 5
 
-## 10. STEP 7 Verification
+TOTAL = 100
 
-## 11. STEP 8 Verification
+Important:
 
-## 12. STEP 9 Verification
+Do not give points merely because a feature exists.
 
-## 13. STEP 10 Verification
+A feature must be:
 
-## 14. Technical SEO
+* correct
+* useful
+* strategically aligned
+* properly implemented
 
-## 15. Crawlability / Indexation
+==================================================
+PART 37 — 100/100 DEFINITION
+============================
 
-## 16. Metadata
+A 100/100 website should mean:
 
-## 17. Menu / Food Content
+* technically sound
+* fully crawlable
+* indexable
+* clean canonical architecture
+* excellent on-page targeting
+* clear search intent mapping
+* strong menu content
+* strong internal linking
+* strong local entity
+* accurate geographic targeting
+* consistent NAP
+* legitimate citations
+* strong external authority
+* strong review reputation
+* genuine content
+* strong CRO
+* measurable conversions
+* fast and usable
+* accessible
+* no serious cannibalisation
+* no doorway-page risk
+* strong AI answer-engine readiness
 
-## 18. Information Architecture
+A 100/100 score does NOT mean:
+"Google will definitely rank #1."
 
-## 19. Internal Linking
+==================================================
+PART 38 — CRITICAL DISTINCTION
+==============================
 
-## 20. Ballarat SEO
+Separate:
 
-## 21. Buninyong SEO
+WEBSITE QUALITY
 
-## 22. Meredith SEO
+from:
 
-## 23. Local Entity
+SEARCH MARKET COMPETITIVENESS
 
-## 24. Structured Data
+A site can be 95/100 technically and still rank poorly because competitors have:
 
-## 25. AI / Answer Engine Readiness
+* stronger authority
+* more reviews
+* better local prominence
+* more backlinks
+* stronger brand demand
+* better SERP fit
 
-## 26. Content Quality
+Therefore create both:
 
-## 27. Conversion / CRO
+A. Website readiness score
 
-## 28. WowApps
+B. Market competitiveness score
 
-## 29. Analytics / Measurement
+==================================================
+PART 39 — FINAL MARKET COMPETITIVENESS
+======================================
 
-## 30. Performance
+Score:
 
-## 31. Accessibility
+Ballarat
+Buninyong
+Meredith
 
-## 32. Mobile UX
+for:
 
-## 33. Code Quality / Build
+* organic competition
+* map competition
+* local authority
+* content competition
+* review strength
+* backlink strength
+* brand strength
+* search demand
+* likely difficulty
 
-## 34. Outdated or Conflicting Content
+==================================================
+PART 40 — TOP OPPORTUNITIES
+===========================
 
-## 35. External Verification Required
+Identify:
 
-## 36. Top 20 Remaining Actions
+TOP 10 QUICK WINS
 
-## 37. FINAL 100/100 VERDICT
+TOP 10 HIGH-IMPACT SEO PROJECTS
 
-Do not modify the project.
+TOP 10 LOCAL SEO OPPORTUNITIES
 
-This is an audit only.
+TOP 10 CONTENT OPPORTUNITIES
+
+TOP 10 AI SEARCH OPPORTUNITIES
+
+TOP 10 CRO OPPORTUNITIES
+
+Do not repeat the same item across all lists unnecessarily.
+
+==================================================
+PART 41 — WHAT NOT TO DO
+========================
+
+Explicitly identify SEO actions Red Door should avoid.
+
+Examples may include:
+
+* keyword stuffing
+* fake reviews
+* fake location pages
+* fake service areas
+* link buying
+* PBNs
+* spam directories
+* AI-generated mass content
+* duplicate menu pages
+* unsupported schema
+* fake ratings
+* misleading Ballarat/Meredith claims
+
+Only include these if relevant.
+
+==================================================
+PART 42 — EXECUTIVE VERDICT
+===========================
+
+At the end answer clearly:
+
+1. Is the website technically ready?
+2. Is it SEO ready?
+3. Is it locally competitive?
+4. Is it AI-search ready?
+5. Is it conversion ready?
+6. What is preventing 100/100?
+7. What are the 5 highest-impact actions?
+8. What should NOT be changed?
+9. What needs external marketing work?
+10. What should be measured over the next 90 days?
+
+==================================================
+FINAL REPORT FORMAT
+===================
+
+# RED DOOR PIZZA — MASTER SEO INTELLIGENCE AUDIT
+
+## Executive Summary
+
+## Website Readiness Score
+
+## Market Competitiveness Score
+
+## Technical SEO
+
+## On-Page SEO
+
+## Keyword Strategy
+
+## Search Intent
+
+## Content Quality
+
+## Menu SEO
+
+## Internal Linking
+
+## External Linking
+
+## Local SEO
+
+## Google Business Profile
+
+## Citations
+
+## Reviews / Reputation
+
+## Off-Page SEO
+
+## Competitor Analysis
+
+## SERP Analysis
+
+## AI Search / Answer Engines
+
+## Entity / Knowledge Graph
+
+## Structured Data
+
+## CRO
+
+## WowApps
+
+## Analytics
+
+## Performance
+
+## Accessibility
+
+## Mobile UX
+
+## Image SEO
+
+## Content Gaps
+
+## Cannibalisation
+
+## P0 Actions
+
+## P1 Actions
+
+## P2 Actions
+
+## P3 Actions
+
+## Top 10 Quick Wins
+
+## Top 10 High-Impact Projects
+
+## Top 10 Local SEO Opportunities
+
+## Top 10 Content Opportunities
+
+## Top 10 AI Search Opportunities
+
+## Top 10 CRO Opportunities
+
+## What NOT To Do
+
+## External Verification Required
+
+## Final 100/100 Gap Analysis
+
+## 90-Day SEO Roadmap
+
+==================================================
+EVIDENCE STANDARD
+=================
+
+Every important claim must have evidence.
+
+For codebase findings:
+include file path.
+
+For live website findings:
+include URL.
+
+For search findings:
+include query + search date.
+
+For competitor findings:
+include competitor URL/source.
+
+For external profile findings:
+include platform + URL.
+
+For unverified findings:
+clearly label "UNVERIFIED".
+
+Do not fabricate missing data.
+
+==================================================
+IMPORTANT FINAL RULE
+====================
+
+This is an AUDIT ONLY.
+
+DO NOT MODIFY THE CODEBASE.
+
+DO NOT IMPLEMENT RECOMMENDATIONS.
+
+The purpose is to establish the current state of Red Door Pizza and identify the highest-impact path to 100/100 and beyond.

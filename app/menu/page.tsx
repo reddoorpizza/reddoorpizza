@@ -6,16 +6,16 @@ import Link from "next/link";
 import OrderButton from "@/app/components/OrderButton";
 
 export const metadata: Metadata = {
-  title: "Wood-Fired Pizza & Italian Menu",
+  title: "Wood-Fired Pizza, Gluten-Free Pizza & Italian Menu",
   description:
-    "Explore our authentic menu featuring imported fior di latte wood-fired pizzas, homemade pastas, gluten-free options, and local gelato in Buninyong.",
+    "Explore our authentic menu featuring imported fior di latte wood-fired pizzas, homemade pastas, gluten-free pizza bases, and local gelato in Buninyong — 12 minutes from Ballarat.",
   alternates: {
     canonical: "/menu",
   },
   openGraph: {
-    title: "Wood-Fired Pizza & Italian Menu | Red Door Pizza",
+    title: "Wood-Fired Pizza, Gluten-Free Pizza & Italian Menu | Red Door Pizza",
     description:
-      "Explore our authentic menu featuring imported fior di latte wood-fired pizzas, homemade pastas, gluten-free options, and local gelato in Buninyong.",
+      "Explore our authentic menu featuring imported fior di latte wood-fired pizzas, homemade pastas, gluten-free pizza bases, and local gelato in Buninyong.",
     url: "https://www.reddoorpizza.com.au/menu",
     siteName: "Red Door Pizza",
     type: "website",
@@ -25,25 +25,26 @@ export const metadata: Metadata = {
         url: "/Banner.jpg",
         width: 1200,
         height: 630,
-        alt: "Red Door Pizza — Wood-Fired Pizza & Italian Menu",
+        alt: "Red Door Pizza — Wood-Fired Pizza, Gluten-Free Pizza & Italian Menu",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wood-Fired Pizza & Italian Menu | Red Door Pizza",
+    title: "Wood-Fired Pizza, Gluten-Free Pizza & Italian Menu | Red Door Pizza",
     description:
-      "Explore our authentic menu featuring wood-fired pizzas, homemade pastas, gluten-free options, and local gelato.",
+      "Explore our authentic menu featuring wood-fired pizzas, gluten-free bases, homemade pastas, and local gelato.",
     images: ["/Banner.jpg"],
   },
 };
 
 const categoryIntros: Record<string, string> = {
-  pizzas: "Our signature wood-fired pizzas, baked in a traditional oven at 400°C using imported Italian fior di latte and locally sourced toppings.",
-  starters: "Garlic bread, olives, loaded fries, and our Red Door Salad with Meredith goat cheese.",
-  pasta: "House-made pasta dishes — our beef and pork bolognese and slow-cooked lamb ragu are made fresh daily.",
-  kids: "10-inch pizzas and chicken nuggets for younger guests, with an optional kids juice and ice cream combo for $5.",
-  dessert: "Locally made il piccolo gelato, dessert pizzas, house-made tiramisu, and affogato.",
+  pizzas: "Our signature wood-fired pizza Ballarat locals love — baked in a traditional oven at 400°C using imported Italian fior di latte and locally sourced toppings. Choose from classic margherita pizza Ballarat or explore our premium range including lamb pizza, prawn pizza, and vegetarian pizza Buninyong options.",
+  "take-home": "Take-home pizza dough Ballarat — fresh, pre-made dough balls ready for your home oven. Grab a ball, add your favourite toppings, and recreate the Red Door experience at home.",
+  starters: "The best wood-fired garlic bread Ballarat locals love, plus loaded fries Ballarat, olives, and our Red Door Salad with Meredith goat cheese.",
+  pasta: "Wood-fired pasta Ballarat — house-made pasta dishes including our 10-hour slow-cooked lamb ragu sourced locally from Buninyong Butcher, and gluten-free spaghetti bolognese.",
+  kids: "Kids pizza Ballarat — 10-inch pizzas and chicken nuggets for younger guests, with an optional kids juice and ice cream combo for $5.",
+  dessert: "Gelato Buninyong — locally made il piccolo gelato, dessert pizzas, house-made tiramisu Ballarat, and affogato.",
   drinks: "Soft drinks, coffee, tea, and Hepburn natural sparkling water.",
 };
 
@@ -52,6 +53,7 @@ interface MenuItem {
   description?: string;
   price: string;
   isVegetarian?: boolean;
+  isGlutenFree?: boolean;
 }
 
 interface CategoryData {
@@ -73,7 +75,7 @@ const menuData: CategoryData[] = [
         name: "Margherita Pizza",
         price: "$23",
         isVegetarian: true,
-        description: "Tomato sauce, mozzarella, & fresh basil",
+        description: "The classic margherita pizza Ballarat — tomato sauce, mozzarella, & fresh basil",
       },
       {
         name: "Potato Pizza",
@@ -86,7 +88,7 @@ const menuData: CategoryData[] = [
         price: "$26",
         isVegetarian: true,
         description:
-          "Olive oil, mozzarella, mushrooms, pine nuts, Meredith goat cheese, and rocket",
+          "Mushroom pizza Ballarat — olive oil, mozzarella, mushrooms, pine nuts, Meredith goat cheese, and rocket",
       },
       {
         name: "Pumpkin Pizza",
@@ -122,7 +124,7 @@ const menuData: CategoryData[] = [
         name: "Capricciosa Pizza",
         price: "$28",
         description:
-          "Tomato sauce, mozzarella, shaved ham, mushrooms, olives, salt, pepper, oregano, olive oil",
+          "Capricciosa pizza Ballarat — tomato sauce, mozzarella, shaved ham, mushrooms, olives, salt, pepper, oregano, olive oil",
       },
       {
         name: "Shredded Pork Pizza",
@@ -182,7 +184,7 @@ const menuData: CategoryData[] = [
         name: "Lamb Pizza",
         price: "$31",
         description:
-          "Onion jam, mozzarella, slow-cooked shredded lamb, bok choy, tomato relish, rosemary and salt flakes",
+          "Lamb pizza Ballarat — onion jam, mozzarella, slow-cooked shredded lamb, bok choy, tomato relish, rosemary and salt flakes",
       },
       {
         name: "Lamb & Beet Pizza",
@@ -194,13 +196,13 @@ const menuData: CategoryData[] = [
         name: "Meat Lovers Pizza",
         price: "$33",
         description:
-          "Tomato sauce, mozzarella, mild salami, ham, Italian sausage, slow cooked shredded pork",
+          "Meat lovers pizza Ballarat — tomato sauce, mozzarella, mild salami, ham, Italian sausage, slow cooked shredded pork",
       },
       {
         name: "Garlic Prawn Pizza",
         price: "$33",
         description:
-          "Onion jam, garlic, spinach, mozzarella, parmesan, prawns, fresh dill & lemon",
+          "Prawn pizza Ballarat — onion jam, garlic, spinach, mozzarella, parmesan, prawns, fresh dill & lemon",
       },
       {
         name: "Sweet Chilli Prawn Pizza",
@@ -208,11 +210,18 @@ const menuData: CategoryData[] = [
         description:
           "Sweet chilli sauce, mozzarella, prawns, fresh capsicum, spring onions, sour cream, parmesan & coriander",
       },
+    ],
+  },
+  {
+    id: "take-home",
+    category: "Take-Home Pizza Dough",
+    items: [
       {
         name: "Standard Dough Balls (take home)",
         price: "$4.95",
         isVegetarian: true,
-        description: "Fresh take-home pizza dough balls",
+        isGlutenFree: true,
+        description: "Fresh take-home pizza dough Ballarat — pre-made dough balls ready for your home oven",
       },
     ],
   },
@@ -220,7 +229,11 @@ const menuData: CategoryData[] = [
     id: "starters",
     category: "Starters & Sides",
     items: [
-      { name: "Wood Fired Garlic Bread", price: "$10" },
+      {
+        name: "Wood Fired Garlic Bread",
+        price: "$10",
+        description: "The best wood-fired garlic bread Ballarat locals love — freshly baked in our wood-fire oven",
+      },
       { name: "Marinated Warm Olives", price: "$12" },
       {
         name: "French Fries",
@@ -241,7 +254,7 @@ const menuData: CategoryData[] = [
       },
       {
         name: "Loaded Fries",
-        description: "Fries, cheese, sour cream, sweet chilli sauce, spring onion",
+        description: "Loaded fries Ballarat — fries, cheese, sour cream, sweet chilli sauce, spring onion",
         price: "$18",
       },
       {
@@ -261,17 +274,22 @@ const menuData: CategoryData[] = [
     id: "pasta",
     category: "Pasta",
     items: [
-      { name: "House-made Beef & Pork Lasagna", price: "$28" },
+      {
+        name: "House-made Beef & Pork Lasagna",
+        description: "House-made lasagna Ballarat — layered beef & pork with béchamel, baked in our wood-fire oven",
+        price: "$28",
+      },
       {
         name: "Gluten Free Spaghetti Bolognese",
         description:
           "House-made Beef & Pork Spaghetti Bolognese — served with premium gluten-free pasta.",
         price: "$28",
+        isGlutenFree: true,
       },
       {
         name: "Lamb Ragu",
         description:
-          "10-hour slow cooked lamb ragu with tomato, red wine, rosemary & fresh pappardelle",
+          "10-hour slow-cooked lamb ragu sourced locally from Buninyong Butcher — with tomato, red wine, rosemary & fresh pappardelle",
         price: "$30",
       },
     ],
@@ -285,7 +303,7 @@ const menuData: CategoryData[] = [
       { name: "Chicken Nuggets & Chips", price: "$13" },
       {
         name: 'Margherita (approx. 10")',
-        description: "Tomato sauce, mozzarella",
+        description: "Kids pizza Ballarat — tomato sauce, mozzarella",
         price: "$17",
       },
       {
@@ -306,7 +324,7 @@ const menuData: CategoryData[] = [
     items: [
       {
         name: "Il Piccolo Gelato (Locally Made)",
-        description: "1 Scoop: $6.30 | 2 Scoops: $8 | 3 Scoops: $9",
+        description: "Gelato Buninyong — 1 Scoop: $6.30 | 2 Scoops: $8 | 3 Scoops: $9",
         price: "From $6.30",
       },
       { name: "Dixie Cup Vanilla Ice Cream", price: "$3.50" },
@@ -322,7 +340,7 @@ const menuData: CategoryData[] = [
       },
       {
         name: "Tiramisu",
-        description: "Red Door house-made tiramisu",
+        description: "Tiramisu Ballarat — Red Door house-made tiramisu",
         price: "$10",
       },
       {
@@ -374,7 +392,17 @@ const menuData: CategoryData[] = [
   },
 ];
 
-const GF_ITEM_NAMES = new Set(["Gluten Free Spaghetti Bolognese"]);
+function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function extractPrice(priceStr: string): string {
+  const match = priceStr.match(/[\d.]+/);
+  return match ? match[0] : "0";
+}
 
 const menuJsonLd = {
   "@context": "https://schema.org",
@@ -388,15 +416,19 @@ const menuJsonLd = {
         name: item.name,
         offers: {
           "@type": "Offer",
-          price: item.price.replace(/[^\d.]/g, ""),
+          price: extractPrice(item.price),
           priceCurrency: "AUD",
         },
       };
+      const diets: string[] = [];
       if (item.isVegetarian) {
-        schemaItem.suitableForDiet = "https://schema.org/VegetarianDiet";
+        diets.push("https://schema.org/VegetarianDiet");
       }
-      if (GF_ITEM_NAMES.has(item.name)) {
-        schemaItem.suitableForDiet = "https://schema.org/GlutenFreeDiet";
+      if (item.isGlutenFree) {
+        diets.push("https://schema.org/GlutenFreeDiet");
+      }
+      if (diets.length > 0) {
+        schemaItem.suitableForDiet = diets.length === 1 ? diets[0] : diets;
       }
       if (item.description) {
         schemaItem.description = item.description;
@@ -422,7 +454,7 @@ export default function MenuPage() {
               Red Door Pizza · Buninyong
             </span>
             <h1 className="font-serif text-4xl md:text-6xl font-bold mt-5 tracking-tight">
-              Our Menu
+              Wood-Fired Pizza Menu
             </h1>
             <p className="mt-5 text-brand-muted max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
               Every dish is baked in our traditional wood-fired oven using
@@ -484,6 +516,7 @@ export default function MenuPage() {
                   {cat.items.map((item) => (
                     <article
                       key={item.name}
+                      id={slugify(item.name)}
                       className="bg-white border border-brand-terracotta/15 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
                     >
                       <div className="flex justify-between items-start gap-4">
@@ -508,7 +541,7 @@ export default function MenuPage() {
                               V
                             </span>
                           )}
-                          {GF_ITEM_NAMES.has(item.name) && (
+                          {item.isGlutenFree && (
                             <span className="bg-brand-gold/20 text-brand-terracotta border border-brand-gold text-[10px] font-bold px-2 py-0.5 rounded">
                               GF
                             </span>

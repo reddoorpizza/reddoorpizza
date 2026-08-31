@@ -28,7 +28,7 @@ export default function FunctionsSection() {
   const [error, setError] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
@@ -52,31 +52,31 @@ export default function FunctionsSection() {
     }
 
     setStatus("submitting");
-
-    const subject = encodeURIComponent(`Function Enquiry from ${name.trim()}`);
-    const body = encodeURIComponent(
-      [
-        `Function Enquiry — Red Door Pizza`,
-        ``,
-        `Name: ${name.trim()}`,
-        `Email: ${email.trim()}`,
-        phone.trim() ? `Phone: ${phone.trim()}` : "",
-        eventType ? `Event Type: ${eventType}` : "",
-        guests.trim() ? `Estimated Guests: ${guests.trim()}` : "",
-        ``,
-        message.trim(),
-      ]
-        .filter(Boolean)
-        .join("\n")
-    );
-
     trackGroupEnquiryClick("functions");
 
-    setTimeout(() => {
-      window.location.href = `mailto:${FUNCTION_EMAIL}?subject=${subject}&body=${body}`;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          type: eventType,
+          guests: guests.trim(),
+          message: message.trim(),
+          formLocation: "functions",
+        }),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
       trackContactSubmission();
       setStatus("success");
-    }, 100);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly at " + FUNCTION_EMAIL);
+      setStatus("idle");
+    }
   };
 
   return (

@@ -72,6 +72,7 @@ export default function FAQSection() {
             >
               <button
                 onClick={() => toggleFAQ(index)}
+                aria-expanded={openIndex === index}
                 className="w-full text-left p-4 md:p-5 flex items-center justify-between gap-4 hover:bg-gray-50/80 transition-colors"
               >
                 <span className="font-semibold text-[#18181B] text-sm md:text-base">

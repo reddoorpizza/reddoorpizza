@@ -85,7 +85,7 @@ export const guidesData: Record<GuideSlug, GuideData> = {
         body: "Our kitchen handles standard flour daily. Gluten-free bases are cooked in the same wood-fire oven as standard pizzas. For guests with severe coeliac disease, this is worth noting. For those with standard intolerances, our GF options are a reliable choice."
       }
     ],
-    ctaText: "Pre-Order GF Options via Wowapps",
+    ctaText: "Order Online via Wowapps",
     ctaLink: "https://orders.wowapps.com/order/reddoorpizzeria",
     faqs: [
       { question: "Are your gluten-free bases cooked in the same oven?", answer: "Yes. Our kitchen handles standard flour daily, so we advise guests with severe coeliac disease to make an informed choice." },

@@ -1,16 +1,16 @@
 import Image from "next/image";
 
 const galleryImages = [
-  { src: "/Gallery/img-1.webp", alt: "Wood-fired pizza coming out of the oven at Red Door Pizza" },
-  { src: "/Gallery/img-2.webp", alt: "Outdoor courtyard dining area with festoon lighting" },
-  { src: "/Gallery/img-3.webp", alt: "Wood-fired pizza with fresh toppings" },
-  { src: "/Gallery/img-4.webp", alt: "Interior dining area at Red Door Pizza Buninyong" },
-  { src: "/Gallery/img-5.webp", alt: "Fresh pasta being prepared" },
-  { src: "/Gallery/img-6.webp", alt: "Kids corner play area" },
-  { src: "/Gallery/img-7.webp", alt: "Il piccolo gelato dessert" },
-  { src: "/Gallery/img-8.webp", alt: "Group dining in the beer garden" },
-  { src: "/Gallery/img-9.webp", alt: "Take-home vacuum-sealed pizza bases" },
-  { src: "/Gallery/img-10.webp", alt: "Red Door Pizza storefront in Buninyong" },
+  { src: "/Gallery/wood-fired-pizza-oven.webp", alt: "Wood-fired pizza coming out of the oven at Red Door Pizza" },
+  { src: "/Gallery/outdoor-beer-garden-festoon.webp", alt: "Outdoor courtyard dining area with festoon lighting" },
+  { src: "/Gallery/fresh-pizza-toppings.webp", alt: "Wood-fired pizza with fresh toppings" },
+  { src: "/Gallery/interior-dining-buninyong.webp", alt: "Interior dining area at Red Door Pizza Buninyong" },
+  { src: "/Gallery/fresh-pasta-preparation.webp", alt: "Fresh pasta being prepared" },
+  { src: "/Gallery/kids-corner-play-area.webp", alt: "Kids corner play area" },
+  { src: "/Gallery/il-piccolo-gelato-dessert.webp", alt: "Il piccolo gelato dessert" },
+  { src: "/Gallery/group-dining-beer-garden.webp", alt: "Group dining in the beer garden" },
+  { src: "/Gallery/take-home-pizza-bases.webp", alt: "Take-home vacuum-sealed pizza bases" },
+  { src: "/Gallery/red-door-pizza-storefront.webp", alt: "Red Door Pizza storefront in Buninyong" },
 ];
 
 export default function GallerySection() {

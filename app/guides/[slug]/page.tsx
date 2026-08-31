@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, HelpCircle, MapPin } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import BreadcrumbSchema from "@/app/components/BreadcrumbSchema";
 import { guideSlugs, guidesData, type GuideSlug } from "@/app/config/guides";
 import { locationData, type CitySlug } from "@/app/config/locations";
 
@@ -117,6 +118,13 @@ export default async function GuidePage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Guides", url: "/guides/family-friendly-pizza-ballarat" },
+          { name: data.title, url: `/guides/${normalizedSlug}` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}

@@ -1,0 +1,37 @@
+You are a Senior Next.js Architect and Enterprise SEO Expert. Based on our recent SEO Audit, please execute the following surgical code patches across the application to resolve all P0, P1, and P2 technical flags, with a heavy emphasis on dominating local menu-related search queries.
+
+### 1. Fix Form Conversion Friction (P0-2)
+- Locate `app/components/FunctionsSection.tsx` and `app/contact/EnquiryForm.tsx`.
+- Remove the `mailto:` fallback logic.
+- Replace it with a standard asynchronous `fetch` call pointing to a new endpoint: `POST /api/contact`. 
+- Create a placeholder API route at `app/api/contact/route.ts` that returns a 200 OK status so we can connect it to a mailer service (like Resend or SendGrid) later.
+
+### 2. Expand Location Copy (P1-3 & P2-1)
+- Open `app/config/locations.ts`.
+- Expand the `ballarat` `bodyCopy` to be at least 250 words, emphasizing the "12 minutes from Ballarat" hook and explicitly adding the keyword phrase "Italian restaurant".
+- Expand the `meredith` `bodyCopy` to be at least 200 words, focusing on the takeaway journey and premium ingredients.
+
+### 3. Patch Structured Data (P1-4 & P1-5)
+- Open `app/stockists/page.tsx`. Update the `AggregateOffer` in the Product schema to include a `lowPrice: "10.00"`, `highPrice: "15.00"`, and `priceCurrency: "AUD"`.
+- Create a `BreadcrumbList` JSON-LD schema component and inject it into `app/layout.tsx` (for the homepage) and ensure it exists on all individual location and guide pages.
+
+### 4. Accessibility & UX Consistency (P2-4 & P2-5)
+- Scan the entire codebase for WowApps CTA buttons. Standardize the text across all components to read exactly: "Order Online via Wowapps".
+- Locate `app/components/FAQSection.tsx`. Add the `aria-expanded={isOpen}` attribute to the accordion toggle buttons to resolve the screen reader accessibility gap.
+
+### 5. Image SEO & Analytics (P2-8 & P2-9)
+- Rename the image files in `public/Gallery/` from `img-1.webp` to descriptive, hyphenated filenames (e.g., `wood-fired-pizza-buninyong.webp`, `outdoor-beer-garden.webp`). Update the image paths in `GallerySection.tsx` to match.
+- Ensure `trackMenuView()` and `trackStockistClick()` from `app/lib/analytics.ts` are actually being called via `onClick` or `IntersectionObserver` in their respective components.
+
+### 6. Master Menu SEO & Keyword Injection (P1 & P2)
+- Open `app/menu/page.tsx`.
+- **Metadata & H1:** Update `metadata.title` to explicitly include "Gluten-Free Pizza & Italian Menu". Update the main `<h1>` from "Our Menu" to "Wood-Fired Pizza Menu".
+- **Deep-Linking Architecture:** Add a dynamic `id` attribute to every single menu item `<article>` tag (e.g., `id="margherita-pizza-ballarat"`) to enable direct URL linking to individual pizzas.
+- **Copy & Keyword Injection:** Update the item descriptions and category introductions to naturally weave in these high-value keywords without stuffing. 
+  - *Actionable Examples:* 
+    - Inject "lamb pizza Ballarat", "prawn pizza Ballarat", "margherita pizza Ballarat", "capricciosa pizza Ballarat", "meat lovers pizza Ballarat", and "mushroom pizza Ballarat" into their respective item descriptions or meta-tags.
+    - For Lamb Ragu, sync the UI description with the schema: "10-hour slow-cooked beef ragu, sourced locally from Buninyong Butcher."
+    - Add descriptive text to missing items: e.g., "Wood Fired Garlic Bread" -> "The best wood-fired garlic bread Ballarat locals love." Add descriptions targeting "loaded fries Ballarat" and "tiramisu Ballarat".
+    - Update category intros to target "wood-fired pasta Ballarat", "kids pizza Ballarat", "vegetarian pizza Buninyong", and "gelato Buninyong".
+- **Schema Validation:** Fix the `price` parsing logic in the JSON-LD generation to handle strings like "From $6.30" properly (extract just the float `6.30`). Expand GF/V schema detection: Ensure ALL gluten-free pizza bases and vegetarian pizzas are tagged with `suitableForDiet: "https://schema.org/GlutenFreeDiet"` or `VegetarianDiet`.
+- **Categorization:** Move "Standard Dough Balls" out of the main pizza category into a new "Take-Home Pizza Dough" category to prevent schema confusion and target "take-home pizza dough Ballarat".

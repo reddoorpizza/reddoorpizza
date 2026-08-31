@@ -5,8 +5,6 @@ import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { PHONE_NUMBER_TEL, PHONE_NUMBER_DISPLAY } from "@/app/config/constants";
 import { trackGroupEnquiryClick, trackContactSubmission } from "@/app/lib/analytics";
 
-const ENQUIRY_EMAIL = "info@reddoorpizza.com.au";
-
 const inputClass =
   "bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-500 placeholder:font-normal rounded-xl px-4 py-3 min-h-[48px] text-sm focus:bg-white focus:border-[#ac511a] focus:ring-2 focus:ring-[#ac511a]/20 transition-all duration-200 w-full outline-none";
 
@@ -20,7 +18,7 @@ export default function EnquiryForm() {
   const [error, setError] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!name.trim() || !phone.trim() || !message.trim()) {
       setError("Please fill in your name, phone number, and message.");
@@ -28,33 +26,31 @@ export default function EnquiryForm() {
     }
     setError("");
     setStatus("submitting");
-
-    const subject = encodeURIComponent(
-      type ? `${type} Enquiry from ${name.trim()}` : `Enquiry from ${name.trim()}`
-    );
-    const body = encodeURIComponent(
-      [
-        `Enquiry from the Red Door Pizza website`,
-        ``,
-        `Name: ${name.trim()}`,
-        `Phone: ${phone.trim()}`,
-        type ? `Enquiry type: ${type}` : "",
-        date ? `Preferred date: ${date}` : "",
-        guests ? `Guests: ${guests}` : "",
-        ``,
-        message.trim(),
-      ]
-        .filter(Boolean)
-        .join("\n")
-    );
-
     trackGroupEnquiryClick("contact");
 
-    setTimeout(() => {
-      window.location.href = `mailto:${ENQUIRY_EMAIL}?subject=${subject}&body=${body}`;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: phone.trim(),
+          type,
+          date,
+          guests,
+          message: message.trim(),
+          formLocation: "contact",
+        }),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
       trackContactSubmission();
       setStatus("success");
-    }, 100);
+    } catch {
+      setError("Something went wrong. Please try again or call us on " + PHONE_NUMBER_DISPLAY);
+      setStatus("idle");
+    }
   };
 
   return (

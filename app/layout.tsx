@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { PHONE_NUMBER_TEL, ADDRESS } from "@/app/config/constants";
 import Analytics from "@/app/components/Analytics";
+import BreadcrumbSchema from "@/app/components/BreadcrumbSchema";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -124,6 +125,11 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", url: "/" },
+          ]}
         />
         <Analytics />
       </head>

@@ -26,7 +26,7 @@ export default function WowAppsLink({
       {children ?? (
         <>
           <ShoppingBag className="w-5 h-5" />
-          Pre-Order via Wowapps
+          Order Online via Wowapps
         </>
       )}
     </a>

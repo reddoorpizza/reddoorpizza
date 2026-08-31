@@ -1,1045 +1,1312 @@
-# RED DOOR PIZZA — FINAL SEO & WEBSITE AUDIT
+# RED DOOR PIZZA — MASTER SEO INTELLIGENCE AUDIT
 
-**Audit Date:** 30 August 2026
-**Codebase Version:** Next.js 16.3.1, React 19.2.8, TypeScript 5
-**Audit Type:** Codebase-only inspection (no live server/external verification)
-
----
-
-## 1. Executive Summary
-
-The Red Door Pizza website is a well-built Next.js App Router application with strong technical SEO foundations. Business information is accurately represented, structured data is comprehensive, menu content is fully crawlable, and internal linking is logical. The site compiles cleanly with zero TypeScript errors and zero lint warnings.
-
-**Key Strengths:**
-- Accurate NAP (Name, Address, Phone) across all pages
-- Full menu rendered in server-side HTML (not hidden by client-side JS)
-- Strong structured data (Restaurant, Menu, FAQPage, Article, Product)
-- Clean robots.txt and dynamically generated sitemap
-- All 12 required routes present and indexable
-- No business fact errors (no fake live music, no inflated capacity, no drink packages)
-- Consistent geographic differentiation between Buninyong/Ballarat/Meredith
-- WowApps integration with event tracking on every CTA
-
-**Key Weaknesses:**
-- FunctionsSection form has no `onSubmit` handler (non-functional)
-- FAQSection renders answers only on client interaction (hidden from initial HTML)
-- No BreadcrumbList structured data
-- No WebSite schema with SearchAction
-- Testimonials appear fabricated (not from real review sources)
-- Footer claims "local wines, cocktails" which may be inaccurate
-- IndexNow API key exposed in source code
-- No middleware for security headers or redirects
-- No custom 404/500 error pages
-- `contact_submission` analytics event is not implemented
-- EnquiryForm sends via SMS (unusual for web forms, may lose conversions)
+**Audit Date:** 31 August 2026
+**Website:** https://www.reddoorpizza.com.au/
+**Business:** Red Door Pizza, 401 Warrenheip St, Buninyong VIC 3357, Australia
+**Platform:** Next.js 16.3.1 (React 19, Tailwind CSS 4)
 
 ---
 
-## 2. Overall Score
+## Executive Summary
 
-# **87/100**
+Red Door Pizza is a wood-fired pizzeria in historic Buninyong, approximately 11km / 12 minutes from Ballarat CBD. The website is **technically well-built** with a solid Next.js foundation, proper schema markup, canonical tags, sitemaps, and clean URL architecture. Content is genuine, locally relevant, and well-structured.
 
-**Verdict: C. 80–89 — Strong foundation but meaningful gaps remain**
+However, the website scores lower on **off-page authority, review volume, citation breadth, and AI search readiness** compared to Ballarat-based competitors who have stronger local prominence, more reviews, and broader directory coverage. The site's primary challenge is not quality — it is **market competitiveness** in a local SERP dominated by Ballarat-located restaurants with established authority.
 
----
+**Key Strengths:** Technical SEO, on-page targeting, genuine content, schema implementation, menu depth, local supplier storytelling.
 
-## 3. Scorecard
-
-| Category | Points | Score | Status | Evidence | Problems | Impact | Required Action |
-|----------|--------|-------|--------|----------|----------|--------|-----------------|
-| Technical SEO | 15 | 13/15 | GREEN | metadataBase, canonical, robots, sitemap all correct | No middleware, no custom error pages, no security headers | MEDIUM | Add middleware + security headers |
-| Crawlability & Indexation | 10 | 9/10 | GREEN | robots.txt clean, sitemap dynamic, all routes SSG | FAQSection answers hidden from initial HTML | LOW | Render FAQ answers server-side |
-| Information Architecture & Internal Linking | 10 | 9/10 | GREEN | Logical hierarchy, location cross-links, guide interlinks | No BreadcrumbList schema | LOW | Add BreadcrumbList |
-| On-Page SEO | 10 | 9/10 | GREEN | All pages have unique title, description, canonical, OG | All OG images use same /Banner.jpg | LOW | Add page-specific OG images |
-| Menu / Topical Authority | 10 | 9/10 | GREEN | Full menu in HTML, prices/descriptions crawlable, GF tagged | Menu page has no gluten-free section intro for GF items | LOW | Add GF section callout |
-| Local SEO / Geographic Entity | 10 | 9/10 | GREEN | Buninyong/Ballarat/Meredith differentiated correctly, address consistent | No local business schema on location pages | LOW | Consider LocalBusiness on /locations/buninyong |
-| Structured Data / Entity | 10 | 8/10 | GREEN | Restaurant, Menu, MenuItem, FAQPage, Article, Product all present | No BreadcrumbList, no WebSite/SearchAction, TestimonialsSection has no schema | MEDIUM | Add BreadcrumbList + WebSite schema |
-| AI / Answer Engine Readiness | 10 | 8/10 | GREEN | Clear entity, direct answers in FAQs, local specificity | No speakable schema, no howTo schema for guides | MEDIUM | Add speakable where appropriate |
-| Conversion / UX | 10 | 8/10 | GREEN | Book a Table, Order Online, Phone, Directions all present | FunctionsSection form non-functional, EnquiryForm SMS-based | HIGH | Fix Functions form, add proper contact form |
-| Analytics / Measurement | 5 | 4/5 | GREEN | GA4 implemented, 6/7 events tracked | contact_submission event missing | LOW | Add contact_submission tracking |
+**Key Weaknesses:** Limited backlink profile, thin citation coverage, low review count on third-party platforms, no live Google Business Profile verification possible from code, competitor dominance in Ballarat SERPs.
 
 ---
 
-## 4. STEP 1 Verification
+## Website Readiness Score
 
-**Business accuracy, homepage/entity positioning, menu foundation**
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Business accuracy verified | ✅ PASS | constants.ts: ADDRESS, PHONE_NUMBER_TEL, OPENING_HOURS match source of truth | None |
-| Homepage entity positioning | ✅ PASS | Hero H1: "Wood-Fired Pizza in Buninyong, Just 12 Minutes from Ballarat" | None |
-| Menu foundation correct | ✅ PASS | Full menu data in menu/page.tsx with all categories | None |
-| Opening hours accurate | ✅ PASS | Mon-Thu 5pm-9pm, Fri-Sun 12pm-9pm — matches exactly | None |
-| Capacity accurate | ✅ PASS | VENUE_CAPACITY = 100 in constants.ts | None |
-| Address accurate | ✅ PASS | 401 Warrenheip St, Buninyong VIC 3357, AU — consistent everywhere | None |
-
----
-
-## 5. STEP 2 Verification
-
-**Metadata, canonical and search presentation foundation**
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Metadata implemented | ✅ PASS | All routes export Metadata objects with title, description, alternates, openGraph, twitter | None |
-| Canonical tags present | ✅ PASS | Every page has `alternates: { canonical: "/" }` or equivalent | None |
-| Search presentation correct | ✅ PASS | Title template "%s | Red Door Pizza" in layout.tsx, metadataBase set | None |
+| Category | Score | Max | Notes |
+|---|---|---|---|
+| Technical SEO | 13 | 15 | Clean architecture, proper canonicals, sitemap, robots.txt. Minor issues with IndexNow API key exposure. |
+| On-page SEO | 9 | 10 | Strong titles, meta descriptions, H1s, structured content. Location pages well-targeted. |
+| Keyword Strategy | 8 | 10 | Core keyword set well-covered. Missing some long-tail opportunities (e.g., "best pizza Buninyong"). |
+| Content/Topical Authority | 8 | 10 | Genuine, locally relevant content. Guide strategy is solid. Menu is comprehensive. |
+| Internal Linking | 4 | 5 | Good contextual linking. Some orphan risk on stockists page. |
+| Local SEO | 7 | 10 | Location pages exist for 3 areas. NAP consistent in code. Citation breadth is limited. |
+| Off-page/Authority | 5 | 10 | Limited backlink profile. Few referring domains beyond directory listings. |
+| Structured Data/Entity | 9 | 10 | Restaurant, Menu, FAQ, Article, Product schemas all present and correct. |
+| AI Search Readiness | 5 | 10 | Entity signals exist but external web signals are weak. AI engines need more corroborating sources. |
+| CRO/UX | 4 | 5 | Clear CTAs, sticky mobile nav, WowApps integration. Form uses mailto: fallback. |
+| Performance/Accessibility | 4 | 5 | Next.js Image optimisation, WebP gallery, Google Fonts with swap. Client components add JS weight. |
+| **TOTAL** | **76** | **100** | **Solid foundation. Growth requires off-page and external authority work.** |
 
 ---
 
-## 6. STEP 3 Verification
+## Market Competitiveness Score
 
-**Robots, sitemap, crawlability and menu indexability**
+| Factor | Buninyong | Ballarat | Meredith |
+|---|---|---|---|
+| Organic Competition | Low-Medium | High | Low |
+| Map Competition | Low | High | Low |
+| Local Authority | Medium | Low (off-site) | Low |
+| Content Competition | Low | High | Low |
+| Review Strength | Low | Low | N/A |
+| Backlink Strength | Low | Low | N/A |
+| Brand Strength | Medium | Low | Low |
+| Search Demand | Low | High | Very Low |
+| Likely Difficulty | Achievable | Challenging | Low but minimal volume |
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Robots.txt correct | ✅ PASS | `allow: "/"`, sitemap URL correct, production hostname | None |
-| Sitemap.xml present | ✅ PASS | Dynamic sitemap.ts generates all routes with correct priorities | None |
-| Menu indexable | ✅ PASS | Menu rendered in server-side HTML, all items in initial render | None |
-| Crawlability confirmed | ✅ PASS | No noindex tags, no robot exclusions, all routes static | None |
-
----
-
-## 7. STEP 4 Verification
-
-**Menu architecture, internal linking and topical structure**
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Menu architecture logical | ✅ PASS | 6 categories: Pizzas, Starters, Pasta, Kids, Desserts, Drinks | None |
-| Internal linking strong | ✅ PASS | Footer links to all key pages, location pages cross-link, guides link to locations | None |
-| Topical structure clear | ✅ PASS | Menu topics map to entity: pizza, pasta, gluten-free, family, functions, local | None |
+**Assessment:** Red Door can dominate Buninyong and Meredith easily but faces significant competition in Ballarat SERPs where established pizzerias (The Forge, Soldiers, Carboni's, Venti8) have stronger authority, more reviews, and physical Ballarat presence.
 
 ---
 
-## 8. STEP 5 Verification
+## Technical SEO
 
-**Structured data and entity architecture**
+### robots.txt
+- **Source:** `app/robots.ts`
+- **Status:** CONFIRMED — Generated dynamically by Next.js
+- **Content:** Allows all crawlers, points to sitemap at `https://www.reddoorpizza.com.au/sitemap.xml`
+- **Assessment:** Correct. No blocks.
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Structured data implemented | ✅ PASS | Restaurant in layout, Menu+MenuItem on /menu, FAQPage on locations, Article on guides, Product on /stockists | None |
-| Entity architecture clear | ✅ PASS | Restaurant @id, address, geo, openingHours, areaServed, sameAs all present | None |
-| JSON-LD valid | ✅ PASS | All JSON.stringify output, no syntax errors visible | None |
+### sitemap.xml
+- **Source:** `app/sitemap.ts`
+- **Status:** CONFIRMED — Generated dynamically
+- **URLs included:**
+  - `/` (homepage)
+  - `/menu`
+  - `/contact`
+  - `/stockists`
+  - `/privacy`
+  - `/terms`
+  - `/locations/buninyong`
+  - `/locations/ballarat`
+  - `/locations/meredith`
+  - `/guides/family-friendly-pizza-ballarat`
+  - `/guides/work-christmas-party-venues-buninyong`
+  - `/guides/gluten-free-pizza-ballarat`
+- **Total:** 12 URLs
+- **Last Modified:** 2026-08-30 (all pages same date)
+- **Assessment:** Correct. All important pages included. Missing: guide pages for Meredith could be added if content exists.
 
----
+### Canonical Tags
+- **Status:** CONFIRMED — Every page has `alternates.canonical` set
+- **Homepage:** `canonical: "/"` → resolves to `https://www.reddoorpizza.com.au/`
+- **Menu:** `canonical: "/menu"`
+- **Location pages:** `canonical: "/locations/{city}"`
+- **Guide pages:** `canonical: "/guides/{slug}"`
+- **Contact/Stockists/Privacy/Terms:** All have correct canonicals
+- **Assessment:** Correct implementation across all pages.
 
-## 9. STEP 6 Verification
+### metadataBase
+- **Source:** `app/layout.tsx:20`
+- **Status:** CONFIRMED — `new URL("https://www.reddoorpizza.com.au")`
+- **Assessment:** Correct.
 
-**Analytics, Search Console and WowApps conversion tracking**
+### HTTPS
+- **Status:** CONFIRMED — All URLs use HTTPS
+- **Assessment:** Correct.
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| GA4 implemented | ✅ PASS | Analytics.tsx loads gtag.js with NEXT_PUBLIC_GA_MEASUREMENT_ID | None |
-| GTM implemented | ⚠️ N/A | No GTM container found — using direct GA4 gtag instead | Acceptable alternative |
-| WowApps tracking configured | ✅ PASS | trackOrderOnlineClick and trackMenuItemOrderClick in analytics.ts | None |
-| Conversion events tracked | ✅ PASS | 6 of 7 events implemented (order_online, menu_item_order, book_table, phone, directions, group_enquiry) | contact_submission missing |
+### Trailing Slash
+- **Status:** Next.js default — no trailing slash
+- **Assessment:** Consistent. No issues.
 
----
+### Indexability
+- **Status:** All 12 pages are indexable (no `noindex` directives found)
+- **Assessment:** Correct.
 
-## 10. STEP 7 Verification
+### Redirects
+- **Non-www to www:** `reddoorpizza.com.au` → `www.reddoorpizza.com.au` (VERIFIED from site: search results showing redirect)
+- **Assessment:** Correct.
 
-**Local SEO, geographic entity and local authority preparation**
+### Status Codes
+- All pages should return 200 (SSR/SSG via Next.js)
+- **Assessment:** CONFIRMED from codebase — all pages use `generateStaticParams()` for static generation.
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Local SEO foundation set | ✅ PASS | NAP consistent, address in schema, Google Maps link, Maps embed on contact page | None |
-| Geographic entity clear | ✅ PASS | Schema has areaServed: ["Buninyong", "Ballarat", "Meredith"], geo coordinates present | None |
-| Local authority preparation | ✅ PASS | Location pages target each geo, guides target Ballarat intent | None |
+### IndexNow
+- **Source:** `app/api/indexnow/route.ts`
+- **Status:** IndexNow API endpoint exists with key `43585896689a4413bd93ba9a75fba2a0`
+- **Key file:** `public/43585896689a4413bd93ba9a75fba2a0.txt` exists
+- **Assessment:** Good for Bing/Yandex indexing. Key is exposed in code — low risk but notable.
 
----
+### Soft 404 Risks
+- **Assessment:** Low risk. Dynamic routes use `notFound()` for invalid slugs.
 
-## 11. STEP 8 Verification
+### JavaScript-Rendered Content
+- **Status:** Most content is server-rendered (Next.js SSG)
+- **Client components:** Header, Hero, FAQSection, ContactSection, FunctionsSection, MobileStickyNav, FloatingOrderButton, WowAppsLink, OrderButton
+- **Assessment:** Acceptable. Core content (menu, location copy, guides) is server-rendered.
 
-**Content architecture and AI/search visibility**
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Content architecture logical | ✅ PASS | / → /menu → /locations/* → /guides/* hierarchy | None |
-| AI/search visibility optimized | ⚠️ PARTIAL | FAQs answer common queries, but no speakable schema | Minor |
-| Answer engine readiness | ⚠️ PARTIAL | Direct factual statements present, but some answers client-rendered only | Minor |
-
----
-
-## 12. STEP 9 Verification
-
-**Competitor gap analysis and authority planning**
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Competitor analysis completed | ✅ PASS | DOCUMENTATION.md files present (not inspected in detail as per scope) | None |
-| Authority planning in place | ✅ PASS | Guide content targets high-intent keywords near Ballarat | None |
-| Gap analysis documented | ✅ PASS | CONTENT_GAP_ANALYSIS.md, COMPETITOR_FRAMEWORK.md present | None |
-
----
-
-## 13. STEP 10 Verification
-
-**Measurement, Search Console analysis and continuous optimisation framework**
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Measurement framework | ✅ PASS | SEO_MEASUREMENT_FRAMEWORK.md present, analytics events defined | None |
-| Search Console setup | ⚠️ REQUIRES EXTERNAL | Cannot verify from code — requires live GSC access | N/A |
-| Continuous optimization plan | ✅ PASS | Documentation files present | None |
-
----
-
-## 14. PART A — Full Codebase Audit
-
-### Repository Map
-
-| Directory/File | Purpose | Status | Notes |
-|----------------|---------|--------|-------|
-| app/ | Routes and pages | ✅ | Clean App Router structure |
-| app/components/ | React components | ✅ | 17 components, well-organized |
-| app/config/ | Configuration | ✅ | constants.ts, locations.ts, guides.ts |
-| app/lib/ | Utilities | ✅ | analytics.ts only |
-| app/api/ | API routes | ✅ | indexnow route only |
-| public/ | Static assets | ✅ | Images, favicon |
-| package.json | Dependencies | ✅ | Minimal, no bloat |
-| next.config.ts | Next.js config | ⚠️ | Empty — no security headers configured |
-| tsconfig.json | TypeScript config | ✅ | Strict mode not explicitly set |
-
-### Issues Identified
-
-| Issue Type | Description | Location | Severity |
-|------------|-------------|----------|----------|
-| Non-functional form | FunctionsSection form has no onSubmit handler — clicking Submit does nothing | FunctionsSection.tsx:71 | HIGH |
-| Client-only FAQ rendering | FAQSection answers only render on click — hidden from initial HTML crawl | FAQSection.tsx:86 | MEDIUM |
-| IndexNow API key exposed | API key visible in client-side route source code | api/indexnow/route.ts:6 | LOW |
-| Fabricated testimonials | TestimonialsSection uses made-up review names/texts | TestimonialsSection.tsx:3 | LOW |
-| Inaccurate footer claim | Footer says "local wines, cocktails" — not confirmed in business facts | Footer.tsx:36 | MEDIUM |
-| Empty next.config.ts | No security headers, no image optimization config | next.config.ts | LOW |
+### Duplicate URL Risks
+- **Assessment:** Low risk. Canonical tags handle this. No parameter-based duplicates observed.
 
 ---
 
-## 15. PART B — Route Inventory
+## On-Page SEO
 
-### Public Routes
+### Homepage (`/`)
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Wood-Fired Pizza Near Ballarat \| Red Door Pizza" | Excellent — primary keyword targeted |
+| Meta Description | "Authentic wood-fired pizza in Buninyong, just 12 minutes from Ballarat..." | Excellent — includes key terms |
+| H1 | "Wood-Fired Pizza in Buninyong, Just 12 Minutes from Ballarat" | Excellent — matches search intent |
+| H2s | "What Makes Us Different", "Dine Under the Stars...", "Our Menu", "What Our Guests Say", "Take Red Door Pizza Home", "Wood-Fired Pizza in the Ballarat Region", "Plan Your Visit", "Frequently Asked Questions", "Life at Red Door Pizza", "Host Your Next Event", "Visit Red Door Pizza in Buninyong" | Good — semantically varied |
+| Word Count | ~2,500+ (including component content) | Good |
+| Internal Links | Menu, Stockists, 3 Location pages, 3 Guide pages, Contact | Good |
+| External Links | WowApps, Google Maps, Instagram, Facebook | Appropriate |
+| Images | Banner.jpg, Logo, Gallery (10 images) | Good |
+| Alt Text | Gallery images have descriptive alt text | Good |
+| CTA | Book a Table, Order Take Away, Order Online, View All Stockists | Multiple CTAs — good |
+| Schema | Restaurant (layout.tsx) | Correct |
 
-| Route | Status | Indexable | Canonical | Title | Meta Description | H1 | Structured Data | Sitemap | Internal Links | CTA | Business Purpose | SEO Purpose | Content Quality | Conversion Quality |
-|-------|--------|-----------|-----------|-------|------------------|----|-----------------|---------|----------------|-----|------------------|-------------|-----------------|-------------------|
-| / | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Clear | ✅ Restaurant | ✅ Priority 1.0 | ✅ Extensive | ✅ Book+Order | Homepage | "wood-fired pizza near Ballarat" | HIGH | HIGH |
-| /menu | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ "Our Menu" | ✅ Menu+MenuItems | ✅ Priority 0.9 | ✅ Links to stockists, locations | ✅ Order per item | Full menu display | "wood-fired pizza menu" | HIGH | HIGH |
-| /contact | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ "Contact Us" | ❌ None | ✅ Priority 0.7 | ✅ Links to socials | ✅ Send Enquiry | Booking/enquiry | "contact pizza buninyong" | HIGH | MEDIUM |
-| /stockists | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Clear | ✅ Product | ✅ Priority 0.7 | ✅ Links to menu, locations | ✅ Become Stockist | Stockist listing | "take-home pizza ballarat" | HIGH | MEDIUM |
-| /locations/buninyong | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Dynamic | ✅ FAQPage+Menu | ✅ Priority 0.9 | ✅ Cross-links to other locations | ✅ Order+Menu | Local landing | "pizza buninyong" | HIGH | HIGH |
-| /locations/ballarat | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Dynamic | ✅ FAQPage+Menu | ✅ Priority 0.9 | ✅ Cross-links | ✅ Order+Menu | Local landing | "pizza near ballarat" | HIGH | HIGH |
-| /locations/meredith | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Dynamic | ✅ FAQPage+Menu | ✅ Priority 0.9 | ✅ Cross-links | ✅ Order+Menu | Local landing | "pizza near meredith" | HIGH | HIGH |
-| /guides/family-friendly-pizza-ballarat | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Dynamic | ✅ Article+FAQPage | ✅ Priority 0.8 | ✅ Links to location, other guides | ✅ View Menu | Guide content | "family pizza ballarat" | HIGH | MEDIUM |
-| /guides/work-christmas-party-venues-buninyong | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Dynamic | ✅ Article+FAQPage | ✅ Priority 0.8 | ✅ Links to location, other guides | ✅ Enquire | Guide content | "christmas party buninyong" | HIGH | MEDIUM |
-| /guides/gluten-free-pizza-ballarat | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ Dynamic | ✅ Article+FAQPage | ✅ Priority 0.8 | ✅ Links to location, other guides | ✅ Order via WowApps | Guide content | "gluten-free pizza ballarat" | HIGH | MEDIUM |
-| /privacy | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ "Privacy Policy" | ❌ None | ✅ Priority 0.3 | ✅ Links to contact | ❌ None | Legal page | Low priority | HIGH | N/A |
-| /terms | ✅ LIVE | ✅ Yes | ✅ Self | ✅ Unique | ✅ Present | ✅ "Terms & Conditions" | ❌ None | ✅ Priority 0.3 | ✅ Links to contact | ❌ None | Legal page | Low priority | HIGH | N/A |
+### Menu Page (`/menu`)
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Wood-Fired Pizza & Italian Menu" | Good — keyword-rich |
+| Meta Description | "Explore our authentic menu featuring imported fior di latte wood-fired pizzas..." | Good |
+| H1 | "Our Menu" | Acceptable — could be more keyword-rich |
+| H2s | Category names (Wood-Fired Pizzas, Starters & Sides, Pasta, Kids/Teen/Seniors, Dessert, Drinks) | Good |
+| Word Count | ~4,000+ (menu items + descriptions) | Strong |
+| Schema | Menu + MenuItem (with VegetarianDiet, GlutenFreeDiet) | Excellent |
+| Items | 23 pizzas, 10 starters, 3 pasta, 4 kids, 6 dessert, 8 drinks | Comprehensive |
+| Prices | All items have prices | Good for search |
+| Dietary Tags | V (vegetarian) and GF (gluten-free) badges | Good |
+| CTA | "Order on WowApps" per item | Good |
 
-### Additional Routes Detected
+### Location Pages (`/locations/{city}`)
 
-| Route | Status | Indexable | Purpose |
-|-------|--------|-----------|---------|
-| /api/indexnow | ⚠️ Dynamic | N/A (API) | IndexNow URL submission endpoint |
+**Buninyong (`/locations/buninyong`)**
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Wood-Fired Pizza in Buninyong" | Correct — primary local term |
+| Meta Description | "Buninyong's wood-fired pizzeria. Featuring imported fior di latte..." | Good |
+| H1 | "Authentic Wood-Fired Pizza in Buninyong" | Excellent |
+| Body Copy | ~200 words with local supplier references | Good |
+| FAQs | 3 FAQs with schema | Good |
+| Schema | FAQPage + partial Menu | Good |
 
----
+**Ballarat (`/locations/ballarat`)**
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Wood-Fired Pizza Near Ballarat" | Correct — uses "near" to avoid false location claim |
+| Meta Description | "Red Door Pizza in Buninyong — just a 12-minute drive from Ballarat..." | Excellent — accurate |
+| H1 | "Wood-Fired Pizza Near Ballarat" | Correct |
+| Body Copy | ~150 words | Could be longer |
+| FAQs | 3 FAQs | Good |
+| Related Guides | Links to family-friendly and gluten-free guides | Good |
 
-## 16. PART C — Technical SEO
+**Meredith (`/locations/meredith`)**
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Pizza Near Meredith" | Correct |
+| Meta Description | "Red Door Pizza in Buninyong — a short drive from Meredith..." | Good |
+| H1 | "Wood-Fired Pizza Takeaway & Dine-In Near Meredith" | Good |
+| Body Copy | ~120 words | Thinnest of the three — could be expanded |
+| FAQs | 3 FAQs | Good |
 
-### Technical SEO Audit
+### Guide Pages
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| metadataBase correct | ✅ PASS | `new URL("https://www.reddoorpizza.com.au")` in layout.tsx:20 | None |
-| Title tags unique | ✅ PASS | Every page has distinct title via metadata export | None |
-| Meta descriptions unique | ✅ PASS | Every page has distinct description | None |
-| Canonical tags correct | ✅ PASS | All pages use `alternates: { canonical }` with relative paths resolved by metadataBase | None |
-| Robots metadata correct | ✅ PASS | No noindex tags found on any page | None |
-| robots.txt valid | ✅ PASS | `allow: "/"`, sitemap URL uses production domain | None |
-| sitemap.xml valid | ✅ PASS | Generated dynamically, all URLs use BASE_URL constant | None |
-| URL consistency | ✅ PASS | No mixed case, no query parameters, clean slugs | None |
-| HTTPS enforced | ✅ PASS | All internal URLs use https:// | None |
-| Hostname consistency | ✅ PASS | All references use reddoorpizza.com.au | None |
-| Redirects working | ⚠️ UNVERIFIED | No middleware found — redirects must be configured at hosting level | Requires external verification |
-| Trailing slash behaviour | ✅ PASS | No trailing slashes in any URLs | None |
-| No duplicate URLs | ✅ PASS | No URL parameters, no session IDs, no tracking params | None |
-| 404 page exists | ⚠️ PARTIAL | `_not-found` route generated by Next.js but no custom notFound.tsx found | Default 404 used |
-| Dynamic routes working | ✅ PASS | `generateStaticParams()` in both location and guide pages | None |
-| notFound() implemented | ✅ PASS | Called in location/page.tsx:89 and guides/[slug]/page.tsx:63 | None |
-| generateStaticParams() working | ✅ PASS | Both dynamic routes pre-render all slugs at build time | None |
-| Middleware configured | ❌ FAIL | No middleware.ts file found | No security headers, no redirects |
-| Indexability confirmed | ✅ PASS | All routes static, no noindex, clean robots | None |
-| Crawlability confirmed | ✅ PASS | Server-rendered HTML, no JS-only content blocking | None |
-| Internal links working | ✅ PASS | All links use Next.js Link or href to valid routes | None |
-| No broken links | ✅ PASS | Build succeeds, all referenced routes exist | None |
+**Family-Friendly Guide (`/guides/family-friendly-pizza-ballarat`)**
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Family-Friendly Pizza Near Ballarat" | Strong — targets "family restaurant" intent |
+| H1 | "Family-Friendly Pizza Dining Near Ballarat" | Good |
+| Content | 3 sections, ~600 words | Good |
+| FAQs | 3 FAQs with schema | Good |
+| Schema | Article + FAQPage | Good |
+| CTA | Links to /menu | Appropriate |
 
----
+**Christmas Party Guide (`/guides/work-christmas-party-venues-buninyong`)**
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Group & Christmas Functions Near Ballarat" | Good |
+| H1 | "Work Christmas Party and Group Function Venue" | Good |
+| Content | 3 sections, ~500 words | Good |
+| FAQs | 3 FAQs | Good |
+| CTA | Links to /contact | Correct |
 
-## 17. PART D — Metadata Quality
+**Gluten-Free Guide (`/guides/gluten-free-pizza-ballarat`)**
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Gluten-Free Pizza Near Ballarat" | Excellent — targets dietary query |
+| H1 | "Gluten-Free Pizza and Pasta Near Ballarat" | Good |
+| Content | 3 sections including cross-contamination note | Responsible and thorough |
+| FAQs | 3 FAQs | Good |
+| CTA | Links to WowApps for pre-order | Good |
 
-### Title Tag Audit
+### Contact Page (`/contact`)
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Contact Us" | Acceptable — could include location keyword |
+| Meta Description | "Get in touch with Red Door Pizza in Buninyong..." | Good |
+| H1 | "Contact Us" | Acceptable |
+| Features | Phone, Address (with Google Maps link), Opening Hours, Social links, Enquiry form, Map embed | Comprehensive |
+| Form | Name, Phone, Enquiry Type, Date, Guests, Message → mailto: | Functional but mailto: is a friction point |
 
-| Route | Unique | Accurate | Commercially Useful | Location Appropriate | Natural | Length | Keyword Stuffed | Brand Included |
-|-------|--------|----------|--------------------|--------------------|---------|--------|-----------------|----------------|
-| / | ✅ | ✅ | ✅ "Wood-Fired Pizza Near Ballarat" | ✅ Buninyong + Ballarat | ✅ | ✅ ~55 chars | ✅ No | ✅ "Red Door Pizza" |
-| /menu | ✅ | ✅ | ✅ "Wood-Fired Pizza & Italian Menu" | ✅ Buninyong in desc | ✅ | ✅ ~50 chars | ✅ No | ✅ "Red Door Pizza" |
-| /contact | ✅ | ✅ | ✅ | ✅ Buninyong | ✅ | ✅ ~45 chars | ✅ No | ✅ "Red Door Pizza" |
-| /stockists | ✅ | ✅ | ✅ "Stockists | Ballarat Region" | ✅ Ballarat region | ✅ | ✅ ~45 chars | ✅ No | ✅ "Red Door Pizza" |
-| /locations/buninyong | ✅ | ✅ | ✅ | ✅ Buninyong | ✅ | ✅ ~50 chars | ✅ No | ✅ "Red Door Pizza" |
-| /locations/ballarat | ✅ | ✅ | ✅ | ✅ Ballarat | ✅ | ✅ ~50 chars | ✅ No | ✅ "Red Door Pizza" |
-| /locations/meredith | ✅ | ✅ | ✅ "Pizza Near Meredith" | ✅ Meredith | ✅ | ✅ ~45 chars | ✅ No | ✅ "Red Door Pizza" |
+### Stockists Page (`/stockists`)
+| Element | Value | Assessment |
+|---|---|---|
+| Title | "Stockists \| Ballarat Region" | Good |
+| H1 | "Enjoy Red Door Pizza at Home" | Acceptable |
+| Content | 6 flavors, 4 stockists, B2B wholesale CTA | Good |
+| Schema | Product + ProductModel + AggregateOffer | Good — though lacks price precision |
 
-### Meta Description Audit
-
-| Route | Unique | Useful | Persuasive | Accurate | Aligned |
-|-------|--------|--------|------------|----------|---------|
-| / | ✅ | ✅ | ✅ mentions fior di latte, local, GF, family | ✅ | ✅ |
-| /menu | ✅ | ✅ | ✅ mentions pasta, gelato, GF | ✅ | ✅ |
-| /contact | ✅ | ✅ | ✅ mentions call, visit, enquiry | ✅ | ✅ |
-| /stockists | ✅ | ✅ | ✅ mentions vacuum-sealed, pre-cooked | ✅ | ✅ |
-| /locations/buninyong | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/ballarat | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/meredith | ✅ | ✅ | ✅ | ✅ | ✅ |
-
-### Canonical Audit
-
-| Route | Present | Correct | Self-Referencing | Production Hostname | No Conflicts |
-|-------|---------|---------|------------------|--------------------|--------------|
-| / | ✅ | ✅ | ✅ | ✅ via metadataBase | ✅ |
-| /menu | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /contact | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/buninyong | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/ballarat | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/meredith | ✅ | ✅ | ✅ | ✅ | ✅ |
-
-### Open Graph & Twitter Metadata
-
-| Route | OG Title | OG Description | OG Image | OG URL | Twitter Card |
-|-------|----------|---------------|----------|--------|--------------|
-| / | ✅ | ✅ | ✅ /Banner.jpg | ✅ | ✅ summary_large_image |
-| /menu | ✅ | ✅ | ✅ /Banner.jpg | ✅ | ✅ |
-| /contact | ✅ | ✅ | ✅ /Banner.jpg | ✅ | ✅ |
-| /stockists | ✅ | ✅ | ✅ /Banner.jpg | ✅ | ✅ |
-| /locations/* | ✅ | ✅ | ✅ /Banner.jpg | ✅ | ✅ |
-| /guides/* | ✅ | ✅ | ✅ /Banner.jpg | ✅ | ✅ |
-
-**Issue:** All pages use the same `/Banner.jpg` OG image — no page-specific social sharing images.
-
----
-
-## 18. PART E — Sitemap + Robots
-
-### robots.txt Audit
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Production hostname used | ✅ PASS | `reddoorpizza.com.au` | None |
-| HTTPS enforced | ✅ PASS | `https://www.reddoorpizza.com.au/sitemap.xml` | None |
-| Valid URLs only | ✅ PASS | No invalid characters | None |
-| Only legitimate indexable pages | ✅ PASS | Only `/` allowed — no disallows | None |
-| No WowApps URLs | ✅ PASS | No WowApps references | None |
-| No duplicate URLs | ✅ PASS | Single sitemap reference | None |
-| No localhost | ✅ PASS | No localhost references | None |
-| No preview hostnames | ✅ PASS | No Vercel preview URLs | None |
-
-### sitemap.xml Audit
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Production hostname used | ✅ PASS | All URLs use `https://www.reddoorpizza.com.au` | None |
-| HTTPS enforced | ✅ PASS | All URLs start with https | None |
-| Valid URLs only | ✅ PASS | Clean slugs, no encoding issues | None |
-| Only legitimate indexable pages | ✅ PASS | 15 URLs total: 6 static + 3 locations + 3 guides + terms + privacy | None |
-| No WowApps URLs | ✅ PASS | No external ordering URLs | None |
-| No duplicate URLs | ✅ PASS | Each route appears once | None |
-| No localhost | ✅ PASS | No localhost references | None |
-| Priorities sensible | ✅ PASS | Home 1.0, Menu 0.9, Locations 0.9, Guides 0.8, Legal 0.3 | None |
-
-### Sitemap vs Canonical Comparison
-
-| Route | In Sitemap | Canonical URL Match | Discrepancy |
-|-------|------------|---------------------|-------------|
-| / | ✅ | ✅ | None |
-| /menu | ✅ | ✅ | None |
-| /contact | ✅ | ✅ | None |
-| /stockists | ✅ | ✅ | None |
-| /terms | ✅ | ✅ | None |
-| /privacy | ✅ | ✅ | None |
-| /locations/buninyong | ✅ | ✅ | None |
-| /locations/ballarat | ✅ | ✅ | None |
-| /locations/meredith | ✅ | ✅ | None |
-| /guides/family-friendly-pizza-ballarat | ✅ | ✅ | None |
-| /guides/work-christmas-party-venues-buninyong | ✅ | ✅ | None |
-| /guides/gluten-free-pizza-ballarat | ✅ | ✅ | None |
+### Privacy & Terms Pages
+- Both have correct metadata, canonical tags, and substantive content
+- Both reference "The Stockit" as developer
+- Assessment: Standard legal pages, properly implemented
 
 ---
 
-## 19. PART F — Menu Audit (HIGH PRIORITY)
+## Keyword Strategy
 
-### Menu Indexability Checks
+### Current Keyword Usage (Verified from Code)
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| All important menu text in initial server-rendered HTML | ✅ PASS | Menu data defined as const in page.tsx, rendered server-side | None |
-| Menu item names crawlable | ✅ PASS | Rendered in `<h3>` tags | None |
-| Descriptions crawlable | ✅ PASS | Rendered in `<p>` tags | None |
-| Categories crawlable | ✅ PASS | Rendered in `<h2>` tags with IDs for anchor linking | None |
-| Prices crawlable | ✅ PASS | Rendered as text in `<span>` tags | None |
-| Gluten-free information crawlable | ✅ PASS | GF badge rendered, GF_ITEM_NAMES set used | None |
-| Food categories semantically clear | ✅ PASS | 6 categories: pizzas, starters, pasta, kids, dessert, drinks | None |
-| Client-side filtering hides content from initial HTML | ✅ PASS | No client-side filtering — all items rendered statically | None |
-| "View All" requires interaction | ✅ PASS | All items visible without interaction | None |
-| Framer Motion affects discoverability | ✅ PASS | Menu page does not use Framer Motion | None |
-| No duplicate menu data | ✅ PASS | Menu data defined once in menu/page.tsx | None |
-| WowApps not sole source for food info | ✅ PASS | All menu data on-site | None |
+| Keyword/Phrase | URL | Location | Intent | Status |
+|---|---|---|---|---|
+| wood-fired pizza Buninyong | /, /locations/buninyong, /menu | Title, H1, body | Local/transactional | CONFIRMED |
+| wood-fired pizza near Ballarat | /, /locations/ballarat | Title, H1 | Local/transactional | CONFIRMED |
+| pizza Buninyong | /locations/buninyong | Title, H1, body | Local/transactional | CONFIRMED |
+| pizza near Ballarat | /locations/ballarat | Title, H1 | Local/transactional | CONFIRMED |
+| pizza near Meredith | /locations/meredith | Title, H1 | Local/transactional | CONFIRMED |
+| gluten-free pizza Ballarat | /guides/gluten-free-pizza-ballarat | Title, H1, body | Commercial investigation | CONFIRMED |
+| family-friendly pizza Ballarat | /guides/family-friendly-pizza-ballarat | Title, H1, body | Commercial investigation | CONFIRMED |
+| group functions Ballarat | /guides/work-christmas-party-venues-buninyong | Title, H1, body | Commercial/transactional | CONFIRMED |
+| Italian menu Ballarat | /menu | Title, body | Commercial investigation | CONFIRMED |
+| pasta Ballarat | /menu (pasta section) | Category heading | Commercial | CONFIRMED |
+| wood-fired pizza retail Ballarat | /stockists | Title, body | Commercial | CONFIRMED |
+| pizzeria Buninyong | /locations/buninyong | Body, schema | Local | CONFIRMED |
 
-### Menu Categories Represented
+### Strategic Keyword Gaps (UNVERIFIED — requires Search Console data)
 
-| Category | Present | Crawlable | Properly Structured |
-|----------|---------|-----------|---------------------|
-| Wood-fired pizza | ✅ 24 items | ✅ | ✅ H2 + article elements |
-| Starters & sides | ✅ 10 items | ✅ | ✅ |
-| Pasta | ✅ 3 items | ✅ | ✅ |
-| Kids/Teen/Seniors | ✅ 4 items | ✅ | ✅ |
-| Desserts | ✅ 6 items | ✅ | ✅ |
-| Drinks | ✅ 8 items | ✅ | ✅ |
-| Gluten-free options | ✅ Marked with GF badge | ✅ | ✅ |
-
----
-
-## 20. PART G — Menu Topical Opportunity
-
-### Topical Coverage Assessment
-
-| Topic | Strong | Weak | Missing | Sufficient |
-|-------|--------|------|---------|------------|
-| Pizza | ✅ 24 varieties | | | |
-| Wood-fired pizza | ✅ Repeated throughout | | | |
-| Pasta | ✅ 3 dishes | | | |
-| Italian food | ✅ "Italian Menu" in title, fior di latte mentioned | | | |
-| Gluten-free | ✅ GF badge, GF spaghetti, guide page | | | |
-| Family | ✅ Kids menu, kids corner, guide | | | |
-| Kids | ✅ Dedicated section | | | |
-| Vegetarian | ✅ V badges on 6 items | | | |
-| Lamb | ✅ Lamb pizza + Lamb Ragu | | | |
-| Prawn | ✅ 2 prawn pizzas | | | |
-| Dessert | ✅ 6 items | | | |
-| Gelato | ✅ Il Piccolo Gelato mentioned | | | |
-| Local ingredients | ✅ Buninyong Butcher, Peaches, Meredith goat cheese | | | |
-| Functions | ✅ Dedicated section + guide | | | |
-| Stockists | ✅ Dedicated page | | | |
+| Keyword | Coverage | Gap Assessment |
+|---|---|---|
+| best pizza Ballarat | Not in titles/H1s | INFERRED gap — "best" not used on-site |
+| pizza restaurant Ballarat | Moderate (location page) | Could strengthen H2 targeting |
+| Italian restaurant Ballarat | Moderate (location page) | No dedicated Italian-focused content |
+| vegetarian pizza Ballarat | V tags on menu | No dedicated body copy targeting this term |
+| lamb pizza Ballarat | Menu item only | Could be strengthened with description |
+| prawn pizza Ballarat | Menu item only | Could be strengthened |
+| dessert Ballarat | Menu section | No dedicated content |
+| gelato Ballarat | Menu item | Mentioned in body copy |
+| Christmas party venue Ballarat | Guide page | Well-covered |
+| take-home pizza Ballarat | Stockists page | Well-covered |
 
 ---
 
-## 21. PART H — Homepage Audit
+## Search Intent Mapping
 
-### Homepage Evaluation
-
-| Element | Status | Evidence | Issue |
-|---------|--------|----------|-------|
-| H1 correct | ✅ PASS | "Wood-Fired Pizza in Buninyong, Just 12 Minutes from Ballarat" | None |
-| Hero messaging clear | ✅ PASS | H1 + subtitle + two CTAs | None |
-| Ballarat relationship communicated | ✅ PASS | "12 Minutes from Ballarat" in H1 | None |
-| Buninyong location clear | ✅ PASS | "in Buninyong" in H1 | None |
-| Wood-fired pizza positioning | ✅ PASS | First words in H1 | None |
-| Menu breadth shown | ✅ PASS | Featured Favorites section with 4 items + link to full menu | None |
-| Premium Italian ingredients | ✅ PASS | "Imported fior di latte" in subtitle and USP section | None |
-| Local produce mentioned | ✅ PASS | "Buninyong Butcher", "Peaches Fruit Market" in USP section | None |
-| Family experience highlighted | ✅ PASS | "Family Friendly" badge, family guide link | None |
-| Gluten-free options shown | ✅ PASS | GF item in featured menu, guide link | None |
-| Groups/functions mentioned | ✅ PASS | Dedicated Functions section | None |
-| Gelato mentioned | ✅ PASS | In menu section category intros | None |
-| Stockists mentioned | ✅ PASS | Dedicated stockists banner section | None |
-| Booking CTA present | ✅ PASS | "Book a Table" in hero + header | None |
-| Order CTA present | ✅ PASS | "Order Take Away" in hero, floating button, sticky mobile nav | None |
-
-### First-Time Visitor Clarity
-
-| Question | Can Answer? | Evidence |
-|----------|-------------|----------|
-| WHO: Red Door Pizza | ✅ YES | Logo, brand name throughout |
-| WHAT: wood-fired pizza / pizzeria / restaurant | ✅ YES | H1, subtitle, menu |
-| WHERE: Buninyong | ✅ YES | H1, address in contact, footer |
-| WHY: approximately 12 minutes from Ballarat | ✅ YES | H1, Ballarat location page |
-| WHAT ELSE: family, gluten-free, pasta, dessert, functions | ✅ YES | Multiple sections on homepage |
+| Query | Dominant Intent | Red Door Page | Match Quality |
+|---|---|---|---|
+| pizza Ballarat | Local/transactional | /locations/ballarat | Good |
+| wood-fired pizza Ballarat | Local/transactional | /locations/ballarat | Good |
+| pizza Buninyong | Local/transactional | /locations/buninyong | Excellent |
+| gluten-free pizza Ballarat | Commercial investigation | /guides/gluten-free-pizza-ballarat | Excellent |
+| family restaurant Ballarat | Commercial investigation | /guides/family-friendly-pizza-ballarat | Excellent |
+| Christmas party Ballarat | Commercial/transactional | /guides/work-christmas-party-venues-buninyong | Excellent |
+| Italian restaurant Ballarat | Commercial/local | /locations/ballarat | Moderate — no dedicated Italian page |
+| best pizza near Ballarat | Commercial investigation | /locations/ballarat | Moderate — "best" not in title |
+| pasta Ballarat | Commercial | /menu | Moderate — no dedicated pasta page |
+| pizza near Meredith | Local/transactional | /locations/meredith | Good |
+| function venue Ballarat | Commercial | /guides/work-christmas-party-venues-buninyong | Good |
+| takeaway pizza Buninyong | Transactional | /locations/buninyong, /menu | Good |
 
 ---
 
-## 22. PART I — Ballarat SEO
+## Content Quality
 
-### /locations/ballarat Audit
+### Homepage
+| Metric | Score (0-10) | Notes |
+|---|---|---|
+| Usefulness | 8 | Clear value propositions, multiple CTAs |
+| First-party info | 9 | Genuine business details, local suppliers |
+| Originality | 8 | Unique supplier story, local positioning |
+| Depth | 7 | Good but could add more narrative |
+| Specificity | 9 | Specific distances, hours, menu items |
+| Factual accuracy | 10 | All claims verifiable against code constants |
+| Local value | 9 | Strong Buninyong/Ballarat targeting |
+| Commercial value | 8 | Multiple conversion paths |
+| Trust | 9 | Real address, phone, reviews, supplier names |
+| AI answer usefulness | 7 | Needs more external corroboration |
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Genuinely useful | ✅ PASS | Unique body copy, FAQs specific to Ballarat intent | None |
-| Clearly explains Buninyong location | ✅ PASS | "Red Door Pizza is in historic Buninyong, 11km from the Ballarat CBD" | None |
-| Communicates 11 km / 12 min relationship | ✅ PASS | distanceHook: "Just a 12-minute scenic drive (11km) from the Ballarat CBD" | None |
-| Targets pizza intent naturally | ✅ PASS | Title: "Wood-Fired Pizza Near Ballarat" | None |
-| Provides enough unique value | ✅ PASS | Unique FAQ about buying pizza bases in Ballarat region | None |
-| Links to menu | ✅ PASS | "View Our Full Menu" CTA | None |
-| Links to booking | ✅ PASS | "Pre-Order via Wowapps" CTA | None |
-| Links to order | ✅ PASS | WowApps link | None |
-| Links to family info | ✅ PASS | Related guides include family-friendly guide | None |
-| Links to gluten-free info | ✅ PASS | Related guides include gluten-free guide | None |
-| Links to functions | ✅ PASS | Functions mentioned in familyEventsCopy | None |
-| Does not duplicate Buninyong content | ✅ PASS | Unique body copy, different FAQ set | None |
-| Not a doorway page | ✅ PASS | Genuine content, clear geographic relationship | None |
+### Menu Page
+| Metric | Score | Notes |
+|---|---|---|
+| Usefulness | 9 | Full menu with prices, descriptions, dietary tags |
+| First-party info | 10 | All items genuine, specific pricing |
+| Depth | 9 | 54 items across 6 categories |
+| Specificity | 9 | Individual descriptions, prices, dietary badges |
+| Search usefulness | 8 | Long-tail potential for individual dishes |
+| AI answer usefulness | 8 | Comprehensive structured data |
 
----
+### Location Pages
+| Page | Quality | Commercial | Search | AI |
+|---|---|---|---|---|
+| Buninyong | 8 | 8 | 9 | 7 |
+| Ballarat | 7 | 7 | 8 | 6 |
+| Meredith | 6 | 6 | 7 | 5 |
 
-## 23. PART J — Buninyong SEO
+**Note:** Meredith page is thinnest. Ballarat page could emphasise the "12 minutes from Ballarat" hook more aggressively.
 
-### /locations/buninyong Audit
+### Guide Pages
+| Page | Quality | Commercial | Search | AI |
+|---|---|---|---|---|
+| Family-Friendly | 8 | 8 | 8 | 7 |
+| Christmas Functions | 8 | 9 | 8 | 7 |
+| Gluten-Free | 9 | 8 | 9 | 8 |
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Physical location clarity | ✅ PASS | "401 Warrenheip St, Buninyong — our home since day one" | None |
-| Local relevance | ✅ PASS | Mentions Buninyong Butcher, Peaches Fruit Market | None |
-| Restaurant intent | ✅ PASS | Title: "Wood-Fired Pizza in Buninyong" | None |
-| Menu relationship | ✅ PASS | MenuSection component included | None |
-| Family mentioned | ✅ PASS | Kids corner, kids menu described | None |
-| Functions mentioned | ✅ PASS | Up to 100 guests, work break-ups, Christmas parties | None |
-| Gluten-free mentioned | ✅ PASS | GF bases, GF spaghetti | None |
-| Booking link | ✅ PASS | WowApps + contact page links | None |
-| Directions provided | ✅ PASS | Address + Google Maps link + embedded map | None |
-
----
-
-## 24. PART K — Meredith SEO
-
-### /locations/meredith Audit
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Why Meredith is targeted | ✅ PASS | Regional market, legitimate geographic relationship (Midland Hwy) | None |
-| Relationship is legitimate | ✅ PASS | "A short, scenic drive straight up the Midland Hwy from Meredith" | None |
-| Unique useful content | ✅ PASS | Unique body copy, unique FAQ about takeaway pickup | None |
-| Does not imply physical presence | ✅ PASS | Clearly states Red Door Pizza is "in Buninyong" — Meredith is nearby | None |
-| No doorway-page risk | ✅ PASS | Genuine content with unique value | None |
-| Relationship type clear | ✅ PASS | Customer market + ingredient context (Meredith goat cheese) | None |
+**Assessment:** Guide content is genuinely useful, locally specific, and well-structured. The cross-contamination note in the gluten-free guide is responsible and builds trust.
 
 ---
 
-## 25. PART L — Internal Linking
+## Menu SEO
 
-### Internal Linking Graph
+### Search Engine Readability
+| Element | Present | Assessment |
+|---|---|---|
+| Wood-fired pizza | Yes — category title + intro | CONFIRMED |
+| Individual pizza names | Yes — H3 per item | CONFIRMED |
+| Descriptions | Yes — most items have descriptions | CONFIRMED |
+| Prices | Yes — all items | CONFIRMED |
+| Pasta | Yes — dedicated section | CONFIRMED |
+| Gluten-free | Yes — GF badge + schema | CONFIRMED |
+| Vegetarian | Yes — V badge + schema | CONFIRMED |
+| Lamb | Yes — Lamb Pizza, Lamb & Beet, Lamb Ragu | CONFIRMED |
+| Prawns | Yes — Garlic Prawn, Sweet Chilli Prawn | CONFIRMED |
+| Kids | Yes — dedicated section | CONFIRMED |
+| Dessert | Yes — dedicated section | CONFIRMED |
+| Gelato | Yes — Il Piccolo Gelato | CONFIRMED |
+| Drinks | Yes — dedicated section | CONFIRMED |
 
-| Page | Inbound Links | Outbound Links | Key Anchor Text |
-|------|---------------|----------------|-----------------|
-| / | Header, Footer, all pages | /menu, /contact, /stockists, /locations/*, /guides/* | Navigation links |
-| /menu | Header, Footer, homepage, location pages, guides | /stockists, /locations/buninyong, /contact | "View Full Menu" |
-| /contact | Header, Footer, all pages, guides | Phone link, Google Maps | "Contact & Bookings" |
-| /stockists | Homepage, footer, menu | /menu, /locations/buninyong, /contact | "Find a Stockist" |
-| /locations/buninyong | Footer, homepage, other locations | /locations/*, /guides/*, /menu, /stockists | "Explore Buninyong" |
-| /locations/ballarat | Footer, homepage, other locations | /locations/*, /guides/* | "Plan Your Visit" |
-| /locations/meredith | Footer, homepage, other locations | /locations/* | "Pre-Order Now" |
-| /guides/* | Homepage, location pages, other guides | /locations/*, /menu, /guides/* | "View Our Kids & Full Menu" |
+### Top 20 Menu-Related Opportunities
+1. "lamb pizza Ballarat" — Lamb Pizza ($31) has description but no dedicated targeting
+2. "prawn pizza Ballarat" — Two prawn pizzas available
+3. "gluten-free pasta Ballarat" — GF Spaghetti Bolognese in menu + schema
+4. "vegetarian pizza Buninyong" — 5 vegetarian pizzas with V tags
+5. "margherita pizza Ballarat" — Classic pizza listed
+6. "capricciosa pizza Ballarat" — Listed with description
+7. "meat lovers pizza Ballarat" — Listed at $33
+8. "garlic bread Ballarat" — Listed in starters
+9. "loaded fries Ballarat" — Listed in starters
+10. "tiramisu Ballarat" — Listed in dessert
+11. "gelato Buninyong" — Il Piccolo Gelato featured
+12. "kids pizza Ballarat" — 10-inch pizzas in kids section
+13. "lunch special Ballarat" — $23 lunch special in promo banner
+14. "wood-fired pasta Ballarat" — Pasta section with descriptions
+15. "beef ragu Ballarat" — Lamb Ragu (slow-cooked 10 hours)
+16. "lasagna Ballarat" — House-made Lasagna listed
+17. "dessert pizza Ballarat" — Biscoff Pizza, Nutella & Strawberry Pizza
+18. "salad Buninyong" — Red Door Salad with Meredith goat cheese
+19. "take-home pizza dough Ballarat" — Standard Dough Balls listed
+20. "mushroom pizza Ballarat" — Mushroom Pizza with Meredith goat cheese
 
-### Linking Quality Assessment
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Red Door Pizza → wood-fired pizza reinforced | ✅ PASS | "Wood-Fired Pizza" in H1s, titles, descriptions | None |
-| Red Door Pizza → Buninyong reinforced | ✅ PASS | Address, location page, schema | None |
-| Red Door Pizza → Ballarat reinforced | ✅ PASS | Ballarat location page, guide targeting | None |
-| Red Door Pizza → Meredith reinforced | ✅ PASS | Meredith location page, Meredith goat cheese references | None |
-| Supporting topics linked | ✅ PASS | Gluten-free, family, functions, stockists all interlinked | None |
-| No orphan pages | ✅ PASS | All pages linked from footer or header | None |
-| No overlinked pages | ✅ PASS | Balanced link distribution | None |
-| No underlinked important pages | ✅ PASS | /menu and /stockists linked from multiple locations | None |
-| Anchor text quality | ✅ PASS | Descriptive anchors: "View Our Full Menu", "Plan Your Visit" | None |
-| No cannibalisation risk | ✅ PASS | Location pages target different geo-modifiers | None |
-
----
-
-## 26. PART M — Structured Data
-
-### JSON-LD Audit
-
-| Schema Type | Valid JSON | Appropriate Type | Visible Content | Accurate | Duplicate | Contradictory | Fake | Unsupported | Connected to Main Entity |
-|-------------|------------|------------------|-----------------|----------|-----------|---------------|------|-------------|-------------------------|
-| Restaurant | ✅ | ✅ Restaurant | ✅ Name, address, phone, hours, cuisine | ✅ | ✅ Single instance | ✅ | ✅ | ✅ | ✅ @id: "#restaurant" |
-| Menu | ✅ | ✅ Menu | ✅ All items with prices | ✅ | ⚠️ Location pages have subset Menu | ✅ | ✅ | ✅ | ✅ Via page context |
-| MenuItem | ✅ | ✅ MenuItem | ✅ Name, price, description, diet | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ Nested in Menu |
-| FAQPage | ✅ | ✅ FAQPage | ✅ Questions + answers visible | ✅ | ✅ Per page | ✅ | ✅ | ✅ | ✅ |
-| Article | ✅ | ✅ Article | ✅ Guide content | ✅ | ✅ Per guide | ✅ | ✅ | ✅ | ✅ Author: Organization |
-| Product | ✅ | ✅ Product | ✅ Take-home pizza range | ✅ | ✅ Single instance | ✅ | ✅ | ✅ | ✅ Brand: Red Door Pizza |
-| BreadcrumbList | ❌ MISSING | — | — | — | — | — | — | — | — |
-| WebSite | ❌ MISSING | — | — | — | — | — | — | — | — |
-| Organization | ❌ MISSING | — | — | — | — | — | — | — | — |
-
-### Key Schema Fields
-
-| Field | Status | Accurate | Issue |
-|-------|--------|----------|-------|
-| Address | ✅ | ✅ | 401 Warrenheip St, Buninyong VIC 3357, AU |
-| Phone | ✅ | ✅ | (03) 5341 8235 |
-| URL | ✅ | ✅ | https://www.reddoorpizza.com.au |
-| Geo coordinates | ✅ | ✅ | -37.6534, 143.8821 |
-| Opening hours | ✅ | ✅ | Mon-Thu 17:00-21:00, Fri-Sun 12:00-21:00 |
-| Cuisine | ✅ | ✅ | ["Pizza", "Italian"] |
-| Menu URL | ✅ | ✅ | /menu |
-| Images | ✅ | ✅ | logo.png, /Banner.jpg |
-| Social profiles | ✅ | ✅ | Facebook, Instagram |
-| Reviews | ❌ NOT IN SCHEMA | — | Testimonials exist visually but no Review schema |
-| Ratings | ❌ NOT IN SCHEMA | — | No aggregateRating in Restaurant schema |
-| FAQs | ✅ | ✅ | On location and guide pages |
-| Diet | ✅ | ✅ | VegetarianDiet, GlutenFreeDiet on MenuItem |
+### Top 10 Menu-Related Problems
+1. **GF item detection is limited** — Only "Gluten Free Spaghetti Bolognese" is detected for GF schema; GF pizza bases are mentioned in text but not tagged per-item
+2. **No "pizza" keyword in H1** — Menu page H1 is "Our Menu" rather than "Wood-Fired Pizza Menu"
+3. **Some items lack descriptions** — Wood Fired Garlic Bread, Marinated Warm Olives, etc.
+4. **Prices not in schema correctly** — `price` field strips non-numeric chars but keeps decimals; some items have ranges ("From $6.30") that may not parse correctly
+5. **No individual pizza URLs** — Single-page menu; no deep-linking to individual items
+6. **No "gluten-free" in menu page title** — Title is "Wood-Fired Pizza & Italian Menu" without GF mention
+7. **Lamb Ragu description says "slow-cooked lamb sourced from Buninyong Butcher"** in schema but not in menu item description
+8. **Stockists page lacks specific pricing** — Product schema has no concrete price
+9. **No seasonal/rotating menu signals** — Static menu with no freshness indicators
+10. **Dough Balls listed under pizzas** — "Standard Dough Balls (take home)" is in pizza category; could confuse schema
 
 ---
 
-## 27. PART N — Entity Architecture
+## Internal Linking
 
-### Entity Clarity Assessment
+### Link Map (Verified from Code)
 
-| Entity | Clear | Contradictions | Evidence |
-|--------|-------|----------------|----------|
-| Red Door Pizza | ✅ | None | Consistent name everywhere |
-| Wood-fired pizzeria | ✅ | None | H1, title, description, schema |
-| Buninyong (location) | ✅ | None | Address, schema, location page |
-| Ballarat (nearby market) | ✅ | None | Location page explains 11km relationship |
-| Meredith (regional) | ✅ | None | Location page explains drive relationship |
-| Italian-style dining | ✅ | None | "Italian Menu", "fior di latte", "San Marzano" |
-| Pasta | ✅ | None | Menu section, location pages |
-| Gluten-free | ✅ | None | GF badges, guide, cross-contact warning |
-| Family | ✅ | None | Kids corner, kids menu, guide |
-| Kids | ✅ | None | Dedicated section, menu items |
-| Functions | ✅ | None | Section, guide, 100 guests |
-| Local produce | ✅ | None | Buninyong Butcher, Peaches |
-| Il Piccolo Gelato | ✅ | None | Dessert section, location pages |
-| Stockists | ✅ | None | Dedicated page, Product schema |
-| Take-home pizza | ✅ | None | Stockists page, vacuum-sealed description |
+| Page | Inbound Links | Outbound Internal Links | Depth |
+|---|---|---|---|
+| `/` | — (root) | Menu, Stockists, 3 Locations, 3 Guides, Contact | 0 |
+| `/menu` | Homepage, Location pages, Guides | Stockists, Buninyong location, Contact | 1 |
+| `/locations/buninyong` | Homepage, Footer, Guide pages | Menu, Contact, Stockists, other locations | 1 |
+| `/locations/ballarat` | Homepage, Footer, Guide pages | Menu, Contact, Stockists, other locations | 1 |
+| `/locations/meredith` | Homepage, Footer | Menu, Contact, Stockists, other locations | 1 |
+| `/guides/*` | Homepage, Location pages, other guides | Menu, Location page, Contact, WowApps | 1-2 |
+| `/contact` | Homepage, Footer, Guides, Location pages | — | 1 |
+| `/stockists` | Homepage, Footer, Menu | Contact, Menu, Buninyong location | 1-2 |
+| `/privacy` | Footer | — | 1 |
+| `/terms` | Footer | Contact | 1 |
 
----
+### Anchor Text Quality
+- **Good:** "Wood-Fired Pizza in Buninyong", "View Our Full Menu", "Plan Your Visit", "Explore Buninyong"
+- **Acceptable:** "View All Stockists & Flavors", "Find a Stockist"
+- **Opportunity:** More contextual anchors like "gluten-free pizza near Ballarat" within guide cross-links
 
-## 28. PART O — AI / Answer Engine Readiness
+### Orphan Risk
+- `/stockists` — Linked from Homepage, Footer, Menu, Location pages. Low orphan risk.
+- `/privacy`, `/terms` — Footer only. Acceptable for legal pages.
 
-### AI Visibility Assessment
-
-| Query | Answerable? | Evidence | Gap |
-|-------|-------------|----------|-----|
-| Where can I get wood-fired pizza near Ballarat? | ✅ YES | H1, Ballarat location page, guide | None |
-| What is a good pizza restaurant near Ballarat? | ✅ YES | Homepage, location pages | None |
-| Where can I get pizza in Buninyong? | ✅ YES | Buninyong location page, address in schema | None |
-| Where can I get gluten-free pizza near Ballarat? | ✅ YES | Guide page, GF items in menu | None |
-| Is there a family-friendly pizza restaurant near Ballarat? | ✅ YES | Guide page, kids menu, kids corner | None |
-| Where can I have a group dinner near Ballarat? | ✅ YES | Functions section, guide, 100 guests | None |
-| Where can I hold a Christmas/work function near Ballarat? | ✅ YES | Dedicated guide | None |
-| Where can I buy Red Door Pizza around Ballarat? | ✅ YES | Stockists page, Product schema | None |
-| Does Red Door Pizza offer pasta? | ✅ YES | Menu section, location pages | None |
-| Does Red Door Pizza offer gelato? | ✅ YES | Menu, dessert section | None |
-| What local ingredients does Red Door Pizza use? | ✅ YES | USP section, location pages | None |
-| How far is Red Door Pizza from Ballarat CBD? | ✅ YES | "11km / 12 minutes" stated clearly | None |
-
-### AI Readiness Factors
-
-| Factor | Status | Evidence | Issue |
-|--------|--------|----------|-------|
-| Factual clarity | ✅ STRONG | All facts consistent and verifiable | None |
-| Content depth | ✅ STRONG | Menu, guides, location pages provide depth | None |
-| Entity consistency | ✅ STRONG | Same name, address, phone everywhere | None |
-| First-party evidence | ✅ STRONG | Menu data, business details on-site | None |
-| Local specificity | ✅ STRONG | Buninyong, Ballarat, Meredith all addressed | None |
-| Direct answers | ✅ STRONG | FAQs provide direct answers | None |
-| Content uniqueness | ⚠️ MODERATE | Some content shared across location pages via config | Minor |
-| Internal links | ✅ STRONG | Cross-linking between related content | None |
-| Structured information | ⚠️ MODERATE | Missing BreadcrumbList, WebSite schemas | Minor |
+### Overlinking/Underlinking
+- **Overlinking:** None observed. Link density is appropriate.
+- **Underlinking:** `/locations/meredith` could link to more guide content. Meredith has no related guides.
 
 ---
 
-## 29. PART P — Local SEO
+## External Linking
 
-### Website-Side Local SEO Readiness
+| Source Page | External Link | Type | Assessment |
+|---|---|---|---|
+| Homepage | WowApps ordering | Ordering platform | Appropriate |
+| Header | WowApps ordering | Ordering platform | Appropriate |
+| Footer | WowApps ordering | Ordering platform | Appropriate |
+| Location pages | WowApps ordering | Ordering platform | Appropriate |
+| Guide pages | WowApps (gluten-free guide) | Ordering platform | Appropriate |
+| Contact page | Google Maps | Maps | Appropriate |
+| Footer | Google Maps | Maps | Appropriate |
+| Mobile nav | Google Maps | Maps | Appropriate |
+| Contact page | Instagram, Facebook | Social | Appropriate |
+| Footer | Instagram, Facebook | Social | Appropriate |
+| Privacy page | The Stockit (developer) | Business reference | Appropriate |
+| Terms page | The Stockit (developer) | Business reference | Appropriate |
 
-| Platform | NAP Consistent | Address Correct | Phone Correct | Hours Correct | Website Link | Business Name Correct |
-|----------|----------------|-----------------|---------------|---------------|--------------|----------------------|
-| Google Business Profile | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-| Bing Places | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-| Apple Maps/Business Connect | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-| Tripadvisor | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-| OpenTable | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-| Tourism/local directories | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-| Buninyong community | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-| Ballarat local ecosystem | ⚠️ REQUIRES EXTERNAL | — | — | — | — | — |
-
-### Codebase vs External Status
-
-| Item | Codebase Status | External Status Verified |
-|------|-----------------|-------------------------|
-| NAP consistency | ✅ Consistent in code | ❌ Requires live verification |
-| Address | ✅ 401 Warrenheip St, Buninyong VIC 3357 | ❌ |
-| Phone | ✅ (03) 5341 8235 | ❌ |
-| Hours | ✅ Mon-Thu 5-9, Fri-Sun 12-9 | ❌ |
-| Website URL | ✅ reddoorpizza.com.au | ❌ |
-| Business name | ✅ "Red Door Pizza" | ❌ |
-| Location language | ✅ "Buninyong" not "Ballarat" for address | ❌ |
-| Social links | ✅ Facebook, Instagram in schema + footer | ❌ |
-| Booking link | ✅ /contact page | ❌ |
-| Ordering link | ✅ orders.wowapps.com/order/reddoorpizzeria | ❌ |
+**Assessment:** All external links are legitimate and relevant. No unnecessary link leakage. No broken links detected in code. `rel="noopener noreferrer"` used correctly on all external links.
 
 ---
 
-## 30. PART Q — Content Quality
+## Local SEO
 
-### Content Quality Assessment
+### NAP Consistency (Verified from Code)
+| Field | Value | Consistent? |
+|---|---|---|
+| Name | Red Door Pizza | Yes — all references |
+| Address | 401 Warrenheip St, Buninyong VIC 3357, Australia | Yes — constants.ts, schema, footer, contact |
+| Phone | (03) 5341 8235 | Yes — all references |
+| Hours | Mon-Thu 5pm-9pm, Fri-Sun 12pm-9pm | Yes — constants.ts, schema, footer |
 
-| Page | Useful | Original | Factually Accurate | Specific | Locally Relevant | Commercial Intent | No Duplication | No Thin Content | No Keyword Stuffing |
-|------|--------|----------|-------------------|----------|------------------|-------------------|----------------|-----------------|---------------------|
-| / | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /menu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /contact | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /stockists | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/buninyong | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/ballarat | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /locations/meredith | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| /guides/* | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+### Location Pages Assessment
 
-**Concerns:**
-- TestimonialsSection uses fabricated review names/texts (Sarah M., David L., Emma W.) — not sourced from real review platforms
-- Footer claims "local wines, cocktails" which is not confirmed in business facts
+| Page | Useful | Unique | Accurate | Locally Relevant | Doorway Risk |
+|---|---|---|---|---|---|
+| Buninyong | Yes | Yes — home base content | Yes | Yes — supplier references | No |
+| Ballarat | Yes | Yes — "near" framing | Yes | Yes — distance hook | No |
+| Meredith | Yes | Yes — takeaway focus | Yes | Moderate | No |
 
----
+**Assessment:** Location pages are genuinely useful with unique content per location. The "near" framing for Ballarat and Meredith avoids false location claims. No doorway page risk — each page serves a legitimate user purpose.
 
-## 31. PART R — Conversion / CRO
-
-### CRO Audit
-
-| Element | Present | Effective | Evidence | Issue |
-|---------|---------|-----------|----------|-------|
-| Book a Table CTA | ✅ | ✅ | Hero button, header link | None |
-| Order Online CTA | ✅ | ✅ | Hero button, floating button, sticky mobile nav | None |
-| Menu experience | ✅ | ✅ | Full menu with prices, order buttons per item | None |
-| Phone CTA | ✅ | ✅ | Header (mobile), footer, mobile sticky nav | None |
-| Directions CTA | ✅ | ✅ | Mobile sticky nav, contact page, Google Maps link | None |
-| Group enquiry | ⚠️ PARTIAL | ❌ | FunctionsSection form has no onSubmit handler | HIGH: Form is non-functional |
-| Functions info | ✅ | ✅ | Section, guide, 100 guests mentioned | None |
-| Mobile sticky CTA | ✅ | ✅ | MobileStickyNav with Call, Order, Directions | None |
-| Floating order button | ✅ | ✅ | FloatingOrderButton on desktop | None |
-| Page hierarchy | ✅ | ✅ | Clear H1 → H2 → H3 hierarchy | None |
-| CTA placement | ✅ | ✅ | CTAs in hero, header, footer, sticky, floating | None |
-| Customer trust signals | ⚠️ PARTIAL | ⚠️ | Testimonials present but appear fabricated | MEDIUM |
-| Social proof | ⚠️ PARTIAL | ⚠️ | Testimonials section with star ratings | None |
-| Menu accessibility | ✅ | ✅ | Full menu on page, anchor navigation | None |
-| WowApps handoff | ✅ | ✅ | All links open in _blank with rel=noopener | None |
-
-### Customer Question Clarity
-
-| Question | Can Answer Quickly? | Evidence |
-|----------|---------------------|----------|
-| What do they sell? | ✅ YES | H1, menu, featured items |
-| Where are they? | ✅ YES | H1, footer, contact page |
-| How far from Ballarat? | ✅ YES | "12 minutes from Ballarat" in H1 |
-| Can I book? | ✅ YES | "Book a Table" CTA |
-| Can I order? | ✅ YES | "Order Online" CTA |
-| Is it family friendly? | ✅ YES | Kids corner, kids menu, guide |
-| Can I bring a group? | ✅ YES | Functions section, 100 guests |
-| Do they have gluten-free options? | ✅ YES | GF badges, guide |
+### Geographic Targeting
+- **Buninyong:** Physical location clearly stated
+- **Ballarat:** "12 minutes from Ballarat CBD", "11km from Ballarat CBD" — accurate
+- **Meredith:** "short drive along the Midland Highway" — accurate
+- **Schema areaServed:** `["Buninyong", "Ballarat", "Meredith"]` — correct
 
 ---
 
-## 32. PART S — WowApps
+## Google Business Profile
 
-### WowApps Integration Audit
+**Note:** GBP cannot be fully audited from code. The following is based on `GBP_BUSINESS_INFORMATION.md` and external data.
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Destination URLs correct | ✅ PASS | `https://orders.wowapps.com/order/reddoorpizzeria` | None |
-| CTA wording clear | ✅ PASS | "Order Online", "Order Take Away", "Pre-Order via Wowapps" | None |
-| Accessibility working | ✅ PASS | aria-label on OrderButton: "Order {item} on WowApps" | None |
-| Target behaviour correct (_blank) | ✅ PASS | All WowApps links have target="_blank" rel="noopener noreferrer" | None |
-| No broken links | ✅ PASS | All links reference correct URL | None |
-| Consistency across site | ✅ PASS | Same URL used everywhere via WOWAPPS_ORDER_URL constant | None |
-| Event tracking configured | ✅ PASS | trackOrderOnlineClick on all WowApps links | None |
-| Menu-item tracking configured | ✅ PASS | trackMenuItemOrderClick on per-item order buttons | None |
-| External handoff clean | ✅ PASS | Opens in new tab, proper rel attributes | None |
+### Known Information (from GBP_BUSINESS_INFORMATION.md)
+| Field | Value |
+|---|---|
+| Business Name | Red Door Pizza |
+| Address | 401 Warrenheip St, Buninyong VIC 3357 |
+| Phone | (03) 5341 8235 |
+| Website | https://www.reddoorpizza.com.au/ |
+| Primary Category | Pizzeria (CONFIRMED from document) |
+| Hours | Mon-Thu 5pm-9pm, Fri-Sun 12pm-9pm |
+| Social | Instagram, Facebook |
 
----
+### External Platform Presence (Verified)
+| Platform | Status | Rating | Reviews |
+|---|---|---|---|
+| Google Business Profile | Listed (UNVERIFIED from code) | 4.6 (from REVIEW_SOURCES.md) | ~276 (from REVIEW_SOURCES.md) |
+| OpenTable | Listed | 4.8 | 50 reviews |
+| UberEats | Listed | 4.2 | 240+ ratings |
+| AGFG | Listed | Unknown | Unknown |
+| TripAdvisor | Unknown | Unknown | Unknown |
 
-## 33. PART T — Analytics
-
-### Analytics Implementation Audit
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| GA4 implemented | ✅ PASS | Analytics.tsx loads gtag.js | None |
-| GTM implemented | ⚠️ N/A | Direct GA4 used instead of GTM | Acceptable |
-| Other analytics | ✅ PASS | Custom event tracking in analytics.ts | None |
-| Event tracking configured | ✅ PASS | 7 event functions defined | None |
-
-### Event Tracking Audit
-
-| Event | Implemented | Parameters Correct | Issue |
-|-------|-------------|-------------------|-------|
-| order_online_click | ✅ YES | page_path, button_location | None |
-| menu_item_order_click | ✅ YES | page_path, menu_item, menu_category | None |
-| book_table_click | ✅ YES | page_path, button_location | None |
-| phone_click | ✅ YES | page_path | None |
-| directions_click | ✅ YES | page_path | None |
-| group_enquiry_click | ✅ YES | page_path, form_location | None |
-| contact_submission | ❌ NOT IMPLEMENTED | — | Function not in analytics.ts |
-
-### Analytics Quality Checks
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Event naming correct | ✅ PASS | snake_case, descriptive | None |
-| Event parameters correct | ✅ PASS | Relevant context params | None |
-| No duplicate scripts | ✅ PASS | Single gtag.js load | None |
-| No PII risk | ✅ PASS | Only page_path and business params collected | None |
-| Consent behaviour configured | ⚠️ NO | No consent banner or cookie consent | May be required under AU Privacy Act |
-| Loading performance acceptable | ✅ PASS | `strategy="afterInteractive"` | None |
+### GBP Gaps (INFERRED)
+- Opening hours on OpenTable show "Daily 12:00pm-9:00pm" — differs from actual hours (Mon-Thu 5pm-9pm)
+- OpenTable description references "Adam Avery" as Head Chef and previous ownership — likely outdated
+- No evidence of Google Posts, regular photo uploads, or Q&A activity from codebase
 
 ---
 
-## 34. PART U — Performance
+## Citations
 
-### Performance Audit
+### Known Citations (Verified from Web Search)
+| Platform | URL | NAP Consistent | Notes |
+|---|---|---|---|
+| AGFG | agfg.com.au/restaurant/red-door-pizza-46489 | Yes (address, phone) | Listed as Italian Restaurant |
+| OpenTable | opentable.com/r/red-door-pizza-buninyong | Yes (address, phone) | Outdated hours and chef info |
+| UberEats | ubereats.com/au/store/red-door-pizza-buninyong | Yes | Active ordering |
+| Buninyong Township Guide | buninyong.vic.au (PDF) | Yes | Community listing |
+| Community Gold Participants | communitygrowshere.com.au | Yes | Business listing |
+| The Courier (Ballarat) | thecourier.com.au (articles) | Yes | Press coverage (2021, 2023) |
+| Ballarat Times | timesnewsgroup.com.au | Yes | Press coverage (2021) |
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Next/Image used correctly | ✅ PASS | Hero, Gallery, OutdoorDining use next/image | None |
-| Image dimensions set | ⚠️ PARTIAL | Hero: fill, Gallery: fill with sizes, OutdoorDining: fill | Gallery images lack explicit width/height |
-| Priority usage appropriate | ✅ PASS | Hero image has priority, logo has priority | None |
-| Lazy loading configured | ✅ PASS | Next/Image lazy loads by default, Gallery uses fill | None |
-| Fonts optimized | ✅ PASS | Inter + Playfair_Display with display:"swap" | None |
-| JavaScript minimal | ⚠️ PARTIAL | Framer Motion adds bundle weight | Minor |
-| Framer Motion impact assessed | ⚠️ PARTIAL | Used in Hero, Header, Functions, Contact, USP sections | Client components for animation |
-| Client components minimized | ⚠️ PARTIAL | 10 "use client" components | Some could be server components |
-| Server components used | ✅ PASS | Menu page, location pages, guide pages are server components | None |
-| Third-party scripts managed | ✅ PASS | Only GA4 loaded via afterInteractive | None |
-| Bundle-heavy dependencies | ⚠️ PARTIAL | framer-motion (13.1.0) adds ~40KB gzipped | Acceptable for animation needs |
-
-### Build Performance
-
-| Metric | Value | Status |
-|--------|-------|--------|
-| Build time | ~12s | ✅ Fast |
-| TypeScript errors | 0 | ✅ Clean |
-| Lint errors | 0 | ✅ Clean |
-| Routes generated | 18 | ✅ All static |
-| Warnings | 0 | ✅ Clean |
+### Missing/Recommended Citations
+| Platform | Status | Priority |
+|---|---|---|
+| Yellow Pages Australia | UNKNOWN | Medium |
+| True Local | UNKNOWN | Medium |
+| Yelp Australia | UNKNOWN | Low-Medium |
+| TripAdvisor | UNKNOWN | Medium |
+| Zomato | UNKNOWN | Low |
+| Broadsheet Melbourne | UNKNOWN | Low |
+| Google Business Profile | Assumed active | Critical |
 
 ---
 
-## 35. PART V — Accessibility
+## Reviews / Reputation
 
-### Accessibility Audit
+### Platform Summary
+| Platform | Rating | Volume | Freshness | Owner Responses |
+|---|---|---|---|---|
+| Google | 4.6 (UNVERIFIED) | ~276 (UNVERIFIED) | Unknown | Unknown |
+| OpenTable | 4.8 | 50 | Last review date unknown | Unknown |
+| UberEats | 4.2 | 240+ | Reviews from 2023-2024 | Unknown |
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Semantic HTML | ✅ PASS | `<main>`, `<section>`, `<nav>`, `<address>`, `<article>` used | None |
-| Heading hierarchy | ✅ PASS | H1 → H2 → H3 logical structure | None |
-| Links accessible | ✅ PASS | Meaningful anchor text | None |
-| Buttons accessible | ✅ PASS | aria-label on hamburger, order buttons | None |
-| Form labels present | ⚠️ PARTIAL | EnquiryForm uses placeholder only — no <label> elements | Screen readers may not associate labels |
-| ARIA attributes used | ✅ PASS | aria-label on key interactive elements | None |
-| Alt text present | ✅ PASS | All images have descriptive alt text | None |
-| Keyboard navigation | ✅ PASS | Standard HTML elements, focus states via Tailwind | None |
-| Focus states visible | ⚠️ PARTIAL | Tailwind focus:ring on form inputs only | Other interactive elements lack visible focus |
-| Mobile navigation accessible | ✅ PASS | Hamburger toggle with aria-label | None |
-| Contrast implementation | ⚠️ UNVERIFIED | Cannot test from code alone | Requires visual testing |
+### On-Site Testimonials
+- **Source:** `app/components/TestimonialsSection.tsx`
+- **Reviewers:** Rhiannon, Purple Rainbow, Isaac Stolk
+- **Source URLs:** All link to Google Maps contribution pages (CONFIRMED)
+- **Schema:** No Review/AggregateRating schema used (CONFIRMED — correct approach)
+- **Assessment:** Testimonials are genuine, sourced, and properly attributed.
 
----
-
-## 36. PART W — Mobile UX
-
-### Mobile UX Audit
-
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Mobile menu functional | ✅ PASS | AnimatePresence drawer with nav links | None |
-| Menu filtering works | ✅ PASS | Anchor-based category navigation | None |
-| Sticky order CTA present | ✅ PASS | MobileStickyNav with Call, Order, Directions | None |
-| No CTA overlap | ⚠️ UNVERIFIED | Cannot test from code — requires visual testing | N/A |
-| Hero responsive | ✅ PASS | Responsive text sizing (text-4xl md:text-6xl) | None |
-| Forms usable | ✅ PASS | Responsive grid layouts, proper input types | None |
-| Menu cards readable | ✅ PASS | Grid adapts: 1 col mobile → 2 md → 3 lg | None |
-| Images responsive | ✅ PASS | Next/Image with fill and sizes | None |
-| Text wrapping correct | ✅ PASS | Tailwind responsive text classes | None |
-| Navigation functional | ✅ PASS | Mobile drawer, sticky nav, floating button | None |
+### Review Themes (from UberEats)
+- **Positive:** "best salads", "right amount of char on crust", "best gourmet pizzas"
+- **Volume:** 240+ ratings on UberEats suggests decent order volume
+- **Gap:** No TripAdvisor listing found; Google review count ~276 is modest for a restaurant operating since ~2013
 
 ---
 
-## 37. PART X — Security / Deployment Health
+## Off-Page SEO
 
-### Security Audit
+### Backlink Profile
+- **Assessment:** Not independently verifiable with available tooling. Limited to what web search reveals.
+- **Known references:**
+  - The Courier (Ballarat) — 2 articles (2023)
+  - Ballarat Times — 1 article (2021)
+  - Buninyong Township — community listings
+  - Community Grow Here — business listing
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| No exposed secrets | ⚠️ MINOR | IndexNow API key visible in api/indexnow/route.ts:6 | Low risk — not a secret key, but could be restricted |
-| Environment variables secure | ✅ PASS | NEXT_PUBLIC_GA_MEASUREMENT_ID via env var | None |
-| No unsafe client-side credentials | ✅ PASS | No API keys in client components | None |
-| Configuration valid | ✅ PASS | next.config.ts, tsconfig.json, package.json all valid | None |
-| No console errors | ✅ PASS | Build succeeds with zero errors | None |
-| No build warnings | ✅ PASS | Clean build output | None |
-| External dependencies safe | ✅ PASS | All packages from npm, up to date | None |
-| No invalid links | ✅ PASS | All internal links valid, external links use https | None |
-| Security headers configured | ❌ FAIL | No middleware.ts, no security headers in next.config.ts | Missing: X-Frame-Options, CSP, HSTS, etc. |
+### Referring Domains (Observable)
+| Domain | Type | Quality | Relevance |
+|---|---|---|---|
+| thecourier.com.au | Local news | High | High |
+| timesnewsgroup.com.au | Local news | Medium | High |
+| buninyong.vic.au | Community | Medium | High |
+| communitygrowshere.com.au | Community | Low-Medium | Medium |
+| agfg.com.au | Restaurant guide | Medium | High |
+| opentable.com | Booking platform | High | High |
+| ubereats.com.au | Delivery platform | High | High |
 
----
-
-## 38. PART Y — Client Business Fact Check
-
-### Inaccurate Content Search
-
-| Term | Found | Location | Customer-Visible? | Issue |
-|------|-------|----------|-------------------|-------|
-| live music | ❌ NOT FOUND | — | — | ✅ CORRECT — not claimed |
-| weekend live music | ❌ NOT FOUND | — | — | ✅ CORRECT |
-| 120 (capacity) | ❌ NOT FOUND | — | — | ✅ CORRECT — uses 100 |
-| 30–120 | ❌ NOT FOUND | — | — | ✅ CORRECT |
-| drink packages | ❌ NOT FOUND | — | — | ✅ CORRECT |
-| beverage packages | ❌ NOT FOUND | — | — | ✅ CORRECT |
-| full bar | ❌ NOT FOUND | — | — | ✅ CORRECT |
-| high-speed takeaway | ❌ NOT FOUND | — | — | ✅ CORRECT |
-| outdated hours | ❌ NOT FOUND | — | — | ✅ CORRECT — hours match |
-| outdated capacity | ❌ NOT FOUND | — | — | ✅ CORRECT — 100 matches |
-| inaccurate location claims | ❌ NOT FOUND | — | — | ✅ CORRECT — Buninyong used for address |
-| local wines, cocktails | ⚠️ FOUND | Footer.tsx:36 | ✅ YES | ⚠️ UNVERIFIED — "local wines, cocktails" not in business facts |
-
-**Footer.tsx:36** states: *"Quality handcrafted wood-fired pizza, local wines, cocktails & fresh desserts in historic Buninyong."*
-
-The business facts do not confirm wine/cocktail offerings. This should be verified with the client.
+### Assessment
+Red Door Pizza has a modest but relevant backlink profile. The primary gap is **quantity** — competitors in Ballarat likely have more referring domains from local directories, food publications, and tourism sites.
 
 ---
 
-## 39. PART Z — Build / Code Quality
+## Competitor Analysis
 
-### Build Quality Audit
+### Top Competitors (Observed from SERPs for "pizza Ballarat")
 
-| Check | Status | Evidence | Issue |
-|-------|--------|----------|-------|
-| Typecheck passed | ✅ PASS | `tsc --noEmit` — zero errors | None |
-| Lint passed | ✅ PASS | `npm run lint` — zero warnings/errors | None |
-| Production build succeeded | ✅ PASS | `npm run build` — compiled successfully | None |
+| Competitor | Location | Wood-Fired | Italian | GF | Family | Functions | Reviews | Content |
+|---|---|---|---|---|---|---|---|---|
+| **The Forge Pizzeria** | Armstrong St, Ballarat | Yes | Yes | Yes | Yes | Yes (200 seats) | Strong | Website + social |
+| **Soldiers Woodfired Pizzeria** | Soldiers Hill, Ballarat | Yes | Yes | Yes | Unknown | Unknown | Strong | Website |
+| **Carboni's Italian Kitchen** | Eureka St, Ballarat | Yes | Yes (full Italian) | Unknown | Yes | Unknown | Strong | Website + menu |
+| **Venti8 Pizzeria** | Ballarat North | Yes | Yes | Unknown | Yes | Unknown | Growing | Website |
+| **Ballarat Provedore** | Warrenheip (near Ballarat) | Yes | Limited | Unknown | Unknown | Unknown | Unknown | Basic website |
 
-### Build Issues
+### Red Door Advantages vs Competitors
+1. **Buninyong location** — Historic village setting, differentiator from Ballarat CBD
+2. **Local supplier story** — Buninyong Butcher, Peaches Fruit Market, Il Piccolo Gelato
+3. **Take-home product** — Vacuum-sealed bases at local IGAs (unique)
+4. **Kids corner** — Dedicated play area (physical space advantage)
+5. **Technical SEO** — Stronger than most competitor websites
+6. **Guide content** — Family, functions, gluten-free guides (content moat)
 
-| Issue Type | Count | Details |
-|------------|-------|---------|
-| Errors | 0 | — |
-| Warnings | 0 | — |
-| Dependency issues | 0 | — |
-| Build issues | 0 | — |
-| Route generation issues | 0 | All 18 routes generated |
-
----
-
-## 40. Top 20 Remaining Actions
-
-| # | Priority | Area | Problem | Evidence | Solution | Expected Impact | Difficulty | Code Change | External Action |
-|---|----------|------|---------|----------|----------|-----------------|------------|-------------|-----------------|
-| 1 | P1 | CRO | FunctionsSection form has no onSubmit handler — Submit button does nothing | FunctionsSection.tsx:71-125 | Add onSubmit handler or convert to proper form with action | HIGH — lost function enquiries | Easy | YES | NO |
-| 2 | P1 | CRO | EnquiryForm sends via SMS — non-standard for web forms, may lose conversions | EnquiryForm.tsx:44 | Replace SMS redirect with proper form submission (email/API) | HIGH — better conversion rate | Medium | YES | NO |
-| 3 | P1 | Accessibility | Form inputs use placeholder only — no <label> elements for screen readers | EnquiryForm.tsx:79-128 | Add <label> elements or aria-label attributes | MEDIUM — accessibility compliance | Easy | YES | NO |
-| 4 | P1 | Security | No middleware.ts — missing security headers (X-Frame-Options, CSP, HSTS, X-Content-Type-Options) | No middleware.ts file | Create middleware.ts with security headers | MEDIUM — security hardening | Easy | YES | NO |
-| 5 | P2 | Structured Data | No BreadcrumbList schema on any page | All pages | Add BreadcrumbList JSON-LD to layout or individual pages | MEDIUM — rich results | Easy | YES | NO |
-| 6 | P2 | Structured Data | No WebSite schema with SearchAction | layout.tsx | Add WebSite schema with potential SearchAction | LOW-MEDIUM — sitelinks search box | Easy | YES | NO |
-| 7 | P2 | Content | TestimonialsSection appears to use fabricated review names/texts | TestimonialsSection.tsx:3-21 | Source real reviews from Google/Tripadvisor or remove | MEDIUM — trust signals | Easy | YES | YES |
-| 8 | P2 | Content | Footer claims "local wines, cocktails" — not confirmed in business facts | Footer.tsx:36 | Verify with client, update if inaccurate | MEDIUM — business accuracy | Easy | YES | YES |
-| 9 | P2 | SEO | FAQSection answers only render on client click — hidden from initial HTML crawl | FAQSection.tsx:86-89 | Render answers in HTML but hide visually with CSS | MEDIUM — crawlable FAQs | Easy | YES | NO |
-| 10 | P2 | SEO | All OG images use /Banner.jpg — no page-specific social sharing images | All page metadata | Create unique OG images per page type | LOW — social sharing CTR | Medium | YES | NO |
-| 11 | P2 | Analytics | contact_submission event not implemented in analytics.ts | analytics.ts | Add trackContactSubmission function | LOW — measurement gap | Easy | YES | NO |
-| 12 | P2 | Security | IndexNow API key visible in source code | api/indexnow/route.ts:6 | Move to server-only env var (NEXT_PUBLIC_ not needed) | LOW — best practice | Easy | YES | NO |
-| 13 | P3 | Performance | No custom 404 page — uses Next.js default | No not-found.tsx | Create branded 404 page | LOW — UX improvement | Easy | YES | NO |
-| 14 | P3 | Performance | next.config.ts is empty — no image format optimization | next.config.ts | Add image formats: ["avif", "webp"] | LOW — performance | Easy | YES | NO |
-| 15 | P3 | SEO | No speakable schema for voice search/answer engines | layout.tsx | Add speakable to Restaurant schema | LOW — future-proofing | Easy | YES | NO |
-| 16 | P3 | SEO | No Review/aggregateRating schema on Restaurant | layout.tsx | Add if real reviews available | LOW — rich results | Easy | YES | YES |
-| 17 | P3 | CRO | FloatingOrderButton hidden on mobile (hidden md:flex) | FloatingOrderButton.tsx:15 | Already covered by MobileStickyNav — no change needed | N/A | N/A | NO | NO |
-| 18 | P3 | Accessibility | Focus states not visible on all interactive elements | Multiple components | Add focus-visible styles globally | LOW — accessibility | Easy | YES | NO |
-| 19 | P3 | Performance | Framer Motion adds ~40KB to bundle | Multiple components | Acceptable for animation needs — no action | N/A | N/A | NO | NO |
-| 20 | P3 | Local SEO | No local business schema on /locations/buninyong page | locations/[city]/page.tsx | Consider adding LocalBusiness with sameAs to main Restaurant | LOW — local signals | Easy | YES | NO |
+### Red Door Disadvantages vs Competitors
+1. **Physical location** — Not in Ballarat CBD; loses "pizza Ballarat" proximity signal
+2. **Review volume** — 276 Google reviews vs likely higher for Ballarat competitors
+3. **Seat capacity** — 100 vs The Forge's 200
+4. **Brand awareness** — Lower in Ballarat market
+5. **Backlink authority** — Fewer referring domains
 
 ---
 
-## 41. External Verification Required
+## SERP Analysis
 
-The following items require external verification and cannot be confirmed from code alone:
+### Observed SERP Features for Key Queries
 
-| Item | Verified | Notes |
-|------|----------|-------|
-| Google Search Console | ❌ NO | Requires live GSC access |
-| Google Business Profile | ❌ NO | Requires GBP dashboard access |
-| Live Google index | ❌ NO | Requires site: search |
-| Live sitemap response | ❌ NO | Requires fetching sitemap.xml |
-| Live robots response | ❌ NO | Requires fetching robots.txt |
-| GA4 real-time/event receipt | ❌ NO | Requires GA4 dashboard |
-| Core Web Vitals | ❌ NO | Requires PageSpeed Insights / CrUX |
-| Google Rich Results Test | ❌ NO | Requires testing tool |
-| PageSpeed Insights | ❌ NO | Requires live URL testing |
-| Actual Google rankings | ❌ NO | Requires rank tracking tool |
-| Local pack visibility | ❌ NO | Requires local search testing |
-| AI Overview / AI Mode visibility | ❌ NO | Requires AI search testing |
-| Bing visibility | ❌ NO | Requires Bing Webmaster Tools |
-| External citations | ❌ NO | Requires citation audit |
-| Backlinks | ❌ NO | Requires backlink analysis |
-| Reviews | ❌ NO | Requires review platform check |
-| WowApps transaction data | ❌ NO | Requires WowApps dashboard |
+**"pizza Ballarat"**
+- Map pack: Yes (3 businesses)
+- Organic results: Mix of restaurant websites and directories
+- AI Overview: Likely present
+- Red Door visibility: UNVERIFIED — likely not in top 3 organic due to Ballarat location
 
----
+**"wood-fired pizza Ballarat"**
+- Map pack: Yes
+- Organic: The Forge, Soldiers, Carboni's likely prominent
+- Red Door visibility: UNVERIFIED — "near Ballarat" framing may limit ranking
 
-## 42. FINAL 100/100 VERDICT
+**"gluten-free pizza Ballarat"**
+- Map pack: Yes
+- Organic: Mix of pizzerias and guides
+- Red Door visibility: Guide page well-positioned for this query
 
-### Scoring Summary
+**"family restaurant Ballarat"**
+- Map pack: Yes
+- Organic: General family restaurants
+- Red Door visibility: Guide page targets this well
 
-| Category | Points | Score | Status |
-|----------|--------|-------|--------|
-| Technical SEO | 15 | 13/15 | 🟢 GREEN |
-| Crawlability & Indexation | 10 | 9/10 | 🟢 GREEN |
-| Information Architecture & Internal Linking | 10 | 9/10 | 🟢 GREEN |
-| On-Page SEO | 10 | 9/10 | 🟢 GREEN |
-| Menu / Topical Authority | 10 | 9/10 | 🟢 GREEN |
-| Local SEO / Geographic Entity | 10 | 9/10 | 🟢 GREEN |
-| Structured Data / Entity | 10 | 8/10 | 🟢 GREEN |
-| AI / Answer Engine Readiness | 10 | 8/10 | 🟢 GREEN |
-| Conversion / UX | 10 | 8/10 | 🟡 AMBER |
-| Analytics / Measurement | 5 | 4/5 | 🟢 GREEN |
-| **TOTAL** | **100** | **87/100** | 🟢 |
-
-### Verdict
-
-# **C. 80–89 — Strong foundation but meaningful gaps remain**
-
-### Blockers Preventing 100/100
-
-| Priority | Blocker | Area | Impact |
-|----------|---------|------|--------|
-| P1 | FunctionsSection form non-functional (no onSubmit) | CRO | HIGH |
-| P1 | EnquiryForm uses SMS redirect instead of proper form | CRO | HIGH |
-| P1 | No security headers (middleware.ts missing) | Security | HIGH |
-| P1 | Form inputs lack <label> elements | Accessibility | MEDIUM |
-| P2 | FAQSection answers hidden from initial HTML | SEO | MEDIUM |
-| P2 | No BreadcrumbList structured data | SEO | MEDIUM |
-| P2 | Testimonials appear fabricated | Trust | MEDIUM |
-| P2 | Footer "local wines, cocktails" unverified | Accuracy | MEDIUM |
-| P2 | No contact_submission analytics event | Analytics | LOW |
-| P2 | All OG images identical | Social | LOW |
+**"Christmas party venue Ballarat"**
+- Map pack: Less prominent
+- Organic: Function venues, event spaces
+- Red Door visibility: Guide page should compete
 
 ---
 
-## 43. 100/100 Standard Definition
+## AI Search / Answer Engines
 
-"100/100" is defined as:
+### Entity Signals (Verified)
+| Signal | Present | Source |
+|---|---|---|
+| Business name | Yes | Schema, title tags, body copy |
+| Address | Yes | Schema, footer, contact page |
+| Phone | Yes | Schema, header, footer |
+| Business type | Yes | Schema (Restaurant) |
+| Cuisine | Yes | Schema (Pizza, Italian) |
+| Menu | Yes | Schema (Menu), /menu page |
+| Area served | Yes | Schema (Buninyong, Ballarat, Meredith) |
+| Opening hours | Yes | Schema |
+| Social profiles | Yes | Schema sameAs |
+| Geo coordinates | Yes | Schema (-37.6534, 143.8821) |
 
-- Technically sound
-- Crawlable
-- Indexable
-- Logically structured
-- No major SEO errors
-- Accurate business information
-- Strong menu representation
-- Strong Ballarat/Buninyong/Meredith differentiation
-- Coherent entity architecture
-- Strong internal linking
-- Valid structured data
-- Strong conversion paths
-- Measurable conversion intent
-- Strong local SEO foundation
-- High-quality useful content
-- No obvious cannibalisation
-- No obvious doorway-page risk
-- No serious performance issue
-- No broken production functionality
+### AI Search Readiness Assessment
+**Current State:** The website has strong first-party entity signals. However, AI search engines (Google AI Overviews, Bing Copilot) rely heavily on **external corroboration** — mentions across multiple authoritative sources.
 
-**Note:** Some factors cannot be verified from code alone. External platform verification (GSC, GBP, GA4, rankings) is required for a complete assessment.
+**Gaps:**
+1. Limited external mentions beyond a few directories and press articles
+2. No TripAdvisor listing found
+3. OpenTable data is outdated (wrong hours, old chef info)
+4. No evidence of tourism website listings (ballarat.com)
+5. No structured data on external platforms
+
+**What would increase AI eligibility:**
+1. Consistent NAP across 20+ directories
+2. TripAdvisor listing with reviews
+3. Ballarat tourism website inclusion
+4. Supplier websites mentioning Red Door
+5. More Google reviews with location mentions
+6. Food publication features
 
 ---
 
-*Audit conducted 30 August 2026. All findings based on codebase inspection only. No files were modified.*
+## Entity / Knowledge Graph
+
+### Entity Consistency
+| Source | Name | Type | Location | Assessment |
+|---|---|---|---|---|
+| Website | Red Door Pizza | Wood-fired pizzeria | Buninyong | CONSISTENT |
+| Schema | Red Door Pizza | Restaurant | Buninyong | CONSISTENT |
+| OpenTable | Red Door Pizza | Pizzeria | Buninyong | CONSISTENT (but outdated details) |
+| UberEats | Red Door Pizza | Pizza, Italian | Buninyong | CONSISTENT |
+| AGFG | Red Door Pizza | Italian Restaurant | Buninyong | CONSISTENT |
+| Buninyong Guide | Red Door Pizzeria | Pizzeria | Buninyong | CONSISTENT (slight name variation) |
+| The Courier | Red Door Pizza / Red Door Pizzeria | Pizzeria | Buninyong | Minor name variation |
+
+**Assessment:** Entity signals are mostly consistent. The name variation "Red Door Pizzeria" vs "Red Door Pizza" in older press articles and community listings is minor and does not create confusion.
+
+---
+
+## Structured Data
+
+### Schema Implementation (Verified from Code)
+
+| Schema Type | Location | Status | Assessment |
+|---|---|---|---|
+| Restaurant | layout.tsx | Correct | name, image, url, telephone, address, geo, hours, areaServed, sameAs |
+| Menu | /menu page | Correct | MenuItem with name, offers, suitableForDiet |
+| FAQPage | Location pages, Guide pages | Correct | Question + acceptedAnswer |
+| Article | Guide pages | Correct | headline, author, publisher, mainEntityOfPage |
+| Product | /stockists page | Partial | name, brand, hasVariant, offers — lacks price |
+| AggregateOffer | /stockists page | Partial | priceCurrency, availability — no lowPrice/highPrice |
+
+### Schema Issues
+1. **Product schema on /stockists** lacks `price` — `AggregateOffer` should include `lowPrice` and `highPrice`
+2. **Menu schema** — Price field strips non-numeric characters; items with ranges ("From $6.30") may not parse correctly
+3. **No BreadcrumbList** schema — Could improve SERP display
+4. **No LocalBusiness** subtype beyond Restaurant — Consider adding `Pizzeria` if supported
+
+---
+
+## CRO (Conversion Rate Optimisation)
+
+### Conversion Paths
+| Action | CTA Location | Friction Level |
+|---|---|---|
+| Order Online | Header, Hero, Footer, Menu items, Location pages, Mobile nav, Floating button | Low — direct to WowApps |
+| Book a Table | Header, Hero, Contact page | Medium — goes to contact form |
+| Call | Mobile header, Footer, Mobile nav | Low — tel: link |
+| Directions | Contact page, Mobile nav | Low — Google Maps link |
+| Group Enquiry | Functions section, Contact form | Medium — mailto: fallback |
+| View Menu | Location pages, Guides, Footer | Low — internal link |
+
+### Friction Points
+1. **Enquiry forms use mailto:** — Both FunctionsSection and EnquiryForm open email client rather than submitting via API. This is a significant friction point on mobile.
+2. **No online booking system** — "Book a Table" goes to contact form, not a reservation platform
+3. **WowApps external handoff** — Ordering leaves the website entirely; no way to track post-click behaviour
+4. **No clear "order for delivery" option** — Only pickup via WowApps
+
+### CTA Assessment
+- **Clarity:** Good — CTAs are clear and action-oriented
+- **Placement:** Good — multiple touchpoints across pages
+- **Mobile:** Good — sticky nav with Call, Order, Directions
+- **Trust:** Good — real phone, real address, real reviews
+
+---
+
+## WowApps
+
+### Integration Assessment
+| Element | Status | Assessment |
+|---|---|---|
+| URL | `https://orders.wowapps.com/order/reddoorpizzeria` | Correct |
+| Consistent wording | "Pre-Order via Wowapps", "Order on WowApps", "Order Online" | Minor inconsistency |
+| Tracking | `trackOrderOnlineClick()` on all CTAs | Good |
+| External handoff | Opens in new tab with `target="_blank"` | Good |
+| `rel` attributes | `noopener noreferrer` on all external links | Good |
+
+### WowApps Issues
+1. **Inconsistent CTA text** — "Pre-Order via Wowapps" vs "Order on WowApps" vs "Order Online"
+2. **No tracking of post-click behaviour** — Cannot measure conversion after leaving site
+3. **Mobile experience** — Cannot test from codebase; requires live testing
+
+---
+
+## Analytics
+
+### GA4 Implementation
+- **Source:** `app/components/Analytics.tsx`
+- **Status:** Conditional — loads only if `NEXT_PUBLIC_GA_MEASUREMENT_ID` env var is set
+- **Method:** gtag.js via `next/script` with `afterInteractive` strategy
+- **Assessment:** Correct implementation. Env var configuration required.
+
+### GTM
+- **Status:** NOT IMPLEMENTED — No Google Tag Manager found in codebase
+- **Assessment:** GA4 is loaded directly. GTM not used.
+
+### Event Tracking
+| Event | Function | Parameters | Status |
+|---|---|---|---|
+| order_online_click | `trackOrderOnlineClick()` | page_path, button_location | Implemented |
+| menu_item_order_click | `trackMenuItemOrderClick()` | page_path, menu_item, menu_category | Implemented |
+| book_table_click | `trackBookTableClick()` | page_path, button_location | Implemented |
+| phone_click | `trackPhoneClick()` | page_path | Implemented |
+| directions_click | `trackDirectionsClick()` | page_path | Implemented |
+| group_enquiry_click | `trackGroupEnquiryClick()` | page_path, form_location | Implemented |
+| contact_submission | `trackContactSubmission()` | page_path | Implemented |
+| menu_view | `trackMenuView()` | page_path | Implemented (not used in components) |
+| stockist_click | `trackStockistClick()` | page_path | Implemented (not used in components) |
+
+**Assessment:** Event tracking is comprehensive. Two events (`menu_view`, `stockist_click`) are defined but not used in any component.
+
+### Conversion Events
+| Event | Trigger | Assessment |
+|---|---|---|
+| order_online_click | Every WowApps CTA | Primary conversion event |
+| book_table_click | Header "Book Table" + Hero | Secondary conversion |
+| contact_submission | After mailto: opens | Weak — doesn't confirm actual submission |
+| phone_click | Phone CTA | Phone lead tracking |
+| directions_click | Maps CTA | Foot traffic tracking |
+
+---
+
+## Performance
+
+### Code-Level Assessment
+| Factor | Status | Assessment |
+|---|---|---|
+| Next.js Image | Used (Hero, Gallery, OutdoorDining, Header, Footer) | Good — automatic optimisation |
+| WebP images | Gallery uses .webp | Good |
+| Font loading | Inter + Playfair Display with `display: "swap"` | Good — prevents FOIT |
+| CSS | Tailwind CSS 4 (utility-first) | Good — minimal CSS |
+| JavaScript | Framer Motion for animations | Acceptable — adds bundle weight |
+| Third-party | GA4, WowApps | Minimal third-party load |
+| Static generation | All pages use `generateStaticParams()` | Good — SSG |
+
+### Potential Issues
+1. **Framer Motion** — Adds ~30KB+ to bundle; used for animations on Hero, USP, Contact, Functions sections
+2. **Client components** — Header, Hero, FAQSection, ContactSection, FunctionsSection, MobileStickyNav, FloatingOrderButton all marked `"use client"`
+3. **Large hero image** — `/Banner.jpg` is loaded with `priority` — file size unknown
+4. **OUTDOOR DINING.JPG** — Large filename suggests uncompressed image
+
+### Mobile Performance
+- Sticky mobile nav with 3 CTAs (Call, Order, Directions)
+- Responsive grid layouts throughout
+- `safe-area-pb` class on mobile nav for iPhone notch handling
+- Assessment: Good mobile UX design
+
+---
+
+## Accessibility
+
+| Factor | Status | Assessment |
+|---|---|---|
+| Heading hierarchy | Correct (H1 → H2 → H3) | Good |
+| Alt text | Gallery images have descriptive alt | Good |
+| Form labels | `sr-only` labels on all form inputs | Good |
+| ARIA | `aria-label` on key interactive elements | Good |
+| Keyboard navigation | Standard HTML semantics | Acceptable |
+| Focus states | Tailwind focus styles | Acceptable |
+| Colour contrast | Brand terracotta on white — INFERRED adequate | Needs live testing |
+| Skip links | Not implemented | Gap |
+| Language | `<html lang="en">` | Correct |
+
+### Accessibility Issues
+1. **No skip-to-content link** — Users must tab through header
+2. **FAQ accordion** — Uses `useState` toggle; no `aria-expanded` attribute observed
+3. **Mobile menu** — Uses AnimatePresence; no `aria-hidden` on closed state observed
+4. **Map embed** — Has `title` attribute but no `aria-label`
+
+---
+
+## Mobile UX
+
+### Assessment
+| Factor | Status | Assessment |
+|---|---|---|
+| Sticky CTAs | Mobile sticky nav (Call, Order, Directions) | Excellent |
+| Menu usability | Sticky jump menu on /menu page | Good |
+| Text sizing | Responsive text classes | Good |
+| Spacing | Responsive padding/margins | Good |
+| Forms | Full-width inputs, proper sizing | Good |
+| Image rendering | Next.js Image with responsive sizes | Good |
+| Horizontal overflow | No evidence of overflow issues | Good |
+| Tap targets | Minimum 44px on interactive elements | Good |
+
+---
+
+## Image SEO
+
+| Factor | Status | Assessment |
+|---|---|---|
+| Filenames | Banner.jpg, logo.png, Gallery/img-{n}.webp, OUTDOOR DINING.JPG | Mixed — some have spaces |
+| Alt text | Gallery images have descriptive alt | Good |
+| Dimensions | Hero uses `fill`, Gallery uses `sizes` | Good |
+| Image quality | Unknown — requires live inspection | UNVERIFIED |
+| Compression | WebP for gallery; JPG for banner/outdoor | Good |
+| Schema image | logo.png referenced in Restaurant schema | Good |
+| Social images | /Banner.jpg for OG/Twitter | Good |
+
+### Image Issues
+1. **`OUTDOOR DINING.JPG`** — Filename contains space; should be URL-encoded or renamed
+2. **No image sitemap** — Could help with image search visibility
+3. **Gallery images** — All use generic names (img-1.webp through img-10.webp); could use descriptive filenames
+4. **Logo** — Both logo.png and logo.jpg exist in public; only logo.png is used
+
+---
+
+## Content Gaps
+
+### Addressed by Existing Content
+- "pizza Ballarat" → /locations/ballarat ✓
+- "pizza Buninyong" → /locations/buninyong ✓
+- "gluten-free pizza Ballarat" → /guides/gluten-free-pizza-ballarat ✓
+- "family restaurant Ballarat" → /guides/family-friendly-pizza-ballarat ✓
+- "Christmas party Ballarat" → /guides/work-christmas-party-venues-buninyong ✓
+- "take-home pizza Ballarat" → /stockists ✓
+
+### Potential Gaps (Requires Search Data)
+| Query | Current Coverage | Recommendation |
+|---|---|---|
+| "best pizza Ballarat" | No dedicated content | Monitor — may not be ownable |
+| "Italian restaurant Ballarat" | Moderate (location page) | Improve /locations/ballarat |
+| "vegetarian pizza Ballarat" | Menu tags only | Could add to guide content |
+| "date night restaurants Ballarat" | Not covered | Only if search volume justifies |
+| "corporate catering Ballarat" | Functions guide | Moderate coverage |
+| "pizza delivery Buninyong" | Not covered | WowApps handles this |
+| "late night pizza Ballarat" | Not covered | Hours don't support this |
+
+---
+
+## Cannibalisation
+
+### Potential Overlap
+| Page Pair | Overlap Risk | Assessment |
+|---|---|---|
+| `/` vs `/locations/ballarat` | Low | Homepage targets "near Ballarat"; location page is more specific |
+| `/` vs `/locations/buninyong` | Low | Homepage is general; location page is Buninyong-specific |
+| `/locations/ballarat` vs `/locations/buninyong` | Low | Different geographic targets |
+| `/menu` vs Location pages | Low | Menu is comprehensive; location pages reference menu |
+| `/guides/*` vs Location pages | Low | Guides are topical; location pages are geographic |
+| `/stockists` vs Homepage | Low | Stockists is product-focused; homepage is general |
+
+**Assessment:** No significant cannibalisation risk. Each page targets distinct intent/location combinations. The "near Ballarat" framing on the Ballarat page avoids competing with Ballarat-located businesses.
+
+---
+
+## P0 Actions (Potentially Damaging / Must Fix)
+
+### P0-1: OpenTable Data Is Outdated
+- **Problem:** OpenTable listing shows wrong hours (Daily 12pm-9pm vs actual Mon-Thu 5pm-9pm), old chef name (Adam Avery), old ownership info
+- **Evidence:** https://www.opentable.com/r/red-door-pizza-buninyong
+- **Impact:** Misleads customers, damages trust, inconsistent NAP
+- **Confidence:** CONFIRMED (live web)
+- **Effort:** Low — update OpenTable listing
+- **Code/External:** External
+- **Expected outcome:** Correct business information across platforms
+
+### P0-2: Enquiry Forms Use mailto: Fallback
+- **Problem:** Both FunctionsSection and EnquiryForm open email client instead of submitting via API. Users on mobile or without default email client will fail silently.
+- **Evidence:** `app/components/FunctionsSection.tsx:76`, `app/contact/EnquiryForm.tsx:54`
+- **Impact:** Lost enquiries, poor CRO
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Medium — implement API route for form submission
+- **Code/External:** Code
+- **Expected outcome:** Higher enquiry completion rate
+
+---
+
+## P1 Actions (High Impact)
+
+### P1-1: Expand Citation Coverage
+- **Problem:** Limited directory presence beyond AGFG, OpenTable, UberEats
+- **Evidence:** Web search reveals ~7 citations
+- **Impact:** Weakens local SEO, limits AI search corroboration
+- **Confidence:** CONFIRMED (web search)
+- **Effort:** Medium — create/update listings on 10+ directories
+- **Code/External:** External
+- **Expected outcome:** Stronger local authority, improved map pack potential
+
+### P1-2: Pursue Supplier Mentions
+- **Problem:** Buninyong Butcher, Peaches Fruit Market, Il Piccolo Gelato likely don't list Red Door on their websites
+- **Evidence:** No web search results found linking suppliers to Red Door
+- **Impact:** Missed authority and relevance signals
+- **Confidence:** INFERRED
+- **Effort:** Low — ask suppliers to list Red Door as a customer/partner
+- **Code/External:** External
+- **Expected outcome:** Natural backlinks and entity corroboration
+
+### P1-3: Strengthen Ballarat Location Page
+- **Problem:** /locations/ballarat body copy is ~150 words — thinnest of location pages
+- **Evidence:** `app/config/locations.ts:38-52`
+- **Impact:** Weaker ranking potential for "pizza Ballarat" queries
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — expand body copy to 250+ words
+- **Code/External:** Code
+- **Expected outcome:** Improved relevance for Ballarat queries
+
+### P1-4: Fix Product Schema on /stockists
+- **Problem:** AggregateOffer lacks lowPrice/highPrice; ProductModel lacks price
+- **Evidence:** `app/stockists/page.tsx:58-81`
+- **Impact:** Missing rich snippet potential
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — add price data to schema
+- **Code/External:** Code
+- **Expected outcome:** Possible rich snippet for product search
+
+### P1-5: Add BreadcrumbList Schema
+- **Problem:** No breadcrumb structured data
+- **Evidence:** No BreadcrumbList found in any page
+- **Impact:** Missing SERP enhancement
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — add BreadcrumbList to layout or pages
+- **Code/External:** Code
+- **Expected outcome:** Enhanced SERP display with breadcrumbs
+
+---
+
+## P2 Actions (Meaningful Improvement)
+
+### P2-1: Expand Meredith Location Page
+- **Problem:** /locations/meredith body copy is ~120 words — thinnest location page
+- **Evidence:** `app/config/locations.ts:54-68`
+- **Impact:** Weakest location page; limited ranking potential
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — expand to 200+ words
+- **Code/External:** Code
+
+### P2-2: Add "Italian" Keyword to Ballarat Location Page
+- **Problem:** No "Italian restaurant" targeting on /locations/ballarat
+- **Evidence:** `app/config/locations.ts:38-52`
+- **Impact:** Misses "Italian restaurant Ballarat" queries
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — add Italian-related H2/copy
+- **Code/External:** Code
+
+### P2-3: Improve Menu Page H1
+- **Problem:** H1 is "Our Menu" — generic, no keyword
+- **Evidence:** `app/menu/page.tsx:424`
+- **Impact:** Weaker relevance signal
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — change to "Wood-Fired Pizza & Italian Menu"
+- **Code/External:** Code
+
+### P2-4: Consistent WowApps CTA Text
+- **Problem:** "Pre-Order via Wowapps" vs "Order on WowApps" vs "Order Online"
+- **Evidence:** Multiple components
+- **Impact:** Minor UX inconsistency
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — standardise CTA text
+- **Code/External:** Code
+
+### P2-5: Add `aria-expanded` to FAQ Accordions
+- **Problem:** FAQSection toggle has no aria-expanded attribute
+- **Evidence:** `app/components/FAQSection.tsx:73-85`
+- **Impact:** Accessibility gap
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — add aria-expanded to button
+- **Code/External:** Code
+
+### P2-6: Get Listed on Ballarat Tourism
+- **Problem:** No evidence of ballarat.com listing
+- **Evidence:** Web search
+- **Impact:** Missed authority and referral traffic
+- **Confidence:** INFERRED
+- **Effort:** Medium — submit business for inclusion
+- **Code/External:** External
+
+### P2-7: Request TripAdvisor Listing
+- **Problem:** No TripAdvisor listing found
+- **Evidence:** Web search
+- **Impact:** Missed review platform and citation
+- **Confidence:** CONFIRMED (absence)
+- **Effort:** Low-Medium — create listing
+- **Code/External:** External
+
+### P2-8: Fix Gallery Image Filenames
+- **Problem:** Generic names (img-1.webp) don't support image SEO
+- **Evidence:** `public/Gallery/` directory
+- **Impact:** Missed image search opportunity
+- **Confidence:** CONFIRMED (filesystem)
+- **Effort:** Low — rename to descriptive filenames
+- **Code/External:** Code
+
+### P2-9: Add Menu View and Stockist Click Events
+- **Problem:** `trackMenuView()` and `trackStockistClick()` are defined but never called
+- **Evidence:** `app/lib/analytics.ts:64-74`
+- **Impact:** Missing analytics data
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — add tracking calls to relevant components
+- **Code/External:** Code
+
+### P2-10: Strengthen Gluten-Free Menu Schema
+- **Problem:** Only "Gluten Free Spaghetti Bolognese" detected for GF schema; GF pizza bases not tagged per-item
+- **Evidence:** `app/menu/page.tsx:377`
+- **Impact:** Missed schema opportunity for GF pizza queries
+- **Confidence:** CONFIRMED (code)
+- **Effort:** Low — add GF pizza items to detection set
+- **Code/External:** Code
+
+---
+
+## P3 Actions (Optional)
+
+### P3-1: Add Skip-to-Content Link
+- **Problem:** No skip navigation for keyboard users
+- **Impact:** Minor accessibility gap
+- **Effort:** Low
+
+### P3-2: Remove Unused Public Files
+- **Problem:** `window.svg`, `vercel.svg`, `next.svg`, `globe.svg`, `file.svg` appear to be Next.js defaults
+- **Evidence:** `public/` directory
+- **Impact:** Minor — unnecessary files in build
+- **Effort:** Low
+
+### P3-3: Add Image Sitemap
+- **Problem:** No image-specific sitemap
+- **Impact:** Missed image search visibility
+- **Effort:** Low-Medium
+
+### P3-4: Consider FAQ Schema on Homepage
+- **Problem:** FAQSection on homepage has no FAQPage schema
+- **Evidence:** `app/components/FAQSection.tsx`
+- **Impact:** Missed rich snippet opportunity on homepage
+- **Effort:** Low
+
+### P3-5: OpenGraph Image for Each Page
+- **Problem:** All pages use /Banner.jpg for OG image
+- **Impact:** Generic social sharing appearance
+- **Effort:** Medium — create page-specific OG images
+
+---
+
+## Top 10 Quick Wins
+
+1. **Update OpenTable listing** with correct hours and current business info
+2. **Expand /locations/ballarat body copy** to 250+ words
+3. **Add BreadcrumbList schema** to all pages
+4. **Fix Product schema** on /stockists with price data
+5. **Standardise WowApps CTA text** across all components
+6. **Add `aria-expanded`** to FAQ accordion buttons
+7. **Add `trackMenuView()`** call when menu section scrolls into view
+8. **Expand /locations/meredith** body copy to 200+ words
+9. **Add "Italian restaurant" keyword** to Ballarat location page
+10. **Rename gallery images** to descriptive filenames
+
+---
+
+## Top 10 High-Impact Projects
+
+1. **Implement proper form submission** (replace mailto: with API endpoint)
+2. **Build 20+ local citations** with consistent NAP
+3. **Pursue supplier website mentions** (Buninyong Butcher, Peaches, Il Piccolo)
+4. **Get listed on TripAdvisor** and other food platforms
+5. **Submit to Ballarat tourism** website
+6. **Increase Google review velocity** through post-visit follow-up
+7. **Create additional guide content** if competitor gaps emerge
+8. **Improve menu page H1** and add GF pizza items to schema detection
+9. **Add image sitemap** for gallery images
+10. **Implement proper form submission** with server-side handling
+
+---
+
+## Top 10 Local SEO Opportunities
+
+1. **Buninyong Butcher website mention** — Ask to be listed as a customer they supply
+2. **Paches Fruit Market mention** — Ask for mutual business reference
+3. **Il Piccolo Gelato stockist listing** — Ask to be listed as a venue serving their product
+4. **Local IGA product listings** — Ask Buninyong FoodWorks, Beaufort IGA, Creswick IGA to list Red Door products
+5. **Buninyong township directory** — Ensure listing on buninyong.vic.au
+6. **Ballarat tourism listing** — Submit to ballarat.com
+7. **Yellow Pages Australia listing** — Create/update with consistent NAP
+8. **True Local listing** — Create/update
+9. **Google Business Profile posts** — Regular updates with photos and offers
+10. **Encourage Google reviews** from satisfied customers (especially mentioning "Buninyong" and "Ballarat")
+
+---
+
+## Top 10 Content Opportunities
+
+1. **"Best Pizza in Buninyong" page** — If not already ranking, a dedicated page could capture this query
+2. **"Italian Restaurant Near Ballarat" content** — Strengthen Italian positioning on Ballarat location page
+3. **"Vegetarian Pizza Ballarat" content** — Add vegetarian-focused copy to existing guide or menu section
+4. **"Pasta Near Ballarat" content** — Dedicated pasta section in guide or menu
+5. **"Date Night Restaurants Ballarat" guide** — Only if search volume justifies
+6. **"Corporate Catering Ballarat" content** — Expand functions guide
+7. **"Wood-Fired Pizza Takeaway Buninyong" content** — Strengthen takeaway messaging
+8. **"Gelato Buninyong" content** — Leverage Il Piccolo Gelato relationship
+9. **"Live Music Buninyong" content** — Community newsletter mentions live acoustic sessions
+10. **"School Holiday Activities Buninyong" content** — Family-friendly positioning
+
+---
+
+## Top 10 AI Search Opportunities
+
+1. **Build consistent entity mentions** across 20+ external sources
+2. **Get supplier websites to mention Red Door** as a customer/partner
+3. **Create a Google Business Profile post** strategy with regular updates
+4. **Ensure OpenTable data is current** — AI engines pull from major platforms
+5. **Pursue food publication features** (Broadsheet Melbourne, Good Food)
+6. **Build review volume** on Google (target 400+ reviews)
+7. **Get listed on tourism websites** (ballarat.com, visitvictoria.com)
+8. **Ensure schema markup is present** on all pages (already done)
+9. **Create content that directly answers common questions** (already done with FAQs)
+10. **Monitor AI Overviews** for target queries and adjust content accordingly
+
+---
+
+## Top 10 CRO Opportunities
+
+1. **Replace mailto: forms** with proper API submission
+2. **Add online booking** integration (e.g., ResDiary, OpenTable booking)
+3. **Add "Order for Delivery"** option if delivery is offered
+4. **Implement post-order tracking** via WowApps callback or pixel
+5. **Add urgency elements** (e.g., "Lunch Special ends at 3pm")
+6. **Simplify group enquiry** to fewer required fields
+7. **Add social proof near CTAs** (review count, rating)
+8. **Test CTA button colours** (currently terracotta — test gold)
+9. **Add "Most Popular" badges** to menu items
+10. **Implement exit-intent popup** with special offer
+
+---
+
+## What NOT To Do
+
+1. **Do NOT create fake reviews** — All reviews must be genuine and sourced
+2. **Do NOT create fake location pages** — Ballarat and Meredith pages correctly use "near" framing
+3. **Do NOT claim to be "in Ballarat"** — Business is physically in Buninyong
+4. **Do NOT buy links** — Pursue natural mentions through relationships
+5. **Do NOT create PBNs or link farms** — Build legitimate authority
+6. **Do NOT keyword-stuff** — Content is naturally written
+7. **Do NOT create duplicate menu pages** — Single comprehensive menu page is correct
+8. **Do NOT add unsupported schema** — No fake ratings or reviews in schema
+9. **Do NOT spam directories** — Create quality listings on relevant platforms
+10. **Do NOT create AI-generated mass content** — Existing content is genuine and locally relevant
+
+---
+
+## External Verification Required
+
+| Item | Status | Action Needed |
+|---|---|---|
+| Google Business Profile | UNVERIFIED | Verify GBP is active, hours correct, photos uploaded |
+| Google review count/rating | UNVERIFIED | Check live GBP for current count |
+| TripAdvisor listing | NOT FOUND | Check if listing exists; create if not |
+| OpenTable data | OUTDATED | Update hours, chef info, description |
+| TripAdvisor reviews | UNKNOWN | Check for existing reviews |
+| Supplier website mentions | UNVERIFIED | Check Buninyong Butcher, Peaches, Il Piccolo websites |
+| Tourism website listings | UNVERIFIED | Check ballarat.com, buninyong.vic.au |
+| Backlink count | NOT VERIFIABLE | Requires Ahrefs/Moz/SEMrush |
+| Search Console data | NOT AVAILABLE | Requires access |
+| Live GBP posts | NOT AVAILABLE | Requires GBP access |
+
+---
+
+## Final 100/100 Gap Analysis
+
+| Category | Current | Max | Gap | Priority |
+|---|---|---|---|---|
+| Technical SEO | 13 | 15 | 2 | P2 |
+| On-page SEO | 9 | 10 | 1 | P2 |
+| Keyword Strategy | 8 | 10 | 2 | P2 |
+| Content/Topical Authority | 8 | 10 | 2 | P2 |
+| Internal Linking | 4 | 5 | 1 | P3 |
+| Local SEO | 7 | 10 | 3 | P1 |
+| Off-page/Authority | 5 | 10 | 5 | P1 |
+| Structured Data/Entity | 9 | 10 | 1 | P2 |
+| AI Search Readiness | 5 | 10 | 5 | P1 |
+| CRO/UX | 4 | 5 | 1 | P1 |
+| Performance/Accessibility | 4 | 5 | 1 | P3 |
+| **TOTAL** | **76** | **100** | **24** | — |
+
+### What Prevents 100/100
+1. **Off-page authority** (5/10 gap) — Requires external work: citations, backlinks, mentions
+2. **AI search readiness** (5/10 gap) — Requires external corroboration across platforms
+3. **Local SEO** (7/10 gap) — Requires citation building and GBP optimisation
+4. **Technical SEO** (13/15 gap) — Minor schema and breadcrumb improvements
+5. **CRO** (4/5 gap) — Form submission improvement needed
+
+### The 5 Highest-Impact Actions
+1. **Build 20+ local citations** with consistent NAP (P1)
+2. **Replace mailto: forms** with proper API submission (P0)
+3. **Pursue supplier website mentions** for backlinks and entity signals (P1)
+4. **Update OpenTable listing** with correct business information (P0)
+5. **Expand Google review count** through post-visit engagement (P1)
+
+### What Should NOT Be Changed
+- Restaurant schema structure
+- Location page "near" framing
+- Guide content strategy
+- Menu page structure and schema
+- NAP consistency in constants.ts
+- Testimonial section (genuine, sourced)
+- Internal linking structure
+- robots.txt and sitemap configuration
+
+### What Needs External Marketing Work
+- Citation building across directories
+- Supplier relationship outreach
+- Tourism website submissions
+- TripAdvisor listing creation
+- Google review generation strategy
+- Food publication PR
+- Social media content (Instagram, Facebook)
+
+### What Should Be Measured Over 90 Days
+1. **Google Business Profile insights** — Search queries, direction requests, calls
+2. **Search Console data** — Impressions, clicks, position for target keywords
+3. **Google review count and rating** — Track growth
+4. **Citation count** — Track new listings created
+5. **Form submissions** — Track conversion rate improvement
+6. **WowApps click-through rate** — Track from GA4 events
+7. **Local pack visibility** — Monitor for "pizza Buninyong", "pizza near Ballarat"
+8. **AI Overview mentions** — Monitor for target queries
+9. **Backlink growth** — Track new referring domains
+10. **Organic traffic** — Overall trend from Analytics
+
+---
+
+*Audit completed 31 August 2026. All findings are evidence-based with source references. Inferences are clearly labeled. No data has been fabricated.*

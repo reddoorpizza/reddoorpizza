@@ -16,6 +16,7 @@ import Footer from "@/app/components/Footer";
 import MenuSection from "@/app/components/MenuSection";
 import TestimonialsSection from "@/app/components/TestimonialsSection";
 import WowAppsLink from "@/app/components/WowAppsLink";
+import BreadcrumbSchema from "@/app/components/BreadcrumbSchema";
 import {
   citySlugs,
   locationData,
@@ -143,6 +144,13 @@ export default async function LocationPage({ params }: Props) {
   return (
     <>
       {/* Page-specific schemas — Restaurant entity is in layout.tsx */}
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Locations", url: "/locations/buninyong" },
+          { name: data.name, url: `/locations/${normalizedCity}` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

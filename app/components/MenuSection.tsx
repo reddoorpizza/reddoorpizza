@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   UtensilsCrossed,
@@ -9,7 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { WOWAPPS_ORDER_URL } from "@/app/config/constants";
-import { trackMenuItemOrderClick } from "@/app/lib/analytics";
+import { trackMenuItemOrderClick, trackMenuView } from "@/app/lib/analytics";
 
 interface FeaturedItem {
   name: string;
@@ -54,8 +55,28 @@ const featuredItems: FeaturedItem[] = [
 ];
 
 export default function MenuSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          trackMenuView();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="menu" className="py-8 md:py-16 bg-[#FAF8F5]">
+    <section id="menu" ref={sectionRef} className="py-8 md:py-16 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-5xl font-serif text-[#ac511a] tracking-tight mb-3">
@@ -107,11 +128,11 @@ export default function MenuSection() {
                     href={WOWAPPS_ORDER_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Order ${item.name} on WowApps`}
+                    aria-label={`Order ${item.name} via Wowapps`}
                     onClick={() => trackMenuItemOrderClick(item.name, "Featured Favorites")}
                     className="min-h-[44px] inline-flex items-center gap-1.5 bg-[#ac511a] hover:bg-[#8e4215] text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition-all shadow-sm hover:shadow"
                   >
-                    <span>Order</span>
+                    <span>Order Online via Wowapps</span>
                   </a>
                 </div>
               </article>
